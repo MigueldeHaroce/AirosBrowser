@@ -102,8 +102,13 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  font-style: #1e1e1e;
-  font-family: ABeeZee;
+  font-style: #152F35;
+  font-family: 'ABeeZee', sans-serif;
+}
+
+@font-face {
+  font-family: 'ABeeZee';
+  src: url('icons/ABeeZee-Regular.ttf');
 }
 
 .button1:active {
