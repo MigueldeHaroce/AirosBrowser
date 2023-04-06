@@ -73,10 +73,10 @@ body {
   position: absolute;
   transform: scale(0.85);
 
-  top: calc(50% - 38.5px);
-  left: calc(50% - 500px);
-  width: 0px;
-  height: 77px;
+  top: calc(50% - 171px);
+  left: calc(50% - 441px);
+  width: calc(50% - 1097px);
+  height: calc(50% - 441px);
 }
 
 
