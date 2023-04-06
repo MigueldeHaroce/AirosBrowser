@@ -44,9 +44,7 @@
         </div>
       </div>
       <div class="gradient">
-        <div class="image-container">
-            <img src="item1.png">
-        </div>
+        <img src="item1.png">
         <canvas id="gradient-canvas" data-transition-in></canvas>
         <script>
           function normalizeColor(hexCode) {
@@ -544,6 +542,7 @@
           const gradient = new Gradient()
           gradient.initGradient('#gradient-canvas')
         </script> 
+        
       </div>
       <script src="renderer.js" defer type="module"></script>  
       <script src="appFunctions.js" defer type="module"></script>
