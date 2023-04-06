@@ -71,10 +71,10 @@ body {
 
 #overlay {
   position: absolute;
-  top: 556px;
-  left: 372px;
-  width: 695px;
-  height: 171px;
+  top: 30%;
+  left: 20%;
+  width: 60%;
+  height: 10%;
 }
 
 #overlay1 {
