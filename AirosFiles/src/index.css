@@ -69,14 +69,6 @@ body {
   background-color: transparent;
 }
 
-#overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
 #overlay1 {
   position: fixed;
   top: 50%;
