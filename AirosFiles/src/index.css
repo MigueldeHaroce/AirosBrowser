@@ -98,6 +98,11 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-style: #1e1e1e;
 }
 
 .button1:active {
