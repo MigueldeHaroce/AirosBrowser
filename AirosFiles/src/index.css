@@ -72,11 +72,11 @@ body {
 #overlay {
   position: absolute;
   transform: scale(0.85);
-  
-  top: 11.875%;
-  left: 45.1%;
-  width: 76.319%;
-  height: 46.8%;
+
+  top: calc(50% - 38.5px);
+  left: calc(50%);
+  width: 0px;
+  height: 77px;
 }
 
 
