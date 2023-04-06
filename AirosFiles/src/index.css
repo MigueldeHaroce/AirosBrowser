@@ -69,13 +69,11 @@ body {
   background-color: transparent;
 }
 
-.image-container {
+#overlay1 {
+  position: fixed;
   width: 50%;
   height: 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(item1.png);
+
 }
 
 #gradient-canvas {
