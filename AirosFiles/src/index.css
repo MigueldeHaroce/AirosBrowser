@@ -93,6 +93,14 @@ body {
   left: calc(538px - 87px * 2); /* /!\ /!\ */
   width: 364px;
   height: 87px;
+  border: 1px solid #1E1E1E;
+  border-width: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
 
+.button1:active {
+  transform: scale(0.95);
 }
 
