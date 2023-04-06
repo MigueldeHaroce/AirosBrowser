@@ -74,7 +74,7 @@ body {
   transform: scale(0.85);
 
   top: calc(50% - 38.5px);
-  left: calc(50%);
+  left: calc(50% - 500px);
   width: 0px;
   height: 77px;
 }
