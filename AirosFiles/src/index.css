@@ -89,9 +89,10 @@ body {
 
 .button1 {
   position: fixed;
-  top: 771px;
-  left: 538px;
-  
+  top: calc(771px - 364px / 4); /* /!\ /!\ */
+  left: calc(538px - 87px * 2); /* /!\ /!\ */
+  width: 364px;
+  height: 87px;
 
 }
 
