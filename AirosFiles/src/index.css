@@ -70,8 +70,13 @@ body {
 }
 
 #overlay {
-  position: fixed;
+  position: absolute;
   transform: scale(0.85);
+  
+  top: 11.875%;
+  left: 45.1%;
+  width: 76.319%;
+  height: 46.8%;
 }
 
 
