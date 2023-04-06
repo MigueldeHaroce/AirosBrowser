@@ -71,10 +71,10 @@ body {
 
 #overlay {
   position: absolute;
-  top: 38.61%;
-  left: 25.83%;
-  width: 48.26%;
-  height: 11.88%;
+  top: 55.6%;
+  left: 25.8%;
+  width: 48.3%;
+  height: 17.1%;
   
 }
 
@@ -84,6 +84,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transform: scale(0.85);
 }
 
 #gradient-canvas {
