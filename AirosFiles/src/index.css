@@ -87,3 +87,10 @@ body {
   --gradient-color-4: #F9C165;
 }
 
+#button1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
