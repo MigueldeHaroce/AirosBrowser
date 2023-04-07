@@ -45,7 +45,7 @@
         <div class="gradient">
             <div id="overlay1">
                 <img src="icons/Group 12.svg">   
-                <button class="button1" id="button1" onclick="navigateToPage2()">Continue -></button>
+                <button class="button1" id="button1">Continue -></button>
             </div>
             <canvas id="gradient-canvas" data-transition-in></canvas>
             <script>
@@ -548,15 +548,5 @@
         </div>
         <script src="renderer.js" defer type="module"></script>  
         <script src="appFunctions.js" defer type="module"></script>
-
-        <script>
-            function navigateToPage2() {
-                const { ipcRenderer } = window.require("electron");
-
-                ipcRenderer.send('load-page', 'file://' + __dirname + '/facts.html');
-            }
-        </script>
-        
-
     </body>
 </html>

@@ -8,6 +8,8 @@ const API = {
         close: () => ipcRenderer.send("close"),
         minimize: () => ipcRenderer.send("minimize"),
         restore: () => ipcRenderer.send("restore"),
+
+        pass: () => ipcRenderer.send("pass_page")
     },
 }
 
