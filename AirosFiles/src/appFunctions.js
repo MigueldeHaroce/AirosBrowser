@@ -26,9 +26,12 @@ function fade_out() {
 }
 
 function next_page(){
+  const body = document.getElementsByTagName("body")[0];
+
   fade_out();
   setTimeout(() => {
     app.window.pass();
+    body.style.opacity = 1;
   }, 500);
 }
 
