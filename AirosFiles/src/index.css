@@ -119,5 +119,9 @@ body.loaded {
 }
 
 .button1:active {
+  background-color: #BBB;
+}
+
+.button1:hover {
   transform: scale(0.975);
 }
