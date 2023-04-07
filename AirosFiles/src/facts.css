@@ -11,7 +11,7 @@ body.loaded {
     opacity: 1;
 }
   
-  .top-bar {
+.top-bar {
     background-color: #202020;
     border-bottom: 3px solid #000;
     border-left: 3px solid #000;
@@ -31,13 +31,13 @@ body.loaded {
     -webkit-app-region: drag;
 }
   
-  .icons {
+.icons {
     display: flex;
     align-items: center;
     margin-right: 15px;
 }
   
-  .icons img {
+.icons img {
     height: 15px;
     cursor: pointer;
 }
@@ -54,7 +54,7 @@ body.loaded {
 }
   
 .icon-container:hover,
-  .icon-container:active {
+.icon-container:active {
     filter: brightness(80%);
     background-color: #333;
 }
@@ -84,4 +84,4 @@ body.loaded {
     --gradient-color-2: #202020; 
     --gradient-color-3: #152F35;  
     --gradient-color-4: #F9C165;
-  }
+}

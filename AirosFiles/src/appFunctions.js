@@ -20,8 +20,16 @@ function restore_app() {
   app.window.restore();
 }
 
+function fade_out() {
+  const body = document.getElementsByTagName("body")[0];
+  body.style.opacity = "0";
+}
+
 function next_page(){
-  app.window.pass()
+  fade_out();
+  setTimeout(() => {
+    app.window.pass();
+  }, 500);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
