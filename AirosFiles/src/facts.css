@@ -3,13 +3,20 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #1E1E1E;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    opacity: 0.1;
+  }
+  
+@keyframes fadeIn {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 1;
+    }
 }
-
-body.loaded {
-    opacity: 1;
-}
+  
+  
   
 .top-bar {
     background-color: #202020;
