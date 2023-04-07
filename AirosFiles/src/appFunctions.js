@@ -23,3 +23,7 @@ function restore_app() {
 function next_page(){
   app.window.pass()
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+});
