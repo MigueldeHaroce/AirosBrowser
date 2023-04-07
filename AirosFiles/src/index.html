@@ -46,15 +46,6 @@
             <div id="overlay1">
                 <img src="icons/Group 12.svg">   
                 <button class="button1" id="button1">Continue -></button>
-                <script>
-                    const { shell } = require('electron');
-    
-                    const button = document.getElementById('button1');
-                    
-                    button.addEventListener('click', () => {
-                    shell.openExternal('file://${__dirname}/facts.html?param1=value1&param2=value2');
-                    });
-                </script>
             </div>
             <canvas id="gradient-canvas" data-transition-in></canvas>
             <script>
@@ -557,6 +548,7 @@
         </div>
         <script src="renderer.js" defer type="module"></script>  
         <script src="appFunctions.js" defer type="module"></script>
+        
 
     </body>
 </html>
