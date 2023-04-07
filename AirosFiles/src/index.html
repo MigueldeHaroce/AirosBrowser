@@ -551,12 +551,9 @@
 
         <script>
             function navigateToPage2() {
-              const query = new URLSearchParams({
-                param1: 'value1',
-                param2: 'value2'
-              }).toString();
-              const url = `file://${__dirname}/facts.html?${query}`;
-              window.location.href = url;
+                const { ipcRenderer } = window.require("electron");
+
+                ipcRenderer.send('load-page', 'file://' + __dirname + '/facts.html');
             }
         </script>
         

@@ -66,3 +66,7 @@ ipcMain.on("restore", () => {
     BrowserWindow.getFocusedWindow().maximize()
   }
 });
+
+ipcMain.on('load-page', (event, arg) => {
+  mainWindow.loadURL(arg);
+});
