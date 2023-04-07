@@ -31,7 +31,6 @@ function next_page(){
   fade_out();
   setTimeout(() => {
     app.window.pass();
-    body.style.opacity = 1;
   }, 500);
 }
 
