@@ -68,5 +68,5 @@ ipcMain.on("restore", () => {
 });
 
 ipcMain.on("pass_page", () => {
-  BrowserWindow.getFocusedWindow().loadURL('load-page', 'file://' + __dirname + '/facts.html');
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/facts.html');
 })
