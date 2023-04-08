@@ -177,3 +177,16 @@ body {
     cursor: pointer;
     opacity: 0.25;
 }
+
+#copy-label {
+    position: fixed;
+    display: none;
+    position: absolute;
+    left: 650px;
+    top: 330px; 
+    border: 1px solid #1E1E1E;
+    border-width: 3px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
