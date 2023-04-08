@@ -179,11 +179,8 @@ body {
 }
 
 #copy-label {
-    position: fixed;
-    display: none;
     position: absolute;
-    left: 650px;
-    top: 330px; 
+    display: none;
     background-color: #202020;
     
     color: #fff;

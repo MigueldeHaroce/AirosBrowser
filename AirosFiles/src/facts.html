@@ -55,7 +55,13 @@
                 const copyLabel = document.querySelector('#copy-label');
           
                 btnMail.addEventListener('click', () => {
+                  const mouseX = event.clientX;
+                  const mouseY = event.clientY;
+                  
                   copyLabel.style.display = 'block';
+                  copyLabel.style.left = `${mouseX}px`;
+                  copyLabel.style.top = `${mouseY}px`;
+                  
                   setTimeout(() => {
                     copyLabel.style.display = 'none';
                   }, 1000); // hide the label after 1 second
