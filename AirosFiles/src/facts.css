@@ -155,3 +155,13 @@ body {
     cursor: pointer;
     opacity: 0.25;
 }
+
+.btnMail {
+    position: fixed;
+    background-color: #000000;;
+    left: 642px;
+    top: 324px; 
+    border-radius: 10px;
+    width: 679px;
+    height: 141px;
+}
