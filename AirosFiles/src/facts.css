@@ -136,9 +136,22 @@ body {
 
 .btnGit {
     position: fixed;
-    left: 271.86px;
-    top: 403.7px; 
+    background-color: #000000;;
+    left: 642px;
+    top: 504px; 
+    border-radius: 10px;
+    width: 679px;
+    height: 141px;
+    opacity: 0;
+    filter: blur(5px);
+}
 
-    width: 678.41px;
-    height: 140.87px;
+.btnGit:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+.btnGit:active {
+    cursor: pointer;
+    opacity: 0.25;
 }
