@@ -99,4 +99,37 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     image-rendering: auto;
-  }
+}
+
+.button2 {
+    position: fixed;
+    top: calc(771px - 364px / 4); /* /!\ /!\ */
+    left: calc(538px - 87px * 2); /* /!\ /!\ */
+    width: 364px;
+    height: 87px;
+    border: 1px solid #1E1E1E;
+    border-width: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-style: #152F35;
+    font-family: 'ABeeZee', sans-serif;
+}
+  
+@font-face {
+    font-family: 'ABeeZee';
+    src: url('icons/ABeeZee-Regular.ttf');
+}
+  
+.button2:active {
+    background-color: #BBB;
+}
+  
+.button2:hover {
+    transform: scale(0.975);
+}
+  
