@@ -136,7 +136,8 @@ body {
 
 .btnGit {
     position: fixed;
-    left: calc(50%);
+    left: 684.35px;
+    top: 403.7px; 
 
     width: 678.41px;
     height: 140.87px;
