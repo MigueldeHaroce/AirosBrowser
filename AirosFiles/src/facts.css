@@ -182,8 +182,8 @@ body {
     position: absolute;
     display: none;
     background-color: #202020;
-    
     color: #fff;
     padding: 10px;
     border-radius: 5px;
+    font-family: 'ABeeZee', sans-serif;
 }
