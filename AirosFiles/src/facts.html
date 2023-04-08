@@ -49,6 +49,17 @@
             <button class="button2" id="button2">Continue -></button>
             <a target="_blank" href="https://github.com/MigueldeHaroce?tab=repositories"><button class="btnGit" id="btnGit"></button></a>
             <button class="btnMail" id="btnMail"></button>
+            <script>
+                const copyBtn = document.querySelector('#copy-btn');
+                const copyLabel = document.querySelector('#copy-label');
+          
+                copyBtn.addEventListener('click', () => {
+                  copyLabel.style.display = 'block';
+                  setTimeout(() => {
+                    copyLabel.style.display = 'none';
+                  }, 1000); // hide the label after 1 second
+                });
+            </script>
         </div>
         
         <canvas id="gradient-canvas" data-transition-in></canvas>
