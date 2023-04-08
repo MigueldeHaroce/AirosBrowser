@@ -185,7 +185,8 @@ body {
     left: 650px;
     top: 330px; 
     background-color: #202020;
-    color: rgba(255, 255, 255, 0);
+    
+    color: #fff;
     padding: 10px;
     border-radius: 5px;
 }
