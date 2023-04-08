@@ -104,7 +104,7 @@ body {
 .button2 {
     position: fixed;
     top: calc(771px - 364px / 4); /* /!\ /!\ */
-    left: calc(538px - 87px * 2); /* /!\ /!\ */
+    left: calc(70%); /* /!\ /!\ */
     width: 364px;
     height: 87px;
     border: 1px solid #1E1E1E;
