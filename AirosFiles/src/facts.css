@@ -184,8 +184,8 @@ body {
     position: absolute;
     left: 650px;
     top: 330px; 
-    border: 1px solid #1E1E1E;
-    border-width: 3px;
+    background-color: #202020;
+    
     color: #fff;
     padding: 10px;
     border-radius: 5px;
