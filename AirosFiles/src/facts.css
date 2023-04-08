@@ -92,3 +92,11 @@ body {
     --gradient-color-3: #152F35;  
     --gradient-color-4: #F9C165;
 }
+
+#overlay2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    image-rendering: auto;
+  }
