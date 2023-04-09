@@ -47,6 +47,22 @@
         <div id="overlay2">
             <img src="icons/Group 26.png"> 
             <button class="button2" id="button2">Continue -></button>
+            <script>
+                const button2 = document.getElementById("button2");
+                button2.addEventListener("click", next_page2);
+                
+                function fade_out() {
+                    const body = document.getElementsByTagName("body")[0];
+                    body.style.opacity = "0";
+                }
+
+                function next_page2() {
+                    fade_out();
+                    setTimeout(() => {
+                        app.window.pass2();
+                    }, 500);
+                }
+            </script>
             <a target="_blank" href="https://github.com/MigueldeHaroce?tab=repositories"><button class="btnGit" id="btnGit"></button></a>
             <button class="btnMail" id="btnMail"></button>
             <div id="copy-label">Copy!</div>

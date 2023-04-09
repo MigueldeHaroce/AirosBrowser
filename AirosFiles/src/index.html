@@ -46,6 +46,22 @@
             <div id="overlay1">
                 <img src="icons/Group 12.svg">   
                 <button class="button1" id="button1">Continue -></button>
+                <script>
+                    const button1 = document.getElementById("button1");
+                    button1.addEventListener("click", next_page);
+                    
+                    function fade_out() {
+                        const body = document.getElementsByTagName("body")[0];
+                        body.style.opacity = "0";
+                    }
+
+                    function next_page() {
+                        fade_out();
+                        setTimeout(() => {
+                            app.window.pass();
+                        }, 500);
+                    }
+                </script>
                 <style>
                     body {
                         opacity: 0;
