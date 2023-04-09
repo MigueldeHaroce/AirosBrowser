@@ -25,3 +25,5 @@ function restore_app() {
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
+
+

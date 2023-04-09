@@ -1,3 +1,4 @@
+/* Fade-in animation for the body element */
 body {
     margin: 0;
     padding: 0;
@@ -5,8 +6,9 @@ body {
     background-color: #1E1E1E;
     animation: fadeIn 0.5s ease-in-out forwards;
     opacity: 0.1;
-  }
+}
   
+  /* Keyframes for the fade-in animation */
 @keyframes fadeIn {
     0% {
       opacity: 0.1;
@@ -15,6 +17,7 @@ body {
       opacity: 1;
     }
 }
+
   
   
   

@@ -74,3 +74,5 @@ ipcMain.on("pass_page", () => {
 ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 })
+
+
