@@ -97,3 +97,37 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@font-face {
+    font-family: 'ABeeZee';
+    src: url('icons/ABeeZee-Regular.ttf');
+}
+
+input[type="text"] {
+    position: fixed;
+    top: 445px;
+    left: 228px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-width: 3px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'ABeeZee', sans-serif;
+    height: 87px;
+    width: 612px;
+    box-sizing: border-box;
+    outline: none;
+    padding-left: 20px;
+  }
+
+#searchBtn {
+    position: fixed;
+    background-color: transparent;
+    top: 445px;
+    left: 228px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
