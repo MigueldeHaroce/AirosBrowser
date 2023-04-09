@@ -2,6 +2,9 @@ const closeBtn = document.getElementById("closeBtn");
 const minimizeBtn = document.getElementById("minimizeBtn");
 const restoreBtn = document.getElementById("restoreBtn");
 
+const button1 = document.getElementById("button1");
+const button2 = document.getElementById("button2");
+
 closeBtn.addEventListener("click", close_app);
 minimizeBtn.addEventListener("click", minimize_app);
 restoreBtn.addEventListener("click", restore_app);
