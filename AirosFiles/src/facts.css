@@ -4,20 +4,13 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #1E1E1E;
-    animation: fadeIn 0.5s ease-in-out forwards;
-    opacity: 0.1;
-}
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
   
-  /* Keyframes for the fade-in animation */
-@keyframes fadeIn {
-    0% {
-      opacity: 0.1;
-    }
-    100% {
-      opacity: 1;
-    }
+body.loaded {
+    opacity: 1;
 }
-
   
   
   

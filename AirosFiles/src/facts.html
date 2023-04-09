@@ -51,16 +51,19 @@
                 const button2 = document.getElementById("button2");
                 button2.addEventListener("click", next_page2);
 
+                function fade_out() {
+                    const body = document.getElementsByTagName("body")[0];
+                    body.style.opacity = "0";
+                }
+                
                 function next_page2() {
-                    app.window.pass2();
+                    fade_out();
+                    setTimeout(() => {
+                        app.window.pass2();
+                    }, 500);
                 }
             </script>
-            <style>
-                body {
-                    opacity: 0;
-                    transition: opacity 0.5s ease-in-out;
-                }
-            </style>
+
             <a target="_blank" href="https://github.com/MigueldeHaroce?tab=repositories"><button class="btnGit" id="btnGit"></button></a>
             <button class="btnMail" id="btnMail"></button>
             <div id="copy-label">Copy!</div>
