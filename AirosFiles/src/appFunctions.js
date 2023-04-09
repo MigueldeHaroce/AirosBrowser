@@ -6,7 +6,8 @@ closeBtn.addEventListener("click", close_app);
 minimizeBtn.addEventListener("click", minimize_app);
 restoreBtn.addEventListener("click", restore_app);
 
-button1.addEventListener("click", next_page)
+button1.addEventListener("click", next_page);
+button2.addEventListener("click", next_page2);
 
 function close_app() {
   app.window.close();
@@ -25,10 +26,17 @@ function fade_out() {
   body.style.opacity = "0";
 }
 
-function next_page(){
+function next_page() {
   fade_out();
   setTimeout(() => {
     app.window.pass();
+  }, 500);
+}
+
+function next_page2() {
+  fade_out();
+  setTimeout(() => {
+    app.window.pass2();
   }, 500);
 }
 

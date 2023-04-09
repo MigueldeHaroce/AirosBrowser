@@ -70,3 +70,7 @@ ipcMain.on("restore", () => {
 ipcMain.on("pass_page", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/facts.html');
 })
+
+ipcMain.on("pass_page2", () => {
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
+})

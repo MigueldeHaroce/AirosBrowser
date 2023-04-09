@@ -9,7 +9,8 @@ const API = {
         minimize: () => ipcRenderer.send("minimize"),
         restore: () => ipcRenderer.send("restore"),
 
-        pass: () => ipcRenderer.send("pass_page")
+        pass: () => ipcRenderer.send("pass_page"),
+        pass2: () => ipcRenderer.send("pass_page2"),
     },
 }
 
