@@ -147,6 +147,17 @@ input[type="text"] {
     border-radius: 100px;
 }
 
+.shortcutsBtns {
+    position: fixed;
+    background-color: transparent;
+    top: 473px;
+    left: 214px;
+    height: 29px;
+    width: 29px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+}
 
 
 
