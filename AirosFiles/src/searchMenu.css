@@ -105,6 +105,7 @@ body {
 
 input[type="text"] {
     position: fixed;
+    background-color: #ddd;
     top: 445px;
     left: 228px;
     padding: 10px;
@@ -118,16 +119,34 @@ input[type="text"] {
     box-sizing: border-box;
     outline: none;
     padding-left: 20px;
+    padding-right: 85px;
   }
 
 #searchBtn {
     position: fixed;
     background-color: transparent;
-    top: 445px;
-    left: 700px;
+    top: 464px;
+    left: 760px;
     border: none;
-    padding: 10px;
+}
+
+#searchBtn img {
+    padding: 1px;
     cursor: pointer;
 }
+
+#magicBtn {
+    position: fixed;
+    background-color: transparent;
+    top: 473px;
+    left: 214px;
+    height: 29px;
+    width: 29px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+
 
 
