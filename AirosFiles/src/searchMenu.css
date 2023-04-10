@@ -147,17 +147,30 @@ input[type="text"] {
     border-radius: 100px;
 }
 
-.shortcutsBtns {
+#amazonBtn {
     position: fixed;
     background-color: transparent;
-    top: 473px;
-    left: 214px;
-    height: 29px;
-    width: 29px;
     border: none;
     cursor: pointer;
+    top: 660px;
+    left: 110.5px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
     border-radius: 100px;
 }
 
+#githubBtn {
+    position: fixed;
+    background-color: #F9C165;
+    border: none;
+    cursor: pointer;
+    top: 660px;
+    left: 220px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+}
 
 
