@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
     if (query) {
-      searchResults.src = `https://www.google.com/search?q=${query}`;
+      searchResults.src = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
     } else {
       // Redirect back to the search menu if no query is provided
       searchResults.src = 'searchMenu.html';
