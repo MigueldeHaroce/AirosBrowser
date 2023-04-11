@@ -149,28 +149,216 @@ input[type="text"] {
 
 #amazonBtn {
     position: fixed;
-    background-color: transparent;
+    background-color: #000;
     border: none;
     cursor: pointer;
-    top: 660px;
+    top: 661px;
     left: 110.5px;
     transform: translate(-50%, -50%);
     height: 80px;
     width: 80px;
     border-radius: 100px;
+    opacity: 0;
+}
+
+#amazonBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#amazonBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
 }
 
 #githubBtn {
     position: fixed;
-    background-color: #F9C165;
+    background-color: #000;
     border: none;
     cursor: pointer;
-    top: 660px;
+    top: 661px;
     left: 220px;
     transform: translate(-50%, -50%);
     height: 80px;
     width: 80px;
     border-radius: 100px;
+    opacity: 0;
 }
 
+#githubBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
 
+#githubBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#discordBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 330px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#discordBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#discordBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#gmailBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 436.9px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#gmailBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#gmailBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#twitterBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 546.9px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#twitterBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#twitterBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#steamBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 656px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#steamBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#steamBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#spotiBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 764.5px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#spotiBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#spotiBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#driveBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 873px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#driveBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#driveBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
+
+#youtubeBtn {
+    position: fixed;
+    background-color: #000;
+    border: none;
+    cursor: pointer;
+    top: 661px;
+    left: 983px;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    border-radius: 100px;
+    opacity: 0;
+}
+
+#youtubeBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+
+#youtubeBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
