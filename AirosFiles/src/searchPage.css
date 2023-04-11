@@ -11,9 +11,7 @@ body {
 body.loaded {
     opacity: 1;
 }
-  
-  
-  
+
 .top-bar {
     background-color: #202020;
     border-bottom: 3px solid #000;
@@ -79,6 +77,9 @@ body.loaded {
     background-color: transparent;
 }
 
-#searchPage{
+#searchPage {
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

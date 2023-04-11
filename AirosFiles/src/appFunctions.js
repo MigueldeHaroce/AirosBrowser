@@ -20,8 +20,6 @@ function restore_app() {
   app.window.restore();
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
@@ -49,10 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
     if (query) {
-      searchResults.src = 'https://www.google.com/search?q=${query}';
+      searchResults.src = 'https://www.google.com/';
     } else {
       // Redirect back to the search menu if no query is provided
-      searchResults.src = 'https://www.google.com/';
+      searchResults.src = 'searchMenu.html';
     }
   }
 });
