@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function performSearch() {
     const query = textInput.value;
     if (query) {
-      window.location.href = 'searchPage.html?q=${encodeURIComponent(query)}';
+      window.location.href = `searchPage.html?q=${encodeURIComponent(query)}`;
     }
   }
   // Check if the searchResults WebView element exists
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
     if (query) {
-      searchResults.src = 'https://www.google.com/';
+      searchResults.src = `https://www.google.com/search?q=${query}`;
     } else {
       // Redirect back to the search menu if no query is provided
       searchResults.src = 'searchMenu.html';
