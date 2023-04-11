@@ -17,7 +17,7 @@ const createWindow = () => {
     webPreferences: {
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
-      contentSecurityPolicy: "script-src 'self' 'unsafe-inline';",
+      contentSecurityPolicy: "default-src 'self'"
     },
   });
   // and load the index.html of the app.
