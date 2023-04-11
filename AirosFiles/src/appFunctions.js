@@ -28,12 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBtn = document.getElementById('searchBtn');
   const textInput = document.getElementById('text-input');
 
-  searchBtn.addEventListener('click', performSearch);
-  textInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      performSearch();
-    }
-  });
+  if (searchBtn) {
+    searchBtn.addEventListener('click', performSearch);
+  }  
+  if (textInput) {
+    textInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        performSearch();
+      }
+    });
+  }
 
   function performSearch() {
     const query = textInput.value;
