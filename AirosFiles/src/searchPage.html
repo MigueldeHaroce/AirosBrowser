@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AirosBrowser</title>
+    <link rel="stylesheet" href="searchPage.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <h1></h1>
+        <style>
+        </style>
+        <div class="icons">
+        <div class="icon-container">
+            <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
+            <img src="icons/minus.svg" id="imgMinimize">
+            <style>
+                #imgMinimize {
+                padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="restoreBtn" class="icon-btn" aria-label="Restore">
+            <img src="icons/restore.svg" id="imgRestore">
+            <style>
+                #imgRestore {
+                padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="closeBtn" class="icon-btn" aria-label="Close">
+            <img src="icons/x.svg" id="imgClose">
+            <style>
+                #imgClose {
+                padding: 18px;
+                }
+            </style>
+            </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <script id="searchPage">
+            const { ipcRenderer } = require('electron');
+      
+            // Listen for search term from main process
+            ipcRenderer.on('search-term', (event, searchTerm) => {
+              const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
+              window.location.href = searchUrl;
+            });
+          </script>
+    </div>
+    <script src="renderer.js" defer type="module"></script>  
+    <script src="appFunctions.js" defer type="module"></script>
+</body>
+</html>
