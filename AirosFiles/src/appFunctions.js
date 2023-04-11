@@ -26,4 +26,34 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const searchBtn = document.getElementById('searchBtn');
+  const textInput = document.getElementById('text-input');
+
+  searchBtn.addEventListener('click', performSearch);
+  textInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  function performSearch() {
+    const query = textInput.value;
+    if (query) {
+      window.location.href = `searchPage.html?q=${encodeURIComponent(query)}`;
+    }
+  }
+  // Check if the searchResults WebView element exists
+  const searchResults = document.getElementById('searchResults');
+  if (searchResults) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    if (query) {
+      searchResults.src = `https://www.google.com/search?q=${query}`;
+    } else {
+      // Redirect back to the search menu if no query is provided
+      window.location.href = 'searchMenu.html';
+    }
+  }
+});
 
