@@ -43,16 +43,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <script id="searchPage">
-            const { ipcRenderer } = require('electron');
-      
-            // Listen for search term from main process
-            ipcRenderer.on('search-term', (event, searchTerm) => {
-              const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
-              window.location.href = searchUrl;
-            });
-          </script>
+    <div id="searchPage">
     </div>
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>

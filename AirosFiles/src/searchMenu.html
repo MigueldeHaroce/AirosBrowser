@@ -56,22 +56,6 @@
                 }
             </style>
             </button>
-            <script>
-                const { ipcRenderer } = require('electron');
-          
-                const searchInput = document.getElementById('text-input');
-                const searchButton = document.getElementById('searchBtn');
-          
-                // Send search term to main process when Enter is pressed or button is clicked
-                searchInput.addEventListener('keyup', (event) => {
-                  if (event.key === 'Enter') {
-                    ipcRenderer.send('search-term', searchInput.value);
-                  }
-                });
-                searchButton.addEventListener('click', () => {
-                  ipcRenderer.send('search-term', searchInput.value);
-                });
-            </script>
             <button id="amazonBtn" class="shourcutsBtns"></button>
             <button id="githubBtn" class="shourcutsBtns"></button>
             <button id="discordBtn" class="shourcutsBtns"></button>
