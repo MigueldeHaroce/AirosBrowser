@@ -74,10 +74,3 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 })
 
-ipcMain.on('search-term', (event, searchTerm) => {
-  // Load page2.html and send search term to it
-  BrowserWindow.getFocusedWindow().loadFile('searchPage.html');
-  BrowserWindow.getFocusedWindow().webContents.once('dom-ready', () => {
-    BrowserWindow.getFocusedWindow().webContents.send('search-term', searchTerm);
-  });
-});

@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // get the input field and search button elements
+// get the input field and search button elements
 const searchInput = document.getElementById("text-input");
 const searchBtn = document.getElementById("searchBtn");
 
