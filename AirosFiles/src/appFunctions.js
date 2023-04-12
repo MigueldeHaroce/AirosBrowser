@@ -24,40 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const searchBtn = document.getElementById('searchBtn');
-  const textInput = document.getElementById('text-input');
+// get the input field and search button elements
+const searchInput = document.getElementById("text-input");
+const searchBtn = document.getElementById("searchBtn");
 
-  if (searchBtn) {
-    searchBtn.addEventListener('click', performSearch);
-  }  
-  if (textInput) {
-    textInput.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
-        performSearch();
-      }
-    });
-  }
-
-  function performSearch() {
-    const query = textInput.value;
-    if (query) {
-      
-      window.location.href = `searchPage.html?q=${query}`;
-    }
-  }
-  // Check if the searchResults WebView element exists
-  const searchResults = document.getElementById('searchResults');
-  if (searchResults) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const query = urlParams.get('q');
-    if (query) {
-      console.log(`Loading search results for query: ${query}`);
-      searchResults.src = `https://www.google.com/search?q=${query}`;
-    } else {
-      // Redirect back to the search menu if no query is provided
-      searchResults.src = 'searchMenu.html';
-    }
+// add event listeners for the enter key and search button click
+searchInput.addEventListener("keydown", function (event) {
+  if (event.code === "Enter") {
+    search();
   }
 });
 
+searchBtn.addEventListener("click", function (event) {
+  search();
+});
+
+// define the search function
+function search() {
+  const query = searchInput.value;
+  const searchUrl = `https://www.google.com/search?q=${query}`;
+
+  // navigate to the search page and pass the search URL as a parameter
+  window.location.href = `searchPage.html?searchUrl=${encodeURIComponent(
+    searchUrl
+  )}`;
+}
