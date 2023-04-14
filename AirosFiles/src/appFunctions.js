@@ -1,5 +1,3 @@
-const { ipcRenderer } = require('electron');
-
 const closeBtn = document.getElementById("closeBtn");
 const minimizeBtn = document.getElementById("minimizeBtn");
 const restoreBtn = document.getElementById("restoreBtn");
