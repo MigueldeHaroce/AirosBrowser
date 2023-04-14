@@ -76,12 +76,12 @@ ipcMain.on("pass_page2", () => {
 });
 
 ipcMain.on('search-text', (event, searchText) => {
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-  
-    BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
-    
-    const searchResults = document.getElementById('searchResults');
-  
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
 
+  const focusedWindow = BrowserWindow.getFocusedWindow();
+  const webContents = focusedWindow.webContents;
+
+  webContents.loadURL(searchUrl);
 });
+
   
