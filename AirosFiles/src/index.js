@@ -17,7 +17,8 @@ const createWindow = () => {
     webPreferences: {
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
-      contentSecurityPolicy: "default-src 'self'"
+      contentSecurityPolicy: "default-src 'self'",
+      webSecurity: false,
     },
   });
   // and load the index.html of the app.
@@ -74,13 +75,13 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 })
 
-ipcMain.on('search-text', async (event, searchText) => {
-  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-
-  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + 'searchPage.html');
+ipcMain.on('search-text', (event, searchText) => {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
   
-  const searchResults = document.getElementById('searchResults');
-  const urlParams = new URLSearchParams(window.location.search);
-
-  searchResults.src = searchUrl;
+    BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + 'searchPage.html');
+    
+    const searchResults = document.getElementById('searchResults');
+  
+    searchResults.src = searchUrl;
 });
+  
