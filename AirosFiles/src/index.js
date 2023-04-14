@@ -74,3 +74,21 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 })
 
+ipcMain.handle('search-text', async (event, searchText) => {
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+
+  const searchWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
+  });
+
+  await searchWindow.loadFile('searchPage.html');
+  searchWindow.webContents.executeJavaScript(`
+    const searchDiv = document.getElementById('searchPage');
+    searchDiv.innerHTML = '<webview src="${searchUrl}" style="width: 100%; height: 100%;"></webview>';
+  `);
+});
