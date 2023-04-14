@@ -69,19 +69,19 @@ ipcMain.on("restore", () => {
 
 ipcMain.on("pass_page", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/facts.html');
-})
+});
 
 ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
-})
+});
 
 ipcMain.on('search-text', (event, searchText) => {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
   
-    BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + 'searchPage.html');
+    BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
     
     const searchResults = document.getElementById('searchResults');
   
-    searchResults.src = searchUrl;
+
 });
   
