@@ -12,7 +12,7 @@ const API = {
         pass: () => ipcRenderer.send("pass_page"),
         pass2: () => ipcRenderer.send("pass_page2"),
 
-        search: () => ipcRenderer.send("")
+        search: (searchText) => ipcRenderer.send("search-text", searchText),
     },
 }
 

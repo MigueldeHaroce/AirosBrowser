@@ -40,7 +40,7 @@ searchBtn.addEventListener('click', () => {
 function search() {
   const searchText = textInput.value;
   if (searchText) {
-    ipcRenderer.invoke('search-text', searchText);
+    app.window.search(searchText);
   }
 }
 // get the input field and search button elements
