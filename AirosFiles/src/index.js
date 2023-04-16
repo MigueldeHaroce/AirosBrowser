@@ -20,6 +20,9 @@ const createWindow = () => {
       contentSecurityPolicy: "default-src 'self'",
       webSecurity: false,
       allowRunningInsecureContent: true,
+      sandbox: true,
+      nodeIntegration: false,
+      enableRemoteModule: false,
     },
   });
   // and load the index.html of the app.
