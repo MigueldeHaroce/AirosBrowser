@@ -43,21 +43,15 @@
             </div>
         </div>
     </div>
-    <webview id="webview" style="width: 100%; height: 100%;"></webview>
+    <iframe id="google-search" style="position: fixed; width: 100%; height: 100%;"></iframe>
+
     <script>
-        // Get the saved search URL from localStorage
-        const searchUrl = localStorage.getItem('searchUrl');
-    
-        // Set up the webview to display the search results
-        const webview = document.getElementById('webview');
-        webview.addEventListener('dom-ready', () => {
-            webview.executeJavaScript(`
-            const input = document.querySelector('input[name="q"]');
-            input.value = '${searchUrl}';
-            input.form.submit();
-            `);
-        });
-        webview.setAttribute('src', 'https://www.google.com/');
+      // Get the saved search URL from localStorage
+      const searchUrl = localStorage.getItem('text');
+
+      // Set the src attribute of the iframe to the search URL
+      const googleSearch = document.getElementById('google-search');
+      googleSearch.setAttribute('src', searchUrl);
     </script>
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
