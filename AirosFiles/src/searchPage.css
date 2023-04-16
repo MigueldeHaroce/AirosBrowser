@@ -30,6 +30,7 @@ body.loaded {
     align-items: center;
     user-select: none;
     -webkit-app-region: drag;
+    z-index: 9999; 
 }
   
 .icons {
@@ -75,4 +76,12 @@ body.loaded {
     border: none;
     padding: 0;
     background-color: transparent;
+}
+
+#searchResults {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
 }
