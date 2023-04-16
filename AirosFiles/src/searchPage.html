@@ -43,15 +43,24 @@
             </div>
         </div>
     </div>
-    <iframe id="google-search" style="position: fixed; width: 100%; height: 100%;"></iframe>
+    <iframe id="google-search" style="width: 100%; height: 100%;"></iframe>
 
     <script>
       // Get the saved search URL from localStorage
-      const searchUrl = localStorage.getItem('text');
+      const searchUrl = localStorage.getItem('searchUrl');
 
-      // Set the src attribute of the iframe to the search URL
-      const googleSearch = document.getElementById('google-search');
-      googleSearch.setAttribute('src', searchUrl);
+      if (!searchUrl) {
+        console.error('No search URL found in localStorage');
+      } else {
+        // Set the src attribute of the iframe to the search URL
+        const googleSearch = document.getElementById('google-search');
+
+        if (!googleSearch) {
+          console.error('Could not find iframe element');
+        } else {
+          googleSearch.setAttribute('src', searchUrl);
+        }
+      }
     </script>
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
