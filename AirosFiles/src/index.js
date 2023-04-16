@@ -76,7 +76,7 @@ ipcMain.on("pass_page2", () => {
 ipcMain.on('search-text', (event, searchText) => {
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
 
-  const webview = document.getElementById('search-results');
+  const webview = document.getElementById('searchResults');
   
   webview.setAttribute('src', searchUrl);
 });
