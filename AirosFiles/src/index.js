@@ -19,6 +19,7 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
       contentSecurityPolicy: "default-src 'self'",
       webSecurity: false,
+      allowRunningInsecureContent: true,
     },
   });
   // and load the index.html of the app.
@@ -26,6 +27,7 @@ const createWindow = () => {
 
   // Open the DevTools
 };
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
