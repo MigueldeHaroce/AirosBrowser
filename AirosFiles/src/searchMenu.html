@@ -48,7 +48,7 @@
             <img src="icons/Group 31.svg"> 
             <button id="magicBtn"></button>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
-            <button id="searchBtn">
+            <button id="searchBtn" onclick="passText()">
             <img src="icons/search.svg" id="imgSearchBtn">
             <style>
                 #imgSearchBtn {
@@ -56,7 +56,23 @@
                 }
             </style>
             </button>
-            
+            <script>
+                function passText() {
+                    // Get the input value
+                    const text = document.getElementById('text-input').value;
+
+                    console.log(text)
+
+                    // Construct the Google search URL
+                    const searchUrl = `https://www.google.com/search?q=${text}`;
+
+                    // Save the search URL in localStorage
+                    localStorage.setItem('searchUrl', searchUrl);
+
+                    // Redirect to the second page
+                    window.location.href = 'searchPage.html';
+                }
+            </script>
             <button id="amazonBtn" class="shourcutsBtns"></button>
             <button id="githubBtn" class="shourcutsBtns"></button>
             <button id="discordBtn" class="shourcutsBtns"></button>
