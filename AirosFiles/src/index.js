@@ -15,10 +15,8 @@ const createWindow = () => {
     minWidth: 1200,
     frame: false,
     webPreferences: {
-      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
       contentSecurityPolicy: "default-src 'self'",
-      webSecurity: false,
     },
   });
   // and load the index.html of the app.
