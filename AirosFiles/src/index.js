@@ -75,11 +75,13 @@ ipcMain.on("pass_page2", () => {
 
 ipcMain.on('search-text', (event, searchText) => {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+    const win = BrowserWindow.getFocusedWindow();
 
-    const webview = mainWindow.webContents.getElementById('searchResults');
+    const webview = win.webContents.getAllWebContents().find((wc) => wc.getType() === 'searchResults' &&) // !!!!!
+      
 
     if (webview) {
-        webview.setAttribute('src', searchUrl);
+        webview.loadURL = searchUrl;
     } else {
         console.error('Webview not found');
     }
