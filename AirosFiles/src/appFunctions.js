@@ -41,9 +41,10 @@ function search() {
   const searchText = textInput.value;
   if (searchText) {
     app.window.search(searchText);
+    
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
 
-    const webview = document.getElementById('myWebview');
+    const webview = document.querySelector('#searchResults');
 
     if (webview) {
         webview.src = searchUrl;
