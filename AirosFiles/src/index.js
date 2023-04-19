@@ -74,6 +74,16 @@ ipcMain.on("pass_page2", () => {
 });
 
 ipcMain.on('search-text', (event, searchText) => {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+    const win = BrowserWindow.getFocusedWindow();
 
+    const webview = win.webContents.findWebContentsFromId('searchResults');
+      
+
+    if (webview) {
+        webview.loadURL(searchUrl);
+    } else {
+        console.error('Webview not found');
+    }
 });
   
