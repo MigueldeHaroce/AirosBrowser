@@ -75,20 +75,19 @@ ipcMain.on("pass_page2", () => {
 });
 
 ipcMain.on('search-text', (event, searchText) => {
-
-
-    BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
-    
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-    const mainWindow = BrowserWindow.getFocusedWindow();
-
-    const webview = webContents.getAllWebContents().find(wc => wc.getOwnerBrowserWindow() === mainWindow && wc.id === 2);
-      
-
-    if (webview) {
-        webview.loadURL(searchUrl);
-    } else {
-        console.error('Webview not found');
-    }
-});
+  const mainWindow = BrowserWindow.getFocusedWindow();
+  const webContents = mainWindow.webContents;
   
+  mainWindow.loadURL('file://' + __dirname + '/searchPage.html');
+
+  webContents.on('did-finish-load', () => {
+      const webview = webContents.findWebContents({id: 'searchResults'});
+
+      if (webview) {
+          const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+          webview.loadURL(searchUrl);
+      } else {
+          console.error('Webview not found');
+      }
+  });
+});
