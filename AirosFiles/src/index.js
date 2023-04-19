@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain} = require('electron');
+const { app, BrowserWindow, ipcMain, webContents} = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -75,9 +75,9 @@ ipcMain.on("pass_page2", () => {
 
 ipcMain.on('search-text', (event, searchText) => {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-    const win = BrowserWindow.getFocusedWindow();
+    const mainWindow = BrowserWindow.getFocusedWindow();
 
-    const webview = win.webContents.findWebContentsFromId('searchResults');
+    const webview = webContents.getAllWebContents().find(wc => wc.getOwnerBrowserWindow() === mainWindow && wc.id === 2)
       
 
     if (webview) {
