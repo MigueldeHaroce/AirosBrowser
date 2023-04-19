@@ -15,6 +15,7 @@ const createWindow = () => {
     minWidth: 1200,
     frame: false,
     webPreferences: {
+      webviewTag: true,
       preload: path.join(__dirname, 'preload.js'),
       contentSecurityPolicy: "default-src 'self'",
     },
@@ -77,6 +78,17 @@ ipcMain.on('search-text', (event, searchText) => {
 
 
     BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
+    
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+    const mainWindow = BrowserWindow.getFocusedWindow();
 
+    const webview = webContents.getAllWebContents().find(wc => wc.getOwnerBrowserWindow() === mainWindow && wc.id === 2);
+      
+
+    if (webview) {
+        webview.loadURL(searchUrl);
+    } else {
+        console.error('Webview not found');
+    }
 });
   
