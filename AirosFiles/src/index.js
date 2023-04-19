@@ -77,8 +77,10 @@ ipcMain.on('search-text', (event, searchText) => {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
     const win = BrowserWindow.getFocusedWindow();
 
-    const webview = win.webContents.getAllWebContents().find((wc) => wc.getType() === 'searchResults' &&) // !!!!!
-      
+    const webview = win.webContents
+      .getAllWebContents()
+      .find((wc) => wc.getType() === 'webview' && wc.getOwnerBrowserWindow() === win && wc.getWebContentsId() === 1 && wc.getURL().endsWith('/after.html') && wc.getId() === 'my-webview');
+
 
     if (webview) {
         webview.loadURL = searchUrl;
