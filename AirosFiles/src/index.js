@@ -77,18 +77,6 @@ ipcMain.on('search-text', (event, searchText) => {
 
 
     BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
-    
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
 
-    const mainWindow = BrowserWindow.getFocusedWindow();
-    const webContents = mainWindow.webContents;
-    const webview = mainWindow.webContents.getElementById('searchResults');
-      
-
-    if (webview) {
-        webview.loadURL(searchUrl);
-    } else {
-        console.error('Webview not found');
-    }
 });
   
