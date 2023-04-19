@@ -41,6 +41,7 @@ function search() {
   const searchText = textInput.value;
   if (searchText) {
     app.window.search(searchText);
+    
   }
 }
 // get the input field and search button elements

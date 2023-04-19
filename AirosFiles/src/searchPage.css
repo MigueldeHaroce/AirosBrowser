@@ -78,10 +78,3 @@ body.loaded {
     background-color: transparent;
 }
 
-#searchResults {
-    position: relative;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 50px);
-}
