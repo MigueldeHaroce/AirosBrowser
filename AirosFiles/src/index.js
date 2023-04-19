@@ -81,7 +81,7 @@ ipcMain.on('search-text', (event, searchText) => {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
     const mainWindow = BrowserWindow.getFocusedWindow();
 
-    const webview = webContents.getAllWebContents().find(wc => wc.getOwnerBrowserWindow() === mainWindow && wc.id === 2);
+    const webview = document.getElementById('searchResults');
       
 
     if (webview) {
