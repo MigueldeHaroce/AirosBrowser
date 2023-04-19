@@ -41,6 +41,15 @@ function search() {
   const searchText = textInput.value;
   if (searchText) {
     app.window.search(searchText);
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+
+    const webview = document.getElementById('myWebview');
+
+    if (webview) {
+        webview.src = searchUrl;
+    } else {
+        console.error('Webview not found');
+    }
   }
 }
 // get the input field and search button elements
