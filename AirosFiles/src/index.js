@@ -79,7 +79,7 @@ ipcMain.on('search-text', (event, searchText) => {
   const webContents = mainWindow.webContents;
   
   mainWindow.loadURL('file://' + __dirname + '/searchPage.html');
-
+//
   webContents.on('did-finish-load', () => {
       const webviews = webContents.getAllWebContents().filter(c => c.getType() === 'webview');
 
