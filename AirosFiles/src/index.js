@@ -23,6 +23,14 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
+  ipcMain.on('search', async (event, query) => {
+    const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    const response = await fetch(url);
+    const results = await response.text();
+    event.reply('search-results', results);
+    mainWindow.loadFile('search.html');
+  });
+
   // Open the DevTools
 };
 
@@ -74,9 +82,3 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 });
 
-ipcMain.on('search-text', (event, searchText) => {
-  const mainWindow = BrowserWindow.getFocusedWindow();
-  
-  mainWindow.loadURL('file://' + __dirname + '/searchPage.html');
-
-});

@@ -56,27 +56,7 @@
                 }
             </style>
             </button>
-            <script>
-                const searchBtn = document.getElementById('searchBtn');
-                const textInput = document.getElementById('text-input');
 
-                textInput.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                    search();
-                }
-                });
-
-                searchBtn.addEventListener('click', () => {
-                search();
-                });
-
-                function search() {
-                const searchText = textInput.value;
-                if (searchText) {
-                    app.window.search(searchText);
-                }
-                }
-            </script>
             
             <button id="amazonBtn" class="shourcutsBtns"></button>
             <button id="githubBtn" class="shourcutsBtns"></button>
@@ -589,6 +569,7 @@
     </div>
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
+    <script src="input.js" defer type="module"></script>
     
 </body>
 </html>
