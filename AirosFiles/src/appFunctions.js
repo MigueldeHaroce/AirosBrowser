@@ -40,10 +40,11 @@ searchBtn.addEventListener('click', () => {
 
 function search() {
   const searchText = textInput.value;
-  if (searchText) {
-    app.window.search(searchText);
-    
-  }
+  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+  webview.addEventListener('did-finish-load', () => {
+    // Modify the URL of the webview here
+    webview.loadURL(searchUrl)
+  })
 }
 // get the input field and search button elements
 // get the input field and search button elements

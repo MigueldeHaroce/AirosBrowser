@@ -75,5 +75,8 @@ ipcMain.on("pass_page2", () => {
 });
 
 ipcMain.on('search-text', (event, searchText) => {
+  const mainWindow = BrowserWindow.getFocusedWindow();
+  
+  mainWindow.loadURL('file://' + __dirname + '/searchPage.html');
 
 });
