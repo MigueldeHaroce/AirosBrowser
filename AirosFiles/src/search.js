@@ -20,7 +20,7 @@ if (searchID) {
 
 // Set up listener for search-results event
 ipcRenderer.on('search-results', (event, results) => {
-  console.log('Received search-results event with data:', results);
+  console.error('Received search-results event with data:', results);
   if (searchResults && results) {
     searchResults.src = results;
   } else {
