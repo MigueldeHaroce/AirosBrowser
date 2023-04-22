@@ -91,7 +91,7 @@ ipcMain.on('search', (event, query) => {
   
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('search-results', url);
-  })
+  });
   
   console.error('Received search event with data:', query);
   console.error('Constructed URL:', url);
