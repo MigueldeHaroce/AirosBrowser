@@ -1,4 +1,3 @@
-const { ipcRenderer } = require('electron');
 
 const searchBtn = document.getElementById('searchBtn');
 const textInput = document.getElementById('text-input');

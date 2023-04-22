@@ -1,4 +1,3 @@
-const { ipcRenderer } = require('electron');
 
 const searchResults = document.getElementById('searchResults');
 
