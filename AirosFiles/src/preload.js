@@ -16,7 +16,7 @@ const API = {
     },
 }
 
-contextBridge.exposeInMainWorld("app", API)
+contextBridge.exposeInMainWorld("app", API);
 
 
 contextBridge.exposeInMainWorld('ipcRenderer', {

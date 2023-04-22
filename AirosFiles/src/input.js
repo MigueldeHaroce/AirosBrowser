@@ -13,6 +13,6 @@ searchBtn.addEventListener('click', () => {
 });
 
 function search() {
-    const query = searchInput.value;
+    const query = textInput.value;
     ipcRenderer.send('search', query);
 };
