@@ -15,6 +15,8 @@ const createWindow = () => {
     minWidth: 1200,
     frame: false,
     webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true, 
       webviewTag: true,
       preload: path.join(__dirname, 'preload.js'),
       contentSecurityPolicy: "default-src 'self'",
