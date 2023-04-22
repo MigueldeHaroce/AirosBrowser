@@ -79,8 +79,11 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 });
 
+// index.js
 ipcMain.on('search', (event, query) => {
   const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-  event.reply('search-results', url);
+  setTimeout(() => {
+    event.reply('search-results', url);
+  }, 1000);
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
 });
