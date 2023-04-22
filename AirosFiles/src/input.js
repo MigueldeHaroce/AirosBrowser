@@ -14,7 +14,7 @@ searchBtn.addEventListener('click', () => {
 
 function search() {
     const query = textInput.value;
-    ipcRenderer.send('search', query);
+    window.ipcRenderer.send('search', query);
     console.error('Received search event with data:', query);
 
 };

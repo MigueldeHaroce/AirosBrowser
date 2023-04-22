@@ -1,7 +1,7 @@
 const searchResults = document.querySelector('#searchResults');
 console.error('searchResults:', searchResults);
 
-ipcRenderer.on('search-results', (event, results) => {
+window.ipcRenderer.on('search-results', (event, results) => {
   console.error('Received search-results event with data:', results);
   if (searchResults && results) {
     searchResults.src = results;
