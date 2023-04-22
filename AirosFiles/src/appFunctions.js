@@ -41,10 +41,16 @@ searchBtn.addEventListener('click', () => {
 function search() {
   const searchText = textInput.value;
   const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-  webview.addEventListener('did-finish-load', () => {
-    // Modify the URL of the webview here
-    webview.loadURL(searchUrl)
-  })
+
+  const webview = document.getElementById('searchResults')
+  if (webview) {
+    webview.addEventListener('did-finish-load', () => {
+      // Modify the URL of the webview here
+      webview.src(searchUrl)
+    })
+  } else {
+    console.error("not found webview")
+  }
 }
 // get the input field and search button elements
 // get the input field and search button elements
