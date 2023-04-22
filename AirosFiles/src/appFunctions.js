@@ -49,7 +49,7 @@ function search() {
       webview.src(searchUrl)
     })
   } else {
-    console.error("not found webview")
+    console.error("not found webview");
   }
 }
 // get the input field and search button elements
