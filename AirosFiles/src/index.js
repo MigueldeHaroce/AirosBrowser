@@ -82,3 +82,12 @@ ipcMain.on("pass_page2", () => {
 // index.js
 
 
+ipcMain.on('search', (event, query) => {
+  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
+  
+  event.sender.send('search-results', url);
+  console.error('Received search event with data:', query);
+  console.error('Constructed URL:', url);
+});
