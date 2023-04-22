@@ -78,9 +78,7 @@ ipcMain.on("pass_page2", () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
 });
 
-// index.js
-
-
+// main.js
 const resultsStack = { /* ID: results */ };
 
 ipcMain.on('search', (event, query) => {
