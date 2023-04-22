@@ -88,7 +88,11 @@ ipcMain.on('search', (event, query) => {
   let win = BrowserWindow.getFocusedWindow();
   win.loadURL('file://' + __dirname + '/searchPage.html');
   
-  win.webContents.send('search-results', url);
+  
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('search-results', url);
+  })
+  
   console.error('Received search event with data:', query);
   console.error('Constructed URL:', url);
 });
