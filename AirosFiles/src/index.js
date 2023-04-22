@@ -85,10 +85,9 @@ ipcMain.on("pass_page2", () => {
 ipcMain.on('search', (event, query) => {
   const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
   
-  setTimeout(() => {
-    event.reply('search-results', url);
-  }, 1000);  
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
+
+  event.reply('search-results', url);
   
   console.error('Received search event with data:', query);
   console.error('Constructed URL:', url);
