@@ -16,7 +16,8 @@ const createWindow = () => {
     frame: false,
     webPreferences: {
       nodeIntegration: true,
-      enableRemoteModule: true, 
+      enableRemoteModule: true,
+
       webviewTag: true,
       preload: path.join(__dirname, 'preload.js'),
       contentSecurityPolicy: "default-src 'self'",
@@ -30,9 +31,9 @@ const createWindow = () => {
     const response = await fetch(url);
     const results = await response.text();
     event.reply('search-results', results);
-    mainWindow.loadFile('searchPage.html');
+    mainWindow.loadUrl('file://' + __dirname + '/searchPage.html');
   });
-
+// The load url its not working !! Fix next time 1!
   // Open the DevTools
 };
 
