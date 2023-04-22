@@ -81,29 +81,20 @@ ipcMain.on("pass_page2", () => {
 // index.js
 
 
-ipcMain.on('search', (event, query) => {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-  
-  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
-  
-  event.sender.send('search-results', url);
-  console.error('Received search event with data:', query);
-  console.error('Constructed URL:', url);
-});
-
-const resultsStack = {};
+const resultsStack = { /* ID: results */ };
 
 ipcMain.on('search', (event, query) => {
   const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
   const searchID = "ID-" + new Date().getTime();
   resultsStack[searchID] = url;
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html?searchID='+ searchID);
 });
 
 ipcMain.on('pull-search', (event, searchID) => {
-  if (resultsStack[searchID]) {
-    event.sender.send('search-results', resultsStack[searchID]);
-    delete resultsStack[searchID];
+  if (resultsStack[ searchID ]) {
+    event.sender.send('search-results', resultsStack[ searchID ]);
+    delete resultsStack[ searchID ];
   } else {
     event.sender.send('search-results', { error: "Unknown ID" });
   }

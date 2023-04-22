@@ -1,29 +1,18 @@
-const searchResults = document.querySelector('#searchResults');
-console.error('searchResults:', searchResults);
+window.addEventListener("DOMContentLoaded", () => {
+  // Get searchID from URL
+  const searchID = new URLSearchParams(window.location.search).get("searchID");
+  if (!searchID) return;
 
-ipcRenderer.on('search-results', (event, results) => {
-  console.error('Received search-results event with data:', results);
-  if (searchResults && results) {
-    searchResults.src = results;
-  } else {
-    console.error('Error: searchResults or results is undefined.');
-  }
-});
+  const searchResults = document.querySelector('#searchResults');
 
-// Get searchID from URL
-const searchID = new URLSearchParams(window.location.search).get("searchID");
-
-// Pull search results using searchID
-if (searchID) {
+  // Pull your search
   ipcRenderer.send('pull-search', searchID);
-}
-
-// Set up listener for search-results event
-ipcRenderer.on('search-results', (event, results) => {
-  console.error('Received search-results event with data:', results);
-  if (searchResults && results) {
-    searchResults.src = results;
-  } else {
-    console.error('Error: searchResults or results is undefined.');
-  }
+  // Wait for a response
+  ipcRenderer.on('search-results', (event, results) => {
+    if (searchResults && results) {
+      searchResults.src = results;
+    } else {
+      console.error('Error: searchResults or results is undefined.');
+    }
+  });
 });
