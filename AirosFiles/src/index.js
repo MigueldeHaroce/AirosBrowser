@@ -30,7 +30,7 @@ const createWindow = () => {
     const response = await fetch(url);
     const results = await response.text();
     event.reply('search-results', results);
-    mainWindow.loadFile('search.html');
+    mainWindow.loadFile('searchPage.html');
   });
 
   // Open the DevTools
