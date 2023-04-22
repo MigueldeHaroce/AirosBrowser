@@ -1,6 +1,6 @@
 
-const searchResults = document.getElementById('searchResults');
+const searchResults = document.querySelector('searchResults');
 
 ipcRenderer.on('search-results', (event, results) => {
-    searchResults.loadURL(results);
+    searchResults.src = results;
 });
