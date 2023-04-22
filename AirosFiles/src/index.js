@@ -75,24 +75,5 @@ ipcMain.on("pass_page2", () => {
 });
 
 ipcMain.on('search-text', (event, searchText) => {
-  const mainWindow = BrowserWindow.getFocusedWindow();
-  const webContents = mainWindow.webContents;
-  
-  mainWindow.loadURL('file://' + __dirname + '/searchPage.html');
 
-  webContents.on('did-finish-load', () => {
-      const webviews = webContents.getAllWebContents().filter(c => c.getType() === 'webview');
-
-      if (webviews.length > 0) {
-          const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
-          const webview = webviews.find(c => c.getWebContentsId() === mainWindow.webContentsId && c.getURL().endsWith('searchPage.html') && c.getWebContents().getElementById('searchResults'));
-          if (webview) {
-              webview.loadURL(searchUrl);
-          } else {
-              console.error('Webview not found');
-          }
-      } else {
-          console.error('Webview not found');
-      }
-  });
 });

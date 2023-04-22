@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
 
+const { BrowserWindow } = require('electron').remote;
+
 const searchBtn = document.getElementById('searchBtn');
 const textInput = document.getElementById('text-input');
 
@@ -41,6 +43,13 @@ function search() {
   const searchText = textInput.value;
   if (searchText) {
     app.window.search(searchText);
+
+
+    // get a reference to the current window
+    let currentWindow = BrowserWindow.getFocusedWindow();
+
+    // load the next HTML page
+    currentWindow.loadURL('searchPage.html');
     
   }
 }
