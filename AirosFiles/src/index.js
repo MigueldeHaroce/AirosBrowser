@@ -85,7 +85,7 @@ ipcMain.on("pass_page2", () => {
 ipcMain.on('search', (event, query) => {
   const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
   
-  event.reply('search-results', url);
+  event.sender.send('search-results', url);
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html');
   
   console.error('Received search event with data:', query);
