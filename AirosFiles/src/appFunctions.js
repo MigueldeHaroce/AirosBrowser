@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("loaded");
 });
 
-const { BrowserWindow } = require('electron').remote;
+const { BrowserWindow } = require('electron');
 
 const searchBtn = document.getElementById('searchBtn');
 const textInput = document.getElementById('text-input');
