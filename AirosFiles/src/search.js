@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Pull your search
   ipcRenderer.send('pull-search', searchID);
   // Wait for a response
-  ipcRenderer.on('search-results', (event, results) => {
+  ipcRenderer.on('search-results', (results) => { // no event here, only results
 
     console.log(results)
 
