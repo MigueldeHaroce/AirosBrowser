@@ -83,17 +83,22 @@ const resultsStack = { /* ID: results */ };
 
 ipcMain.on('search', (event, query) => {
   const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-
+  console.error(query);
+  console.error(url);
   const searchID = "ID-" + new Date().getTime();
   resultsStack[searchID] = url;
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html?searchID='+ searchID);
 });
 
 ipcMain.on('pull-search', (event, searchID) => {
+  console.error(searchID);
+  console.error(resultsStack[ searchID ]);
+
   if (resultsStack[ searchID ]) {
     event.sender.send('search-results', resultsStack[ searchID ]);
     delete resultsStack[ searchID ];
   } else {
+    console.error("no id");
     event.sender.send('search-results', { error: "Unknown ID" });
   }
 });
