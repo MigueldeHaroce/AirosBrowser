@@ -1,7 +1,7 @@
 // See the Electron documentation for details on how to use preload scripts:
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 
-const { ipcRenderer, contextBridge } = require("electron")
+const { ipcRenderer, contextBridge, ipcMain } = require("electron")
 
 const API = {
     window: {
@@ -21,5 +21,10 @@ contextBridge.exposeInMainWorld("app", API);
 
 contextBridge.exposeInMainWorld('ipcRenderer', {
     send: (channel, data) => ipcRenderer.send(channel, data),
+    on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args)),
+});
+
+contextBridge.exposeInMainWorld('ipcMain', {
+    send: (channel, data) => ipcMain.send(channel, data),
     on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args)),
 });
