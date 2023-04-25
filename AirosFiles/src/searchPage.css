@@ -78,3 +78,43 @@ body.loaded {
     background-color: transparent;
 }
 
+#searchResults {
+    position: fixed;
+
+    height: 100%;
+    width: 100%;
+    
+    margin-top: 46px;
+}
+
+.blink {
+    animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+#noWifi {
+    position: fixed;
+}
+
+.fade {
+    animation: fade 1s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    
+    to {
+        opacity: 0;
+    }
+}
