@@ -120,4 +120,17 @@ body.loaded {
     }
 }
 */
+.divTabs {
+    align-items: left;
+}
 
+#tab{
+  width: 100px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

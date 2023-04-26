@@ -9,51 +9,12 @@
 <body>
     <div class="top-bar">
         <h1></h1>
-        <div id="container">
-            <button id="animate-button">+</button>
-            <div id="box"></div>
+        <div class="divTabs">
+            <div id="tab">
+                
+                
+            </div>
         </div>
-          
-        <script>
-            const animateButton = document.getElementById('animate-button');
-            const box = document.getElementById('box');
-            
-            animateButton.addEventListener('click', () => {
-                box.classList.add('rectangle');
-            });
-        </script>
-          
-        <style>
-            #container {
-                position: relative;
-                height: 50px;
-            }
-            
-            #box {
-                width: 0;
-                height: 10px;
-                background-color: #000;
-                transition: width 2s;
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-            }
-            
-            #box.rectangle {
-                width: 200px;
-            }
-            
-            #animate-button {
-                position: absolute;
-                top: 50%;
-                left: 210px; /* adjust button position to be next to the box */
-                transform: translateY(-50%);
-                cursor: pointer; /* set height of container to fit button and box */
-
-            }
-        </style>
-          
         <!--
         <img id="noWifi" src="icons/wifiIcon.png">
         <script>
@@ -126,7 +87,6 @@
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
     <script src="search.js" defer type="module"></script>
-
 
 </body>
 </html>
