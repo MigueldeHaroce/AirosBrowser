@@ -139,7 +139,7 @@ body.loaded {
     
 	position: relative;
 
-	background-color: #333;
+	background-color: #444;
 
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
@@ -147,7 +147,7 @@ body.loaded {
 	-moz-border-radius-topright: 10px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-    animation: tab-width 0.5s ease-in-out forwards;
+    animation: tab-width 0.2s ease-in-out forwards;
     transition: background-color 0.2s ease-in-out;
     -webkit-app-region: none;
 }
@@ -156,6 +156,9 @@ body.loaded {
     background-color: #333; /* change to a darker color on hover */
 }
 
+#tab:active {
+    background-color: #444; /* change to a darker color on hover */
+}
 
 @keyframes tab-width {
   from { width: 0px; }
@@ -180,11 +183,44 @@ body.loaded {
 	-moz-border-radius: 0 0 0 5px;
 	-webkit-border-radius: 0 0 0 5px;
 
+	-webkit-box-shadow: -5px 0 0 0 #444;
+	box-shadow: -5px 0 0 0 #444;
+}
+
+#tab:hover:after {
+	right: -10px;
+
+	border-radius: 0 0 0 5px;
+	-moz-border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
+
 	-webkit-box-shadow: -5px 0 0 0 #333;
 	box-shadow: -5px 0 0 0 #333;
 }
 
+#tab:active:after {
+	right: -10px;
+
+	border-radius: 0 0 0 5px;
+	-moz-border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
+
+	-webkit-box-shadow: -5px 0 0 0 #444;
+	box-shadow: -5px 0 0 0 #444;
+}
+
 #tab:before {
+	left: -10px;
+
+	border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
+
+	-webkit-box-shadow: 5px 0 0 0 #444;
+	box-shadow: 5px 0 0 0 #444;
+}
+
+#tab:hover:before {
 	left: -10px;
 
 	border-radius: 0 0 5px 0;
@@ -195,3 +231,13 @@ body.loaded {
 	box-shadow: 5px 0 0 0 #333;
 }
 
+#tab:active:before {
+	left: -10px;
+
+	border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
+
+	-webkit-box-shadow: 5px 0 0 0 #444;
+	box-shadow: 5px 0 0 0 #444;
+}
