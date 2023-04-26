@@ -145,6 +145,12 @@ body.loaded {
 	-moz-border-radius-topright: 10px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+    transition: width 0.5s ease-in-out;
+
+}
+
+#tab:hover {
+  width: 100px;
 }
 
 #tab:before,
