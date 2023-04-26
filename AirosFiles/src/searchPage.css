@@ -120,36 +120,30 @@ body.loaded {
     }
 }
 */
-.tabs {
-    position: relative;
 
-}   
-
-#tab {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 2s ease;
+#container {
+  position: relative;
+  height: 50px; /* set height of container to fit button and box */
 }
 
-#tab.rectangle {
-  width: 200px;
-  height: 100px;
+#box {
+  width: 0;
+  height: 10px;
+  background-color: #000;
+  transition: width 2s;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
-#openTab {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#openTab:hover + #tab {
+#box.rectangle {
   width: 200px;
 }
 
-#openTab:hover {
-    top: 50px;
+#animate-button {
+  position: absolute;
+  top: 50%;
+  left: 210px; /* adjust button position to be next to the box */
+  transform: translateY(-50%);
 }

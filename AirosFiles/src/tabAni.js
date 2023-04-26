@@ -1,10 +1,6 @@
+const animateButton = document.getElementById('animate-button');
+const box = document.getElementById('box');
 
-let button = document.getElementById('my-button');
-
-button.addEventListener('click', () => {
-  ipcRenderer.send('start-animation');
-});
-
-ipcRenderer.on('start-animation', () => {
-  animationWindow.show();
+animateButton.addEventListener('click', () => {
+  box.classList.add('rectangle');
 });
