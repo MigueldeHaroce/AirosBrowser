@@ -127,22 +127,23 @@ body.loaded {
 }
 
 #tab{
-  width: 100em;
-  height: 25em;
-  background: linear-gradient(#1E1E1E, #ccc);
-  position: relative;
-  display: inline-block;
+    width: 100px;
+    height: 25px;
+    background-color: #ccc;
+    position: absolute;
+
+    -webkit-mask-image:
+        radial-gradient(circle at bottom left, transparent 0, transparent  5px, black 5px),
+        radial-gradient(circle at bottom right, transparent 0, transparent  5px, black 5px);
+    -webkit-mask-position: top left, top right;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 50% 50%;
+    mask-image:
+        radial-gradient(circle at bottom left, transparent 0, transparent 5px, black 5px),
+        radial-gradient(circle at bottom right, transparent 0, transparent 5px, black 5px);
+    mask-position: top left, top right;
+    mask-repeat: no-repeat;
+    mask-size: 50% 50%; /* This line was updated */
 
 }
 
-tab::before{
-    display: block;
-    position: relative;
-    content: '';
-    width: 10%;
-    top: 15%;
-    height: 70%;
-    background-color: white;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-  }
