@@ -145,7 +145,7 @@ body.loaded {
   transition: top 2s ease;
 }
 
-#openTab:hover + #myBox {
+#openTab:hover + #tab {
   width: 200px;
 }
 
