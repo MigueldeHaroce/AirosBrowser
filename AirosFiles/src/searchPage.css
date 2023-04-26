@@ -121,17 +121,18 @@ body.loaded {
 }
 */
 .tabs {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  position: absolute;
+    position: relative;
+
 }   
 
 #tab {
-  width: 0;
-  height: 2px;
-  background-color: white;
-  transition: width 2s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 2s ease;
 }
 
 #tab.rectangle {
@@ -140,9 +141,9 @@ body.loaded {
 }
 
 #openTab {
-  position: relative;
-  top: 0;
-  transition: top 2s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #openTab:hover + #tab {
@@ -150,5 +151,5 @@ body.loaded {
 }
 
 #openTab:hover {
-  top: 100px;
+    top: 50px;
 }
