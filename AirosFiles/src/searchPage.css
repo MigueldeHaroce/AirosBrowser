@@ -120,26 +120,35 @@ body.loaded {
     }
 }
 */
-#tab{
-    width: 100px;
-    height: 25px;
-    background-color: #ccc;
-    border-radius: 10px 10px 0 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: tab-exit 1s ease-out forwards;
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  position: absolute;
+}   
 
+#tab {
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 2s ease;
 }
 
-@keyframes tab-exit {
-    0% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(500px, -500px);
-        opacity: 0;
-    }
+#tab.rectangle {
+  width: 200px;
+  height: 100px;
+}
+
+#openTab {
+  position: relative;
+  top: 0;
+  transition: top 2s ease;
+}
+
+#openTab:hover + #myBox {
+  width: 200px;
+}
+
+#openTab:hover {
+  top: 100px;
 }
