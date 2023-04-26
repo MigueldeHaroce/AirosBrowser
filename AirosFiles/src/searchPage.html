@@ -11,8 +11,16 @@
         <h1></h1>
         <div id="tab">
             
-
+            
         </div>
+        <script>
+            const tab = document.getElementById('tab');
+
+            tab.addEventListener('click', () => {
+                tab.classList.add('animated');
+            });
+
+        </script>
         <!--
         <img id="noWifi" src="icons/wifiIcon.png">
         <script>
