@@ -153,29 +153,29 @@ body.loaded {
 	position: absolute;
 
 	height: 10px;
-	width: 20px;
+	width: 10px;
 
 	bottom: 0;
 }
 
 #tab:after {
-	right: -20px;
+	right: -10px;
 
-	border-radius: 0 0 0 10px;
-	-moz-border-radius: 0 0 0 10px;
-	-webkit-border-radius: 0 0 0 10px;
+	border-radius: 0 0 0 5px;
+	-moz-border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
 
-	-webkit-box-shadow: -10px 0 0 0 #fff;
-	box-shadow: -10px 0 0 0 #fff;
+	-webkit-box-shadow: -5px 0 0 0 #fff;
+	box-shadow: -5px 0 0 0 #fff;
 }
 
 #tab:before {
-	left: -20px;
+	left: -10px;
 
-	border-radius: 0 0 10px 0;
-	-moz-border-radius: 0 0 10px 0;
-	-webkit-border-radius: 0 0 10px 0;
+	border-radius: 0 0 5px 0;
+	-moz-border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
 
-	-webkit-box-shadow: 10px 0 0 0 #fff;
-	box-shadow: 10px 0 0 0 #fff;
+	-webkit-box-shadow: 5px 0 0 0 #fff;
+	box-shadow: 5px 0 0 0 #fff;
 }
