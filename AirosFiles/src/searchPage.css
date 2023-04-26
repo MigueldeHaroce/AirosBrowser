@@ -129,8 +129,10 @@ body.loaded {
 #tab{
   width: 100px;
   height: 25px;
-  background-color: #ccc;
+  background: linear-gradient(#1E1E1E, #ccc);
   position: absolute;
-  border-radius: 10px 10px 0 0; /* This line was updated */
+  float: bottom;
+  position: fixed;
+
 
 }
