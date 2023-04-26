@@ -87,6 +87,7 @@ body.loaded {
     margin-top: 46px;
 }
 
+/*
 .blink {
     animation: blink 0.5s infinite alternate;
 }
@@ -118,3 +119,4 @@ body.loaded {
         opacity: 0;
     }
 }
+*/
