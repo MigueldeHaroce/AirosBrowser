@@ -130,10 +130,7 @@ body.loaded {
   width: 100px;
   height: 25px;
   background-color: #ccc;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   position: absolute;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 90% 100%, 10% 100%, 0% 80%);
+  border-radius: 10px 10px 0 0; /* This line was updated */
 
 }
-
