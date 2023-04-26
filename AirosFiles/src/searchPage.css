@@ -127,11 +127,11 @@ body.loaded {
 }
 
 
-
+/*TAB ANIMATION*/
 #tab {
 	float: left;
 
-	width: 70px;
+	width: 50px;
 	padding: 10px 15px;
 	height: 10px;
 
@@ -145,12 +145,12 @@ body.loaded {
 	-moz-border-radius-topright: 10px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-    transition: width 0.5s ease-in-out;
-
+    animation: tab-width 0.5s ease-in-out forwards;
 }
 
-#tab:hover {
-  width: 100px;
+@keyframes tab-width {
+  from { width: 0px; }
+  to { width: 70px; }
 }
 
 #tab:before,
