@@ -134,7 +134,7 @@ body.loaded {
 	width: 50px;
 	padding: 10px 15px;
 	height: 10px;
-
+    
 	position: relative;
 
 	background-color: #fff;
@@ -146,11 +146,8 @@ body.loaded {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
     animation: tab-width 0.5s ease-in-out forwards;
-    transition: background-color 0.2s ease-in-out; /* add a transition effect */
-}
-
-#tab:hover {
-  background-color: #ccc; /* change to a darker color on hover */
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer; /* add a transition effect */
 }
 
 
