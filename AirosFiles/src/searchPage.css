@@ -121,29 +121,3 @@ body.loaded {
 }
 */
 
-#container {
-  position: relative;
-  height: 50px; /* set height of container to fit button and box */
-}
-
-#box {
-  width: 0;
-  height: 10px;
-  background-color: #000;
-  transition: width 2s;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-#box.rectangle {
-  width: 200px;
-}
-
-#animate-button {
-  position: absolute;
-  top: 50%;
-  left: 210px; /* adjust button position to be next to the box */
-  transform: translateY(-50%);
-}
