@@ -124,12 +124,14 @@ body.loaded {
     width: 100%;
     height: 100%;
     align-items: left;
+    display: flex;
+
+
 }
-
-
 /*TAB ANIMATION*/
 #tab {
 	float: left;
+    display: flex;
 
 	width: 50px;
 	padding: 10px 15px;
@@ -137,7 +139,7 @@ body.loaded {
     
 	position: relative;
 
-	background-color: #fff;
+	background-color: #202020;
 
 	-webkit-border-top-left-radius: 10px;
 	-webkit-border-top-right-radius: 10px;
@@ -147,7 +149,11 @@ body.loaded {
 	border-top-right-radius: 10px;
     animation: tab-width 0.5s ease-in-out forwards;
     transition: background-color 0.2s ease-in-out;
-    cursor: pointer; /* add a transition effect */
+    -webkit-app-region: none;
+}
+
+#tab:hover {
+    background-color: #333; /* change to a darker color on hover */
 }
 
 
@@ -174,8 +180,13 @@ body.loaded {
 	-moz-border-radius: 0 0 0 5px;
 	-webkit-border-radius: 0 0 0 5px;
 
-	-webkit-box-shadow: -5px 0 0 0 #fff;
-	box-shadow: -5px 0 0 0 #fff;
+	-webkit-box-shadow: -5px 0 0 0 #333;
+	box-shadow: -5px 0 0 0 #333;
+    
+}
+
+#tab:hover {
+    background-color: #333; /* change to a darker color on hover */
 }
 
 #tab:before {
@@ -185,6 +196,10 @@ body.loaded {
 	-moz-border-radius: 0 0 5px 0;
 	-webkit-border-radius: 0 0 5px 0;
 
-	-webkit-box-shadow: 5px 0 0 0 #fff;
-	box-shadow: 5px 0 0 0 #fff;
+	-webkit-box-shadow: 5px 0 0 0 #333;
+	box-shadow: 5px 0 0 0 #333;
+}
+
+#tab:hover {
+    background-color: #333; /* change to a darker color on hover */
 }
