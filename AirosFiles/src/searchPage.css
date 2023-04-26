@@ -129,17 +129,17 @@ body.loaded {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: tab-exit 1s ease-out forwards;
+
 }
 
-#tab.animated {
-    animation: tab-exit 1s forwards;
-  }
-  
-  @keyframes tab-exit {
+@keyframes tab-exit {
     0% {
-      transform: translate(-50%, -50%);
+        transform: translate(0, 0);
+        opacity: 1;
     }
     100% {
-      transform: translate(200%, -50%);
+        transform: translate(500px, -500px);
+        opacity: 0;
     }
-  }
+}
