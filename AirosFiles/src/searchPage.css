@@ -184,12 +184,15 @@ body.loaded {
 }
 
 #textTab {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: relative;
     align-items: center;
     justify-content: center;
     margin-left: 5px;
-    top: -4px;
-    font-size: 12px;
+    top: 2.5px;
+    font-size: 13px;
     font-style: #fff;
     font-family: 'ABeeZee', sans-serif;
 }
