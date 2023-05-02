@@ -160,18 +160,22 @@ body.loaded {
 #cross-button {
     position: relative;
     align-items: center;
-    align-content: center;
 
-    width: 20px;
-    height: 20px;
-    top: -6px;
+    width: 24px;
+    height: 24px;
+    top: -4px;
     background-color: transparent;
     border-radius: 50%;
     animation: close-width 0.2s ease-in-out forwards;
     cursor: pointer;
 }
-  
+ 
+#openBtn {
+    
+}
+
 #imgCross {
+    align-items: center;
     opacity: 1;
     top: -5px;
     left: 0px;
@@ -209,7 +213,7 @@ body.loaded {
 
 @keyframes close-width {
     from { width: 0px; }
-    to { width: 20px; }
+    to { width: 24px; }
 }
 
 #tab:before,
