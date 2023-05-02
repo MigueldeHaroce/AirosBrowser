@@ -12,20 +12,16 @@ addBtn.addEventListener('click', () => {
   newTab.innerHTML = `
     <img id="logoTab" src="icons/logo18pxMono.png"></img>
     <div id="textTab">
-      <span id="text">New Tab</span>
+        <span id="text">New Tab</span>
     </div>
     <div id="cross-button">
-      <img id="imgCross" src="icons/cross.png">
+        <img id="imgCross" src="icons/cross.png">
     </div> 
   `;
 
   // Insert the new tab after the last tab
   const tabs = document.querySelectorAll('.tabs');
-  if (tabs.length > 0) {
-    tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
-  } else {
-    tabWrapper.appendChild(newTab);
-  }
+  tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
 
   // Animate the new tab
   const tabWidth = newTab.offsetWidth;
@@ -35,10 +31,12 @@ addBtn.addEventListener('click', () => {
   setTimeout(() => {
     newTab.style.width = `${tabWidth}px`;
     newTab.style.opacity = '1';
-  }, 0);
 
-  // Move the add button after the new tab
-  const addButtonWidth = addBtn.offsetWidth;
-  const addButtonLeft = addBtn.getBoundingClientRect().left;
-  addBtn.style.left = `${addButtonLeft + tabWidth + addButtonWidth}px`;
+    // Move the add button after the new tab
+    const addButtonWidth = addBtn.offsetWidth;
+    const lastTab = tabs[tabs.length - 999];
+    const lastTabRight = lastTab.getBoundingClientRect().right;
+    const addButtonLeft = lastTabRight + addButtonWidth;
+    addBtn.style.left = `${addButtonLeft}px`;
+  }, 0);
 });
