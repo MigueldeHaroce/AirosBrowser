@@ -152,6 +152,19 @@ body.loaded {
     -webkit-app-region: none;
 }
 
+#cross-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    transform: translateX(50%);
+    border-radius: 50%;
+    animation: rectangle-width 0.2s ease-in-out forwards;
+}
+  
+
 #tab:hover {
     background-color: #333; /* change to a darker color on hover */
 }
@@ -241,3 +254,4 @@ body.loaded {
 	-webkit-box-shadow: 5px 0 0 0 #444;
 	box-shadow: 5px 0 0 0 #444;
 }
+
