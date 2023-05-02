@@ -162,9 +162,11 @@ body.loaded {
     width: 20px;
     height: 20px;
     top: -5px;
+    left: 2px;
     background-color: transparent;
     border-radius: 50%;
     animation: close-width 0.2s ease-in-out forwards;
+    cursor: pointer;
 }
   
 #imgCross {
