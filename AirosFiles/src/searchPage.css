@@ -159,9 +159,8 @@ body.loaded {
     width: 20px;
     height: 20px;
     background-color: #ccc;
-    transform: translateX(50%);
     border-radius: 50%;
-    animation: rectangle-width 0.2s ease-in-out forwards;
+    animation: tab-width 0.2s ease-in-out forwards;
 }
   
 
