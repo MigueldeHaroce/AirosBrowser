@@ -1,5 +1,9 @@
-const addBtn = document.querySelector('.tabs');
-const tabWrapper = document.querySelector('.openBtns');
+const tabWrapper = document.querySelector('.tabs');
+const addBtn = document.querySelector('.openBtns');
+
+if (addBtn) {
+    console.log('works');
+}
 
 addBtn.addEventListener('click', () => {
   // Create a new tab element

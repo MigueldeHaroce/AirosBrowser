@@ -212,15 +212,29 @@ body.loaded {
 
 .openBtns {
     position: relative;
-    align-items: center;
+    top: 0; /* Margin to offset the button */
     margin-left: 5px;
     width: 24px;
     height: 24px;
-    top: -4px;
     background-color: transparent;
+    display: flex;
     border-radius: 50%;
-    animation: close-width 0.2s ease-in-out forwards;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    z-index: 1;
+    opacity: 1;
+    -webkit-app-region: none;
+}
+
+.openBtns:hover {
+    opacity: 0.8;
+    background-color: #333;
+}
+
+.openBtns:active {
+    opacity: 0.5;
+    background-color: #444;
 }
 
 #cross-button:hover {
