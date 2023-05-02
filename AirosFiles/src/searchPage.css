@@ -135,7 +135,7 @@ body.loaded {
 
 	width: 50px;
 	padding: 10px 15px;
-	height: 10px;
+	height: 15px;
 
     align-items: right;
     justify-content: right;
@@ -160,7 +160,7 @@ body.loaded {
 
     width: 20px;
     height: 20px;
-    top: -5px;
+    top: -6px;
     background-color: transparent;
     border-radius: 50%;
     animation: close-width 0.2s ease-in-out forwards;
@@ -213,7 +213,7 @@ body.loaded {
 	content: "";
 	position: absolute;
 
-	height: 10px;
+	height: 15px;
 	width: 10px;
 
 	bottom: 0;
