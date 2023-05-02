@@ -2,7 +2,7 @@ const tabWrapper = document.querySelector('.tabs');
 const addBtn = document.querySelector('.openBtns');
 
 if (addBtn) {
-    console.log('works');
+  console.log('works');
 }
 
 addBtn.addEventListener('click', () => {
@@ -12,16 +12,20 @@ addBtn.addEventListener('click', () => {
   newTab.innerHTML = `
     <img id="logoTab" src="icons/logo18pxMono.png"></img>
     <div id="textTab">
-        <span id="text">New Tab</span>
+      <span id="text">New Tab</span>
     </div>
     <div id="cross-button">
-        <img id="imgCross" src="icons/cross.png">
+      <img id="imgCross" src="icons/cross.png">
     </div> 
   `;
 
   // Insert the new tab after the last tab
   const tabs = document.querySelectorAll('.tabs');
-  tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
+  if (tabs.length > 0) {
+    tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
+  } else {
+    tabWrapper.appendChild(newTab);
+  }
 
   // Animate the new tab
   const tabWidth = newTab.offsetWidth;
