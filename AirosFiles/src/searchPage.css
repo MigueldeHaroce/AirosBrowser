@@ -133,9 +133,11 @@ body.loaded {
 	float: left;
     display: flex;
 
-	width: 50px;
+	width: 70px;
 	padding: 10px 15px;
-	height: 15px;
+	height: 14px;
+
+    top: -5px;
 
     align-items: right;
     justify-content: right;
@@ -200,7 +202,7 @@ body.loaded {
 
 @keyframes tab-width {
   from { width: 0px; }
-  to { width: 70px; }
+  to { width: 90px; }
 }
 
 @keyframes close-width {
@@ -222,66 +224,66 @@ body.loaded {
 #tab:after {
 	right: -10px;
 
-	border-radius: 0 0 0 5px;
-	-moz-border-radius: 0 0 0 5px;
-	-webkit-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 7px;
+	-moz-border-radius: 0 0 0 7px;
+	-webkit-border-radius: 0 0 0 7px;
 
-	-webkit-box-shadow: -5px 0 0 0 #444;
-	box-shadow: -5px 0 0 0 #444;
+	-webkit-box-shadow: -7px 0 0 0 #444;
+	box-shadow: -7px 0 0 0 #444;
 }
 
 #tab:hover:after {
 	right: -10px;
 
-	border-radius: 0 0 0 5px;
-	-moz-border-radius: 0 0 0 5px;
-	-webkit-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 7px;
+	-moz-border-radius: 0 0 0 7px;
+	-webkit-border-radius: 0 0 0 7px;
 
-	-webkit-box-shadow: -5px 0 0 0 #333;
-	box-shadow: -5px 0 0 0 #333;
+	-webkit-box-shadow: -7px 0 0 0 #333;
+	box-shadow: -7px 0 0 0 #333;
 }
 
 #tab:active:after {
 	right: -10px;
 
-	border-radius: 0 0 0 5px;
-	-moz-border-radius: 0 0 0 5px;
-	-webkit-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 7px;
+	-moz-border-radius: 0 0 0 7px;
+	-webkit-border-radius: 0 0 0 7px;
 
-	-webkit-box-shadow: -5px 0 0 0 #444;
-	box-shadow: -5px 0 0 0 #444;
+	-webkit-box-shadow: -7px 0 0 0 #444;
+	box-shadow: -7px 0 0 0 #444;
 }
 
 #tab:before {
 	left: -10px;
 
-	border-radius: 0 0 5px 0;
-	-moz-border-radius: 0 0 5px 0;
-	-webkit-border-radius: 0 0 5px 0;
+	border-radius: 0 0 7px 0;
+	-moz-border-radius: 0 0 7px 0;
+	-webkit-border-radius: 0 0 7px 0;
 
-	-webkit-box-shadow: 5px 0 0 0 #444;
-	box-shadow: 5px 0 0 0 #444;
+	-webkit-box-shadow: 7px 0 0 0 #444;
+	box-shadow: 7px 0 0 0 #444;
 }
 
 #tab:hover:before {
 	left: -10px;
 
-	border-radius: 0 0 5px 0;
-	-moz-border-radius: 0 0 5px 0;
-	-webkit-border-radius: 0 0 5px 0;
+	border-radius: 0 0 7px 0;
+	-moz-border-radius: 0 0 7px 0;
+	-webkit-border-radius: 0 0 7px 0;
 
-	-webkit-box-shadow: 5px 0 0 0 #333;
-	box-shadow: 5px 0 0 0 #333;
+	-webkit-box-shadow: 7px 0 0 0 #333;
+	box-shadow: 7px 0 0 0 #333;
 }
 
 #tab:active:before {
 	left: -10px;
 
-	border-radius: 0 0 5px 0;
-	-moz-border-radius: 0 0 5px 0;
-	-webkit-border-radius: 0 0 5px 0;
+	border-radius: 0 0 7px 0;
+	-moz-border-radius: 0 0 7px 0;
+	-webkit-border-radius: 0 0 7px 0;
 
-	-webkit-box-shadow: 5px 0 0 0 #444;
-	box-shadow: 5px 0 0 0 #444;
+	-webkit-box-shadow: 7px 0 0 0 #444;
+	box-shadow: 7px 0 0 0 #444;
 }
 
