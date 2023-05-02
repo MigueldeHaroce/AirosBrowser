@@ -1,4 +1,4 @@
-const tabWrapper = document.querySelector('.tabs');
+const tabWrapper = document.querySelector('.divTabs');
 const addBtn = document.querySelector('.openBtns');
 
 if (addBtn) {
