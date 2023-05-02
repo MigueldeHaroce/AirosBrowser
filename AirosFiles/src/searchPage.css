@@ -159,6 +159,8 @@ body.loaded {
 
 #cross-button {
     position: relative;
+    align-items: center;
+    align-content: center;
 
     width: 20px;
     height: 20px;
