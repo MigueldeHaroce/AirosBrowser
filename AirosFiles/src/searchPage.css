@@ -133,14 +133,14 @@ body.loaded {
 	float: left;
     display: flex;
 
-	width: 70px;
+	width: 90px;
 	padding: 10px 15px;
 	height: 14px;
 
     top: -5px;
 
-    align-items: right;
-    justify-content: right;
+    align-items: left;
+    justify-content: left;
 
 	position: relative;
 
@@ -160,7 +160,7 @@ body.loaded {
 #cross-button {
     position: relative;
     align-items: center;
-
+    margin-left: 30px;
     width: 24px;
     height: 24px;
     top: -4px;
@@ -174,13 +174,29 @@ body.loaded {
     position: relative;
     align-items: center;
 
-    width: 24px;
-    height: 24px;
-    top: -4px;
+    width: 18px;
+    height: 18px;
+    top: -1.5px;
     background-color: transparent;
     border-radius: 50%;
-    animation: close-width 0.2s ease-in-out forwards;
+    animation: logo-width 0.2s ease-in-out forwards;
     cursor: pointer;
+}
+
+#textTab {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    top: -4px;
+    font-size: 12px;
+    font-style: #fff;
+    font-family: 'ABeeZee', sans-serif;
+}
+  
+@font-face {
+    font-family: 'ABeeZee';
+    src: url('icons/ABeeZee-Regular.ttf');
 }
 
 #imgCross {
@@ -217,12 +233,17 @@ body.loaded {
 
 @keyframes tab-width {
   from { width: 0px; }
-  to { width: 90px; }
+  to { width: 120px; }
 }
 
 @keyframes close-width {
     from { width: 0px; }
     to { width: 24px; }
+}
+
+@keyframes logo-width {
+    from { width: 0px; }
+    to { width: 18px; }
 }
 
 #tab:before,
