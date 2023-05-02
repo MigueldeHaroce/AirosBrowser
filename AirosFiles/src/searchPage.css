@@ -157,12 +157,10 @@ body.loaded {
 
 #cross-button {
     position: relative;
-    align-items: center;
-    justify-content: center;
+
     width: 20px;
     height: 20px;
     top: -5px;
-    left: 2px;
     background-color: transparent;
     border-radius: 50%;
     animation: close-width 0.2s ease-in-out forwards;
@@ -171,6 +169,16 @@ body.loaded {
   
 #imgCross {
     opacity: 1;
+    top: -5px;
+    left: 0px;
+}
+
+#cross-button:hover {
+    background-color: #444;
+}
+
+#cross-button:active {
+    background-color: #555;
 }
 
 #imgCross:hover {
