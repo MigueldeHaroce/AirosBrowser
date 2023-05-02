@@ -129,7 +129,7 @@ body.loaded {
 
 }
 /*TAB ANIMATION*/
-#tab {
+.tabs {
 	float: left;
     display: flex;
 
@@ -227,11 +227,11 @@ body.loaded {
 }
 
 
-#tab:hover {
+.tabs:hover {
     background-color: #444; /* change to a darker color on hover */
 }
 
-#tab:active {
+.tabs:active {
     background-color: #333; /* change to a darker color on hover */
 }
 
@@ -250,8 +250,8 @@ body.loaded {
     to { width: 18px; }
 }
 
-#tab:before,
-#tab:after {
+.tabs:before,
+.tabs:after {
 	content: "";
 	position: absolute;
 
@@ -261,7 +261,7 @@ body.loaded {
 	bottom: 0;
 }
 
-#tab:after {
+.tabs:after {
 	right: -10px;
 
 	border-radius: 0 0 0 7px;
@@ -272,7 +272,7 @@ body.loaded {
 	box-shadow: -7px 0 0 0 #333;
 }
 
-#tab:hover:after {
+.tabs:hover:after {
 	right: -10px;
 
 	border-radius: 0 0 0 7px;
@@ -283,7 +283,7 @@ body.loaded {
 	box-shadow: -7px 0 0 0 #444;
 }
 
-#tab:active:after {
+.tabs:active:after {
 	right: -10px;
 
 	border-radius: 0 0 0 7px;
@@ -294,7 +294,7 @@ body.loaded {
 	box-shadow: -7px 0 0 0 #333;
 }
 
-#tab:before {
+.tabs:before {
 	left: -10px;
 
 	border-radius: 0 0 7px 0;
@@ -305,7 +305,7 @@ body.loaded {
 	box-shadow: 7px 0 0 0 #333;
 }
 
-#tab:hover:before {
+.tabs:hover:before {
 	left: -10px;
 
 	border-radius: 0 0 7px 0;
@@ -316,7 +316,7 @@ body.loaded {
 	box-shadow: 7px 0 0 0 #444;
 }
 
-#tab:active:before {
+.tabs:active:before {
 	left: -10px;
 
 	border-radius: 0 0 7px 0;
