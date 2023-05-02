@@ -210,6 +210,19 @@ body.loaded {
     left: 0px;
 }
 
+.openBtns {
+    position: relative;
+    align-items: center;
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    top: -4px;
+    background-color: transparent;
+    border-radius: 50%;
+    animation: close-width 0.2s ease-in-out forwards;
+    cursor: pointer;
+}
+
 #cross-button:hover {
     background-color: #444;
 }
