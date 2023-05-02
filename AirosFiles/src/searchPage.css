@@ -153,14 +153,12 @@ body.loaded {
 }
 
 #cross-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
+    position: relative;
+    width: 5px;
+    height: 5px;
     background-color: #ccc;
     border-radius: 50%;
-    animation: tab-width 0.2s ease-in-out forwards;
+    animation: close-width 0.2s ease-in-out forwards;
 }
   
 
@@ -175,6 +173,11 @@ body.loaded {
 @keyframes tab-width {
   from { width: 0px; }
   to { width: 70px; }
+}
+
+@keyframes close-width {
+    from { width: 0px; }
+    to { width: 5px; }
 }
 
 #tab:before,
