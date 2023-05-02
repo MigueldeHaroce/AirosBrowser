@@ -136,7 +136,10 @@ body.loaded {
 	width: 50px;
 	padding: 10px 15px;
 	height: 10px;
-    
+
+    align-items: right;
+    justify-content: right;
+
 	position: relative;
 
 	background-color: #444;
@@ -154,14 +157,28 @@ body.loaded {
 
 #cross-button {
     position: relative;
-
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
+    top: -5px;
     background-color: transparent;
     border-radius: 50%;
     animation: close-width 0.2s ease-in-out forwards;
 }
   
+#imgCross {
+    opacity: 1;
+}
+
+#imgCross:hover {
+    opacity: 0.8;
+}
+
+#imgCross:active {
+    opacity: 0.5;
+}
+
 
 #tab:hover {
     background-color: #333; /* change to a darker color on hover */
