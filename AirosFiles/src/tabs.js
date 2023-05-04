@@ -98,6 +98,9 @@ tabWrapper.addEventListener('click', (event) => {
     // Switch to the selected webview
     webview.style.display = 'block';
     activeWebview.style.display = 'none';
+    activeWebview.style.height = `${window.innerHeight}px`;
+
     activeWebview = webview;
+    
   }
 });
