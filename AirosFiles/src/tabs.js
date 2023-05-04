@@ -66,3 +66,4 @@ tabWrapper.addEventListener('click', (event) => {
     }, 300);
   }
 });
+

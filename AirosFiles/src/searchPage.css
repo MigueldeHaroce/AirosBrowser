@@ -238,11 +238,11 @@ body.loaded {
     background-color: #444;
 }
 
-#cross-button:hover {
+.cross-button:hover {
     background-color: #444;
 }
 
-#cross-button:active {
+.cross-button:active {
     background-color: #555;
 }
 
