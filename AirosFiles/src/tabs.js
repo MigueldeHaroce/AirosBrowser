@@ -2,7 +2,7 @@ const tabWrapper = document.querySelector('.divTabs');
 const addBtn = document.querySelector('.openBtns');
 const closeBtns = document.querySelectorAll('#cross-button');
 
-let numTabs = 0;
+let numTabs = 1;
 
 if (addBtn) {
   addBtn.addEventListener('click', () => {
@@ -64,7 +64,7 @@ if (closeBtns) {
 
           // Move the add button back to its original position
           const addButtonLeft = addBtn.getBoundingClientRect().left;
-          addBtn.style.left = `${addButtonLeft - tabWidth}px`;
+          addBtn.style.left = `${addButtonLeft}px`;
 
           // Update the number of tabs
           numTabs--;
