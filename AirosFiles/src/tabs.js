@@ -99,11 +99,14 @@ tabWrapper.addEventListener('click', (event) => {
     
     webview.style.display = 'block';
 
-
     activeWebview.style.display = 'none';
 
-
     activeWebview = webview;
-    
+
+    if (activeWebview.querySelectorAll('iframe')) {
+      activeWebview.querySelectorAll('iframe').style.height = '100%';
+    } else {
+      console.log("not found AAA")
+    }
   }
 });
