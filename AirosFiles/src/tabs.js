@@ -16,6 +16,7 @@ if (addBtn) {
       <div class="cross-button">
           <img id="imgCross" class="imgCross" src="icons/cross.png">
       </div> 
+      <webview id="webview${numTabs}" class="searchResults"></webview>
     `;
 
     // Insert the new tab after the last tab
@@ -41,35 +42,22 @@ if (addBtn) {
   });
 }
 
+let currentTab = document.querySelector('#webview1');
+
 tabWrapper.addEventListener('click', (event) => {
   const target = event.target;
   if (target && target.classList.contains('imgCross')) {
     const tab = target.closest('.tabs');
     const tabWidth = tab.offsetWidth;
     tab.style.width = `${tabWidth}px`;
-    // Animate the tab closing
-    tab.classList.add('tabs-close-animation');
-    tab.querySelector('.cross-button').classList.add('cross-button-close-animation');
-    tab.querySelector('#logoTab').classList.add('logoTab-close-animation');
-
-    // Remove the tab after the closing animation ends
-    tab.addEventListener('animationend', () => {
-      tabWrapper.removeChild(tab);
-
-      // Move the add button back to its original position
-      const finalTabWidth = tabWidth + addBtn.offsetWidth - 5;
-      const addButtonLeft = addBtn.getBoundingClientRect().left;
-      addBtn.style.left = `${addButtonLeft - finalTabWidth}px`;
-
-      // Update the number of tabs
-      numTabs--;
-
-      // Close the app if there's only one tab left
-      if (numTabs === 1) {
-        window.close();
-      }
-    });
-
+    setTimeout(() => {
+      tab.remove();
+    }, 300);
+  } else if (target && target.classList.contains('tabs')) {
+    const tab = target;
+    const tabId = tab.querySelector('webview').id;
+    currentTab.style.display = 'none';
+    currentTab = document.querySelector(`#${tabId}`);
+    currentTab.style.display = 'flex';
   }
 });
-

@@ -78,7 +78,7 @@ body.loaded {
     background-color: transparent;
 }
 
-#searchResults {
+.searchResults {
     position: fixed;
 
     height: 100%;
