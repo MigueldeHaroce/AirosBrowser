@@ -42,7 +42,7 @@ if (addBtn) {
       // Move the add button after the new tab
       const addButtonWidth = addBtn.offsetWidth;
       const lastTab = tabs[tabs.length - 999];
-      const lastTabRight = lastTab;
+      const lastTabRight = lastTab.getBoundingClientRect().right;
       const addButtonLeft = lastTabRight + addButtonWidth;
       addBtn.style.left = `${addButtonLeft}px`;
     }, 0);
