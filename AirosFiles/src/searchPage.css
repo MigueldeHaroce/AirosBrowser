@@ -84,16 +84,21 @@ body.loaded {
 }
 
 .webviews {
-  min-height: 100%;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1; /* This moves the webviews behind the tabs */
 }
 
-
 .searchResults {
-  position: fixed;
-  top: 46px;
-  left: 0;
-  height: calc(100% - 46px);
+  position: absolute; /* Change from fixed to absolute */
+  height: 100%;
   width: 100%;
+  margin-top: 46px;
+  left: 0;
+  top: 0;
 }
 
 /*
