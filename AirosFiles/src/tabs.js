@@ -6,6 +6,8 @@ let numTabs = 0;
 
 if (addBtn) {
   addBtn.addEventListener('click', () => {
+
+    numTabs++;
     // Create a new tab element
     const newTab = document.createElement('div');
     newTab.classList.add('tabs');
@@ -21,10 +23,8 @@ if (addBtn) {
 
     // Insert the new tab after the last tab
     const tabs = document.querySelectorAll('.tabs');
-    const lastTab = tabs[tabs.length - 999];
-    const lastTabRight = lastTab ? lastTab.getBoundingClientRect().right : 0;
-    tabWrapper.insertBefore(newTab, lastTab ? lastTab.nextSibling : tabWrapper.firstChild);
-
+    tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
+  
     // Animate the new tab
     const tabWidth = newTab.offsetWidth;
     newTab.style.width = '0px';
@@ -33,15 +33,14 @@ if (addBtn) {
     setTimeout(() => {
       newTab.style.width = `${tabWidth}px`;
       newTab.style.opacity = '1';
+  
+      // Move the add button after the new tab
+      const addButtonWidth = addBtn.offsetWidth;
+      const lastTab = tabs[tabs.length - 2];
+      const lastTabRight = lastTab.getBoundingClientRect().right;
+      const addButtonLeft = lastTabRight + addButtonWidth;
+      addBtn.style.left = `${addButtonLeft}px`;
     }, 0);
-
-    // Move the add button after the new tab
-    const addButtonWidth = addBtn.offsetWidth;
-    const addButtonLeft = addBtn.getBoundingClientRect().left;
-    addBtn.style.left = `${lastTabRight + addButtonWidth}px`;
-
-    // Update the number of tabs
-    numTabs++;
   });
 }
 
