@@ -17,7 +17,7 @@ if (addBtn) {
       <div id="textTab">
           <span id="text">New Tab</span>
       </div>
-      <div class="cross-button">
+      <div id="cross-button" class="cross-button">
           <img class="imgCross" src="icons/cross.png">
       </div> 
     `;
