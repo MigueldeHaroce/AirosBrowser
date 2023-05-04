@@ -101,6 +101,11 @@ body.loaded {
   top: 0;
 }
 
+.searchResults iframe {
+  height: 100%;
+}
+
+
 /*
 .blink {
     animation: blink 0.5s infinite alternate;
