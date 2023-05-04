@@ -100,7 +100,9 @@ tabWrapper.addEventListener('click', (event) => {
     webview.style.display = 'block';
 
 
-    activeWebview.style.display = 'none';;
+    activeWebview.style.display = 'none';
+    activeWebview.querySelector('iframe').style.height = '100%';
+
 
     activeWebview = webview;
     
