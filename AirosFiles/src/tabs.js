@@ -51,7 +51,28 @@ addBtn.addEventListener('click', () => {
 });
 
 xBtn.addEventListener('click', () => {
-  if (tabCount == 1) {
+  const tabs = document.querySelectorAll('.tabs');
+
+  if (tabCount === 1) {
+    // If only one tab is open, close the application
     window.close();
+  } else {
+    // Otherwise, remove the current tab
+    const currentTab = crossButton.parentElement;
+    const currentTabWidth = currentTab.offsetWidth;
+
+    currentTab.style.width = `${currentTabWidth}px`;
+    currentTab.style.opacity = '0';
+
+    setTimeout(() => {
+      currentTab.remove();
+
+      // Move the add button to the right of the last tab
+      const lastTab = tabs[tabs.length - 999];
+      const addButtonWidth = addBtn.offsetWidth;
+      const lastTabWidth = lastTab.offsetWidth;
+      const lastTabRight = lastTab.getBoundingClientRect().right;
+      addBtn.style.left = `${lastTabRight + addButtonWidth}px`;
+    }, 200);
   }
 });
