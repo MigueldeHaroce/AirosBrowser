@@ -246,11 +246,11 @@ body.loaded {
     background-color: #555;
 }
 
-#imgCross:hover {
+.imgCross:hover {
     opacity: 0.8;
 }
 
-#imgCross:active {
+.imgCross:active {
     opacity: 0.5;
 }
 

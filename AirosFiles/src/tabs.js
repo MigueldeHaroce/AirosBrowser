@@ -1,6 +1,6 @@
 const tabWrapper = document.querySelector('.divTabs');
 const addBtn = document.querySelector('.openBtns');
-let numTabs = 1;
+let numTabs = 2;
 
 if (addBtn) {
   addBtn.addEventListener('click', () => {
@@ -14,7 +14,7 @@ if (addBtn) {
           <span id="text">New Tab</span>
       </div>
       <div class="cross-button">
-          <img class="imgCross" src="icons/cross.png">
+          <img id="imgCross" class="imgCross" src="icons/cross.png">
       </div> 
     `;
 
