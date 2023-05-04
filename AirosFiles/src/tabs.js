@@ -24,12 +24,10 @@ if (addBtn) {
     const tabs = document.querySelectorAll('.tabs');
     tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
 
-    // Create a new webview element
     const newWebview = document.createElement('webview');
     newWebview.classList.add('searchResults');
     newWebview.src = 'https://www.google.com';
 
-    // Add the new webview to the webviews wrapper
     webviewsWrapper.appendChild(newWebview);
 
     // Animate the new tab
@@ -49,10 +47,42 @@ if (addBtn) {
       addBtn.style.left = `${addButtonLeft}px`;
     }, 0);
 
-    // Set the active webview to the new webview
     activeWebview = newWebview;
+
   });
 }
+
+tabWrapper.addEventListener('click', (event) => {
+  const target = event.target;
+  if (target && target.classList.contains('imgCross')) {
+    const tab = target.closest('.tabs');
+    const tabWidth = tab.offsetWidth;
+    tab.style.width = `${tabWidth}px`;
+    // Animate the tab closing
+    tab.classList.add('tabs-close-animation');
+    tab.querySelector('.cross-button').classList.add('cross-button-close-animation');
+    tab.querySelector('#logoTab').classList.add('logoTab-close-animation');
+
+    // Remove the tab after the closing animation ends
+    tab.addEventListener('animationend', () => {
+      tabWrapper.removeChild(tab);
+
+      // Move the add button back to its original position
+      const finalTabWidth = tabWidth + addBtn.offsetWidth - 5;
+      const addButtonLeft = addBtn.getBoundingClientRect().left;
+      addBtn.style.left = `${addButtonLeft - finalTabWidth}px`;
+
+      // Update the number of tabs
+      numTabs--;
+
+      // Close the app if there's only one tab left
+      if (numTabs === 1) {
+        window.close();
+      }
+    });
+
+  }
+});
 
 tabWrapper.addEventListener('click', (event) => {
   const targetTab = event.target.closest('.tabs');

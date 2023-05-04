@@ -78,6 +78,13 @@ body.loaded {
     background-color: transparent;
 }
 
+.webviews {
+    position: fixed;
+
+    height: 100%;
+    width: 100%;
+}
+
 .searchResults {
     position: fixed;
 
