@@ -1,11 +1,12 @@
 const tabWrapper = document.querySelector('.divTabs');
 const addBtn = document.querySelector('.openBtns');
+const xBtn = document.querySelector('#cross-button')
 
-if (addBtn) {
-  console.log('works');
-}
+let tabCount = 1
 
 addBtn.addEventListener('click', () => {
+  
+  tabCount++;
   // Create a new tab element
   const newTab = document.createElement('div');
   newTab.classList.add('tabs');
@@ -39,4 +40,18 @@ addBtn.addEventListener('click', () => {
     const addButtonLeft = lastTabRight + addButtonWidth;
     addBtn.style.left = `${addButtonLeft}px`;
   }, 0);
+  search();
+
+  function search() {
+      const query = ``;
+
+  };
+
+
+});
+
+xBtn.addEventListener('click', () => {
+  if (tabCount == 1) {
+    window.close();
+  }
 });
