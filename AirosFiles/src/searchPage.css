@@ -157,7 +157,7 @@ body.loaded {
     -webkit-app-region: none;
 }
 
-#cross-button {
+.cross-button {
     position: relative;
     align-items: center;
     margin-left: 30px;
