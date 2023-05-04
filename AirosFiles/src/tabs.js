@@ -33,7 +33,7 @@ if (addBtn) {
 
       // Move the add button after the new tab
       const addButtonWidth = addBtn.offsetWidth;
-      const lastTab = tabs[tabs.length - 2];
+      const lastTab = tabs[tabs.length - 999];
       const lastTabRight = lastTab.getBoundingClientRect().right;
       const addButtonLeft = lastTabRight + addButtonWidth;
       addBtn.style.left = `${addButtonLeft}px`;
@@ -47,23 +47,29 @@ tabWrapper.addEventListener('click', (event) => {
     const tab = target.closest('.tabs');
     const tabWidth = tab.offsetWidth;
     tab.style.width = `${tabWidth}px`;
-    tab.style.opacity = '0';
-    setTimeout(() => {
+    // Animate the tab closing
+    tab.classList.add('tabs-close-animation');
+    tab.querySelector('.cross-button').classList.add('cross-button-close-animation');
+    tab.querySelector('#logoTab').classList.add('logoTab-close-animation');
+
+    // Remove the tab after the closing animation ends
+    tab.addEventListener('animationend', () => {
       tabWrapper.removeChild(tab);
 
       // Move the add button back to its original position
+      const finalTabWidth = tabWidth + addBtn.offsetWidth - 5;
       const addButtonLeft = addBtn.getBoundingClientRect().left;
-      addBtn.style.left = `${addButtonLeft - tabWidth}px`;
-      
+      addBtn.style.left = `${addButtonLeft - finalTabWidth}px`;
 
       // Update the number of tabs
       numTabs--;
-      
+
       // Close the app if there's only one tab left
       if (numTabs === 1) {
         window.close();
       }
-    }, 300);
+    });
+
   }
 });
 

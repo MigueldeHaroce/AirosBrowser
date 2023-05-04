@@ -354,3 +354,53 @@ body.loaded {
 	-webkit-box-shadow: 7px 0 0 0 #333;
 	box-shadow: 7px 0 0 0 #333;
 }
+
+.tabs-close-animation {
+  animation-name: tab-width-reverse;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.cross-button-close-animation {
+  animation-name: close-width-reverse;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+#logoTab-close-animation {
+  animation-name: logo-width-reverse;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes tab-width-reverse {
+  from {
+    width: 90px;
+  }
+  to {
+    width: 0px;
+  }
+}
+
+@keyframes close-width-reverse {
+  from {
+    width: 24px;
+  }
+  to {
+    width: 0px;
+  }
+}
+
+@keyframes logo-width-reverse {
+  from {
+    width: 18px;
+    height: 18px;
+  }
+  to {
+    width: 0px;
+    height: 0px;
+  }
+}
