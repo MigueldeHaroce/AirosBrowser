@@ -53,7 +53,7 @@ tabWrapper.addEventListener('click', (event) => {
 
       // Move the add button back to its original position
       const addButtonLeft = addBtn.getBoundingClientRect().left;
-      addBtn.style.left = `${addButtonLeft - tabWidth}px`;
+      addBtn.style.left = `${addButtonLeft}px`;
 
       // Update the number of tabs
       numTabs--;
