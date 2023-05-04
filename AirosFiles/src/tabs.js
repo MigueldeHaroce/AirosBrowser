@@ -52,7 +52,7 @@ tabWrapper.addEventListener('click', (event) => {
       tabWrapper.removeChild(tab);
 
       // Move the add button back to its original position
-      const addButtonLeft = addBtn.getBoundingClientRect().left;
+      const addButtonLeft = addBtn.getBoundingClientRect().right;
       addBtn.style.left = `${addButtonLeft}px`;
 
       // Update the number of tabs
