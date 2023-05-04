@@ -5,7 +5,6 @@ let numTabs = 2;
 if (addBtn) {
   addBtn.addEventListener('click', () => {
     numTabs++;
-
     // Create a new tab element
     const newTab = document.createElement('div');
     newTab.classList.add('tabs');
@@ -18,14 +17,6 @@ if (addBtn) {
           <img id="imgCross" class="imgCross" src="icons/cross.png">
       </div> 
     `;
-
-    // Create a new webview element
-    const newWebView = document.createElement('webview');
-    newWebView.setAttribute('id', `searchResults${numTabs}`);
-    newWebView.setAttribute('src', 'https://www.google.com');
-
-    // Append the new webview element to the tab element
-    newTab.appendChild(newWebView);
 
     // Insert the new tab after the last tab
     const tabs = document.querySelectorAll('.tabs');
@@ -56,25 +47,29 @@ tabWrapper.addEventListener('click', (event) => {
     const tab = target.closest('.tabs');
     const tabWidth = tab.offsetWidth;
     tab.style.width = `${tabWidth}px`;
-    tab.style.opacity = '0';
+    // Animate the tab closing
+    tab.classList.add('tabs-close-animation');
+    tab.querySelector('.cross-button').classList.add('cross-button-close-animation');
+    tab.querySelector('#logoTab').classList.add('logoTab-close-animation');
 
-    // Remove the associated webview element
-    const webviewId = `searchResults${numTabs}`;
-    const webview = document.getElementById(webviewId);
-    if (webview) {
-      webview.remove();
-    }
+    // Remove the tab after the closing animation ends
+    tab.addEventListener('animationend', () => {
+      tabWrapper.removeChild(tab);
 
-    setTimeout(() => {
-      tab.remove();
+      // Move the add button back to its original position
+      const finalTabWidth = tabWidth + addBtn.offsetWidth - 5;
+      const addButtonLeft = addBtn.getBoundingClientRect().left;
+      addBtn.style.left = `${addButtonLeft - finalTabWidth}px`;
 
-      // Move the add button after the last tab
-      const addButtonWidth = addBtn.offsetWidth;
-      const tabs = document.querySelectorAll('.tabs');
-      const lastTab = tabs[tabs.length - 2];
-      const lastTabRight = lastTab.getBoundingClientRect().right;
-      const addButtonLeft = lastTabRight + addButtonWidth;
-      addBtn.style.left = `${addButtonLeft}px`;
-    }, 250);
+      // Update the number of tabs
+      numTabs--;
+
+      // Close the app if there's only one tab left
+      if (numTabs === 1) {
+        window.close();
+      }
+    });
+
   }
 });
+
