@@ -1,113 +1,55 @@
-const tabWrapper = document.querySelector('.divTabs');
 const addBtn = document.querySelector('.openBtns');
-const webviewsWrapper = document.getElementById('webviews');
-let numTabs = 2;
-let activeWebview = document.getElementById('searchResults');
+
+const tabs = document.querySelector('.divTabs');
+tabs.style.flexGrow = 1;
+
+const webviewsWrapper = document.querySelector('.webviews');
+webviewsWrapper.style.height = '100%';
 
 if (addBtn) {
   addBtn.addEventListener('click', () => {
-    numTabs++;
     // Create a new tab element
     const newTab = document.createElement('div');
     newTab.classList.add('tabs');
-    newTab.innerHTML = `
-      <img id="logoTab" src="icons/logo18pxMono.png"></img>
-      <div id="textTab">
-          <span id="text">New Tab</span>
-      </div>
-      <div class="cross-button">
-          <img id="imgCross" class="imgCross" src="icons/cross.png">
-      </div> 
-    `;
-
-    // Insert the new tab after the last tab
-    const tabs = document.querySelectorAll('.tabs');
-    tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
+    // ...
+    
+    // Insert the new tab 
+    tabs.appendChild(newTab);
 
     const newWebview = document.createElement('webview');
     newWebview.classList.add('searchResults');
     newWebview.src = 'https://www.google.com';
-    
-    const newIframe = document.createElement('iframe');
-    newIframe.style.height = '100%';
-    newWebview.appendChild(newIframe);
-    
     webviewsWrapper.appendChild(newWebview);
-    
 
-    // Animate the new tab
-    const tabWidth = newTab.offsetWidth;
-    newTab.style.width = '0px';
-    newTab.style.opacity = '0';
-    newTab.style.display = 'flex';
-    setTimeout(() => {
-      newTab.style.width = `${tabWidth}px`;
-      newTab.style.opacity = '1';
+    // Switch to the new tab
+    newTab.style.flexGrow = 1;
+    tabs.querySelectorAll('.tabs').forEach(t => t.style.flexGrow = 0);
 
-      // Move the add button after the new tab
-      const addButtonWidth = addBtn.offsetWidth;
-      const lastTab = tabs[tabs.length - 999];
-      const lastTabRight = lastTab.getBoundingClientRect().right;
-      const addButtonLeft = lastTabRight + addButtonWidth;
-      addBtn.style.left = `${addButtonLeft}px`;
-    }, 0);
-
-    activeWebview = newWebview;
-
-  });
+    // Show the new webview
+    newWebview.style.flexGrow = 1;
+    webviewsWrapper.querySelectorAll('.searchResults').forEach(w => w.style.flexGrow = 0);
+  }); 
 }
 
 tabWrapper.addEventListener('click', (event) => {
   const target = event.target;
-  if (target && target.classList.contains('imgCross')) {
-    const tab = target.closest('.tabs');
-    const tabWidth = tab.offsetWidth;
-    tab.style.width = `${tabWidth}px`;
-    // Animate the tab closing
-    tab.classList.add('tabs-close-animation');
-    tab.querySelector('.cross-button').classList.add('cross-button-close-animation');
-    tab.querySelector('#logoTab').classList.add('logoTab-close-animation');
-
-    // Remove the tab after the closing animation ends
-    tab.addEventListener('animationend', () => {
-      tabWrapper.removeChild(tab);
-
-      // Move the add button back to its original position
-      const finalTabWidth = tabWidth + addBtn.offsetWidth - 5;
-      const addButtonLeft = addBtn.getBoundingClientRect().left;
-      addBtn.style.left = `${addButtonLeft - finalTabWidth}px`;
-
-      // Update the number of tabs
-      numTabs--;
-
-      // Close the app if there's only one tab left
-      if (numTabs === 1) {
-        window.close();
-      }
-    });
-
+  if (target && target.classList.contains('imgCross')) { 
+    // ... Animate and remove tab
   }
 });
 
 tabWrapper.addEventListener('click', (event) => {
   const targetTab = event.target.closest('.tabs');
   if (targetTab && targetTab !== addBtn) {
-    // Get the index of the selected tab
-    const tabs = document.querySelectorAll('.tabs');
-    const index = Array.from(tabs).indexOf(targetTab);
+    // Switch to the selected tab
+    targetTab.style.flexGrow = 1;
+    tabs.querySelectorAll('.tabs').forEach(t => t.style.flexGrow = 0);
 
-    // Get the corresponding webview
+    // Show the corresponding webview
+    const index = Array.from(tabs).indexOf(targetTab);
     const webviews = document.querySelectorAll('.searchResults');
     const webview = webviews[index];
-
-    // Switch to the selected webview
-    
-    webview.style.display = 'block';
-
-    activeWebview.style.display = 'none';
-
-    activeWebview = webview;
-
-
+    webview.style.flexGrow = 1;
+    webviewsWrapper.querySelectorAll('.searchResults').forEach(w => w.style.flexGrow = 0);
   }
 });
