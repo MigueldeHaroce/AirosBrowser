@@ -27,9 +27,9 @@ if (addBtn) {
     const newWebview = document.createElement('webview');
     newWebview.classList.add('searchResults');
     newWebview.src = 'https://www.google.com';
-    newWebview.onload = function() {
-      newWebview.querySelector('iframe').style.height = "100%";
-    };
+    
+    newWebview.style.height = "100%";
+    
     webviewsWrapper.appendChild(newWebview);
 
     // Animate the new tab
