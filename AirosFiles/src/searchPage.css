@@ -149,6 +149,9 @@ body.loaded {
 }
 /*TAB ANIMATION*/
 .tabs {
+
+    flex-grow: 0.5;
+
 	float: left;
     display: flex;
 
