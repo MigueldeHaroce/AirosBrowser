@@ -28,9 +28,12 @@ if (addBtn) {
     newWebview.classList.add('searchResults');
     newWebview.src = 'https://www.google.com';
     
-    newWebview.style.height = "100%";
+    const newIframe = document.createElement('iframe');
+    newIframe.style.height = '100%';
+    newWebview.appendChild(newIframe);
     
     webviewsWrapper.appendChild(newWebview);
+    
 
     // Animate the new tab
     const tabWidth = newTab.offsetWidth;
