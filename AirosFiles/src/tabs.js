@@ -23,17 +23,13 @@ if (addBtn) {
     // Insert the new tab after the last tab
     const tabs = document.querySelectorAll('.tabs');
     tabWrapper.insertBefore(newTab, tabs[tabs.length - 1].nextSibling);
-    
+
     const newWebview = document.createElement('webview');
     newWebview.classList.add('searchResults');
+    newWebview.style
     newWebview.src = 'https://www.google.com';
-    
-    const newIframe = document.createElement('iframe');
-    newIframe.style.height = '100%';
-    newWebview.appendChild(newIframe);
-    
+
     webviewsWrapper.appendChild(newWebview);
-    
 
     // Animate the new tab
     const tabWidth = newTab.offsetWidth;
@@ -101,11 +97,9 @@ tabWrapper.addEventListener('click', (event) => {
     const webview = webviews[index];
 
     // Switch to the selected webview
-    
     webview.style.display = 'block';
-
     activeWebview.style.display = 'none';
-
+    activeWebview.style.position = 'fixed';
     activeWebview = webview;
   }
 });
