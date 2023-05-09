@@ -27,12 +27,14 @@ if (addBtn) {
     const newWebview = document.createElement('webview');
     newWebview.classList.add('searchResults');
     newWebview.src = 'https://www.google.com';
-    newWebview.addEventListener('load', () => {
-      const iframe = newWebview.querySelector('iframe');
-      iframe.style.height = '100%';
-    });
+    
+    const newIframe = document.createElement('iframe');
+    newIframe.style.height = '100%';
+    newWebview.appendChild(newIframe);
+    
     webviewsWrapper.appendChild(newWebview);
     
+
     // Animate the new tab
     const tabWidth = newTab.offsetWidth;
     newTab.style.width = '0px';
