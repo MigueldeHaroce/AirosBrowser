@@ -502,8 +502,16 @@ input[type="text"] {
     margin-right: 28px;
 }
 
+#noWifiBtn {
+    top: 1px;
+}
+
+#noWifiBtn:hover {
+    opacity: 0.8;
+}
+
 #noWifiBtn:active {
-    content: url("icons/globalrefreshbold.png");
+    opacity: 0.6;
 }
 
 #passwordLogo:active {

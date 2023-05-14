@@ -42,10 +42,11 @@
                     function checkInternetConnection() {
                         if (navigator.onLine) {
                             // Hide the 'noWifiBtn' if there is an internet connection
-                            noWifiBtn.style.display = 'flex';
+                            noWifiBtn.style.display = 'block';
                         } else {
                             // Show the 'noWifiBtn' if there is no internet connection
                             noWifiBtn.style.display = 'block';
+                            noWifiBtn.setAttribute('title', 'No Wi-Fi Connection');
                         }
                     }
 
