@@ -104,9 +104,6 @@ body.loaded {
 
 }
 
-
-
-
 /*
 .blink {
     animation: blink 0.5s infinite alternate;
@@ -438,10 +435,7 @@ body.loaded {
 
 #leftLogos{
     position: relative;
-    top: 2px;
     left: 14px;
-    width: 100%;
-    height: 100%;
     align-items: left;
     display: inline-flex;
     justify-content: space-between;
@@ -460,4 +454,20 @@ body.loaded {
     top: 45px;
     left: 0px;
     -webkit-app-region: drag;
+}
+
+#leftLogo:active {
+    content: url("icons/arrowcircleleftbold.png");
+}
+
+#rightLogo:active {
+    content: url("icons/arrowcirclerightbold.png");
+}
+
+#reloadLogo:active {
+    content: url("icons/arrowrotaterightbold.png");
+}
+
+#homeLogo:active {
+    content: url("icons/home3bold.png");
 }
