@@ -35,28 +35,23 @@
                 <div id="rightLogos" class="child">
                     <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
                     <script>
-                        // Get the 'noWifiBtn' element
-                    const noWifiBtn = document.getElementById('noWifiBtn');
+                        const noWifiBtn = document.getElementById('noWifiBtn');
 
-                    // Function to check if there is an internet connection
-                    function checkInternetConnection() {
-                        if (navigator.onLine) {
-                            // Hide the 'noWifiBtn' if there is an internet connection
-                            noWifiBtn.style.display = 'block';
-                        } else {
-                            // Show the 'noWifiBtn' if there is no internet connection
-                            noWifiBtn.style.display = 'block';
-                            noWifiBtn.setAttribute('title', 'No Wi-Fi Connection');
+                        // Function to check if there is an internet connection
+                        function checkInternetConnection() {
+                            if (navigator.onLine) {
+                                noWifiBtn.style.display = 'flex';
+                                noWifiBtn.style.top = "2px";
+                                noWifiBtn.setAttribute('title', 'No Wi-Fi Connection'); 
+                            } else {
+                                noWifiBtn.style.display = 'block';
+                            }
                         }
-                    }
 
-                    // Call the function initially to check the internet connection
-                    checkInternetConnection();
+                        checkInternetConnection();
 
-                    // Add event listener for the online and offline events
-                    window.addEventListener('online', checkInternetConnection);
-                    window.addEventListener('offline', checkInternetConnection);
-
+                        window.addEventListener('online', checkInternetConnection);
+                        window.addEventListener('offline', checkInternetConnection);
                     </script>
                     <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
                     <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
