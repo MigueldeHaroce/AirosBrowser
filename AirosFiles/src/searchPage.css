@@ -15,7 +15,7 @@ body.loaded {
 
 .top-bar {
     background-color: #202020;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid #333;
     border-left: 3px solid #000;
     border-right: 3px solid #000;
     border-top: 3px solid #000;
@@ -97,7 +97,7 @@ body.loaded {
   position: absolute; /* Change from fixed to absolute */
   height: 100%;
   width: 100%;
-  margin-top: 46px;
+  margin-top: 96px;
   left: 0;
   top: 0;
   -webkit-app-region: none;
@@ -150,7 +150,7 @@ body.loaded {
 
 	width: 90px;
 	padding: 10px 15px;
-	height: 14px;
+	height: 15px;
 
     top: -5px;
 
@@ -421,8 +421,9 @@ body.loaded {
 }
 
 #searchBar {
+    border-top: 3px solid #333;
     position: fixed;
-    background-color: #2C2C2C;
+    background-color: #333;
     height: 50px;
     width: 100%;
     top: 45px;
@@ -447,8 +448,9 @@ body.loaded {
 }
 
 #lowBar {
+    border-top: 3px solid #333;
     position: fixed;
-    background-color: #2C2C2C;
+    background-color: #333;
     width: 100%;
     height: 50px;
     top: 45px;
