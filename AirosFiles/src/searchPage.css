@@ -433,8 +433,6 @@ body.loaded {
 }
 
 #leftLogos{
-    flex: 10px;
-
     left: 14px;
     align-items: left;
     display: inline-flex;
@@ -477,7 +475,6 @@ body.loaded {
 
 input[type="text"] {
     background-color: #ddd;
-    height: 40px;
     padding: 10px;
     border: 1px solid #202020;
     border-width: 3px;
@@ -491,7 +488,6 @@ input[type="text"] {
 }
 
 #rightLogos {
-    flex: 10px;
     align-items: left;
     display: inline-flex;
     justify-content: space-between;
