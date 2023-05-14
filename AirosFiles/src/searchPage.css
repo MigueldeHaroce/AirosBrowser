@@ -424,9 +424,11 @@ body.loaded {
     position: fixed;
     background-color: #2C2C2C;
     height: 50px;
+    width: 100%;
     top: 45px;
     left: 0px;
     margin-left: 14px;
+    margin-right: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -451,6 +453,7 @@ body.loaded {
     height: 50px;
     top: 45px;
     left: 0px;
+    margin-right: 14px;
     -webkit-app-region: none;
 }
 
@@ -471,7 +474,7 @@ body.loaded {
 }
 
 #textInput {
-    flex: 1; /* Added this line */
+    flex: 2; /* Added this line */
     width: 100%;
     margin-left: 10px;
 }
@@ -488,6 +491,7 @@ input[type="text"] {
     outline: none;
     padding-left: 13px;
     padding-right: 15px;
+    width: 100%;
 }
 
 #rightLogos {
@@ -495,6 +499,7 @@ input[type="text"] {
     display: inline-flex;
     justify-content: space-between;
     margin-left: 10px;
+    margin-right: 28px;
 }
 
 #noWifiBtn:active {
@@ -508,3 +513,4 @@ input[type="text"] {
 #configMenuLogo:active {
     content: url("icons/hambergermenubold.png");
 }
+
