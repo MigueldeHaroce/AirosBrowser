@@ -434,6 +434,7 @@ body.loaded {
 
 #leftLogos{
     left: 14px;
+    align-items: left;
     display: inline-flex;
     justify-content: space-between;
 }
@@ -490,6 +491,7 @@ input[type="text"] {
 }
 
 #rightLogos {
+    align-items: left;
     display: inline-flex;
     justify-content: space-between;
     margin-left: 10px;
