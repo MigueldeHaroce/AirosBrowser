@@ -34,6 +34,37 @@
                 </div>
                 <div id="rightLogos" class="child">
                     <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
+                    <script>
+                        const wifi = require('node-wifi');
+                        // Function to check if Wi-Fi is available
+                        function checkWifiStatus() {
+                            wifi.init({
+                                iface: null // Use the default network interface
+                            });
+
+                            wifi.scan((error, networks) => {
+                                if (error) {
+                                    console.log(error);
+                                    return;
+                                }
+
+                                const hasWifi = networks.length > 0;
+
+                                // Get the 'noWifiBtn' element
+                                const noWifiBtn = document.getElementById('noWifiBtn');
+
+                                // Show or hide the 'noWifiBtn' based on Wi-Fi availability
+                                if (hasWifi) {
+                                    noWifiBtn.style.display = 'none';
+                                } else {
+                                    noWifiBtn.style.display = 'block';
+                                }
+                            });
+                        }
+
+                        // Call the function initially to check Wi-Fi status
+                        checkWifiStatus();
+                    </script>
                     <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
                     <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
 
