@@ -423,18 +423,16 @@ body.loaded {
 #searchBar {
     position: fixed;
     background-color: #2C2C2C;
-    width: 100%;
     height: 50px;
     top: 45px;
     left: 0px;
-    -webkit-app-region: drag;
+    margin-left: 14px;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
 }
 
 #leftLogos{
-    position: relative;
     left: 14px;
     align-items: left;
     display: inline-flex;
@@ -453,7 +451,6 @@ body.loaded {
     height: 50px;
     top: 45px;
     left: 0px;
-    -webkit-app-region: drag;
 }
 
 #leftLogo:active {
@@ -471,3 +468,27 @@ body.loaded {
 #homeLogo:active {
     content: url("icons/home3bold.png");
 }
+
+#textInput {
+    align-items: left;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    background-color: #ddd;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #202020;
+    border-width: 3px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: 'ABeeZee', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    padding-left: 13px;
+    padding-right: 15px;
+}
+
