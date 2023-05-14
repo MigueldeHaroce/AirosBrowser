@@ -35,35 +35,27 @@
                 <div id="rightLogos" class="child">
                     <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
                     <script>
-                        const wifi = require('node-wifi');
-                        // Function to check if Wi-Fi is available
-                        function checkWifiStatus() {
-                            wifi.init({
-                                iface: null // Use the default network interface
-                            });
+                        // Get the 'noWifiBtn' element
+                    const noWifiBtn = document.getElementById('noWifiBtn');
 
-                            wifi.scan((error, networks) => {
-                                if (error) {
-                                    console.log(error);
-                                    return;
-                                }
-
-                                const hasWifi = networks.length > 0;
-
-                                // Get the 'noWifiBtn' element
-                                const noWifiBtn = document.getElementById('noWifiBtn');
-
-                                // Show or hide the 'noWifiBtn' based on Wi-Fi availability
-                                if (hasWifi) {
-                                    noWifiBtn.style.display = 'none';
-                                } else {
-                                    noWifiBtn.style.display = 'block';
-                                }
-                            });
+                    // Function to check if there is an internet connection
+                    function checkInternetConnection() {
+                        if (navigator.onLine) {
+                            // Hide the 'noWifiBtn' if there is an internet connection
+                            noWifiBtn.style.display = 'flex';
+                        } else {
+                            // Show the 'noWifiBtn' if there is no internet connection
+                            noWifiBtn.style.display = 'block';
                         }
+                    }
 
-                        // Call the function initially to check Wi-Fi status
-                        checkWifiStatus();
+                    // Call the function initially to check the internet connection
+                    checkInternetConnection();
+
+                    // Add event listener for the online and offline events
+                    window.addEventListener('online', checkInternetConnection);
+                    window.addEventListener('offline', checkInternetConnection);
+
                     </script>
                     <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
                     <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
