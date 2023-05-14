@@ -427,12 +427,14 @@ body.loaded {
     top: 45px;
     left: 0px;
     margin-left: 14px;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 #leftLogos{
+    flex: 10px;
+
     left: 14px;
     align-items: left;
     display: inline-flex;
@@ -470,15 +472,11 @@ body.loaded {
 }
 
 #textInput {
-    align-items: left;
-    display: inline-flex;
-    justify-content: space-between;
     margin-left: 10px;
 }
 
 input[type="text"] {
     background-color: #ddd;
-    width: 100%;
     height: 40px;
     padding: 10px;
     border: 1px solid #202020;
@@ -493,6 +491,7 @@ input[type="text"] {
 }
 
 #rightLogos {
+    flex: 10px;
     align-items: left;
     display: inline-flex;
     justify-content: space-between;
