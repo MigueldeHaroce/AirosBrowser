@@ -492,3 +492,21 @@ input[type="text"] {
     padding-right: 15px;
 }
 
+#rightLogos {
+    align-items: left;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+#noWifiBtn:active {
+    content: url("icons/globalrefreshbold.png");
+}
+
+#passwordLogo:active {
+    content: url("icons/keysquarebold.png");
+}
+
+#configMenuLogo:active {
+    content: url("icons/hambergermenubold.png");
+}
