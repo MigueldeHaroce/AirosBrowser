@@ -104,6 +104,9 @@ tabWrapper.addEventListener('click', (event) => {
     
     ipcRenderer.on('search-results-actual', (results) => { // no event here, only results  
       activeWebview.src = results;
+      if (index === 0) {
+        webview.src = results;
+      }
     });
   }
 });
