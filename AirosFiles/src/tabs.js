@@ -102,12 +102,11 @@ tabWrapper.addEventListener('click', (event) => {
     activeWebview.style.position = 'fixed';
     activeWebview.style.height = '100%'
     activeWebview = webview;
-    
     ipcRenderer.on('search-results-actual', (results) => { // no event here, only results  
+
       activeWebview.src = results;
-      if (index === 0) {
-        newWebview.src = results;
-      }
+
     });
+
   }
 });
