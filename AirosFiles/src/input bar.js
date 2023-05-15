@@ -7,7 +7,6 @@ if (event.key === 'Enter') {
 });
 
 function search() {
-    const searchTerm = textInput.value;
-    const query = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
-    ipcRenderer.send('searchActual', query);
+    const query = textInput.value;
+    ipcRenderer.send('search', query);
 };
