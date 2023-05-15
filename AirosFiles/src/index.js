@@ -102,3 +102,26 @@ ipcMain.on('pull-search', (event, searchID) => {
     event.sender.send('search-results', { error: "Unknown ID" });
   }
 });
+
+ipcMain.on('searchActual', (event, query) => {
+  const url = query;
+  console.log(query);
+  console.log(url);
+  const searchID = "ID-" + new Date().getTime();
+  resultsStack[searchID] = url;
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchPage.html?searchID='+ searchID);
+});
+
+ipcMain.on('pull-search', (event, searchID) => {
+  console.log(searchID);
+  console.log(resultsStack[ searchID ]);
+
+  if (resultsStack[ searchID ]) {
+    event.sender.send('search-results', resultsStack[ searchID ]);
+    delete resultsStack[ searchID ];
+  } else {
+    console.log("no id");
+    event.sender.send('search-results', { error: "Unknown ID" });
+  }
+});
+
