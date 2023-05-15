@@ -8,5 +8,5 @@ if (event.key === 'Enter') {
 
 function search() {
     const query = textInput.value;
-    ipcRenderer.send('search', query);
+    ipcRenderer.send('searchBarActual', query);
 };

@@ -103,4 +103,9 @@ ipcMain.on('pull-search', (event, searchID) => {
   }
 });
 
-
+ipcMain.on('searchBarActual', (event, query) => {
+  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  console.log(query);
+  console.log(url);
+  event.sender.send('search-results-actual', url)
+});
