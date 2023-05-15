@@ -101,11 +101,14 @@ tabWrapper.addEventListener('click', (event) => {
     activeWebview.style.display = 'none';
     activeWebview.style.position = 'fixed';
     activeWebview = webview;
+
+    const lastURL = activeWebview.src;
     
     ipcRenderer.on('search-results-actual', (results) => { // no event here, only results  
       if (activeWebview && results) {
         activeWebview.src = results;
       }
+      activeWebview.src = activeWebview.src;
     });
   }
 });
