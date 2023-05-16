@@ -56,10 +56,8 @@
                 }
             </style>
             </button>
-
             
             <button id="amazonBtn" class="shourcutsBtns"></button>
-
             <button id="githubBtn" class="shourcutsBtns"></button>
             <button id="discordBtn" class="shourcutsBtns"></button>
             <button id="gmailBtn" class="shourcutsBtns"></button>
@@ -68,6 +66,7 @@
             <button id="spotiBtn" class="shourcutsBtns"></button>
             <button id="driveBtn" class="shourcutsBtns"></button>
             <button id="youtubeBtn" class="shourcutsBtns"></button>
+
             <script>
                 const amazonBtn = document.getElementById('amazonBtn');
 
@@ -93,42 +92,42 @@
                 const gmailBtn = document.getElementById('gmailBtn');
 
                 gmailBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://www.gmail.com/`;
                     ipcRenderer.send('search', query);
                 });
 
                 const twitterBtn = document.getElementById('twitterBtn');
 
                 twitterBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://www.twitter.com/`;
                     ipcRenderer.send('search', query);
                 });
 
                 const steamBtn = document.getElementById('steamBtn');
 
                 steamBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://store.steampowered.com/`;
                     ipcRenderer.send('search', query);
                 });
 
                 const spotiBtn = document.getElementById('spotiBtn');
 
                 spotiBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://open.spotify.com/`;
                     ipcRenderer.send('search', query);
                 });
 
                 const driveBtn = document.getElementById('driveBtn');
 
                 driveBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://drive.google.com/`;
                     ipcRenderer.send('search', query);
                 });
 
                 const youtubeBtn = document.getElementById('youtubeBtn');
 
                 youtubeBtn.addEventListener('click', () => {
-                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    const query = `https://www.youtube.com`;
                     ipcRenderer.send('search', query);
                 });
 
