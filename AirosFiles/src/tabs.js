@@ -106,6 +106,7 @@ tabWrapper.addEventListener('click', (event) => {
 
       activeWebview.src = `https://www.google.com/search?q=${encodeURIComponent(results)}`;
 
+      ipcRenderer.send('addHistory', results);
     });
 
   }

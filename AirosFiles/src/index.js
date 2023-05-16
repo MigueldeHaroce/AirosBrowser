@@ -125,3 +125,7 @@ ipcMain.on('goMenu', (event) => {
     }
   });
 });
+
+ipcMain.on('addHistory', (event, results) => {
+  event.sender.send('addHistoryList', results)
+});

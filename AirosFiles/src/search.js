@@ -54,3 +54,8 @@ leftLogo.addEventListener('click', () => {
     searchResults.src = previousResult;
   }
 });
+
+ipcRenderer.on('addHistoryList', (results) => {
+  searchHistory.push(results);
+  console.log(searchHistory);
+});
