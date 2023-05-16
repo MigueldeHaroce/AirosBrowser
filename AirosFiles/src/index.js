@@ -116,9 +116,9 @@ ipcMain.on('goMenu', (event) => {
     buttons: ['Yes', 'No'],
     defaultId: 0,
     title: 'Confirmation',
-    message: 'Are you sure you want to press the button?'
-  }, (response) => {
-    if (response === 0) {
+    message: 'This will resset all tabs'
+  }).then((response) => {
+    if (response.response === 0) {
       BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html?searchID=');
     } else {
       console.log('Button not pressed.');
