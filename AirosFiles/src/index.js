@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, webContents} = require('electron');
+const { app, BrowserWindow, ipcMain, webContents, dialog } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -111,7 +111,7 @@ ipcMain.on('searchBarActual', (event, query) => {
 });
 
 ipcMain.on('goMenu', (event) => {
-  dialog.showMessageBox(mainWindow, {
+  dialog.showMessageBox(BrowserWindow.getFocusedWindow(), {
     type: 'question',
     buttons: ['Yes', 'No'],
     defaultId: 0,
