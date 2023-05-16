@@ -109,3 +109,7 @@ ipcMain.on('searchBarActual', (event, query) => {
   console.log(url);
   event.sender.send('search-results-actual', url)
 });
+
+ipcMain.on('goMenu', (event) => {
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html?searchID=');
+});
