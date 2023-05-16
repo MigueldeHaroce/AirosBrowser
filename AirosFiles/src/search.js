@@ -49,9 +49,14 @@ leftLogo.addEventListener('click', () => {
 
     // Get the previous search result
     const previousResult = searchHistory[searchHistory.length - 1];
-
     // Update the webview source with the previous search result
-    searchResults.src = previousResult;
+
+    if (searchHistory.length > 1) {
+      searchResults.src = `https://www.google.com/search?q=${encodeURIComponent(previousResult)}`;
+    } else {
+      searchResults.src = previousResult;
+    }
+    
   }
 });
 
