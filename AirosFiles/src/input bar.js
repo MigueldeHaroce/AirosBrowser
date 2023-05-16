@@ -8,12 +8,8 @@ if (event.key === 'Enter') {
 });
 
 function search() {
-    const query = `https://www.google.com/search?q=${encodeURIComponent(textInput.value)}`;
+    const query = textInput.value;
     ipcRenderer.send('searchBarActual', query);
     
 };
 
-const backButton = document.getElementById('leftLogo');
-backButton.addEventListener('click', () => {
-    ipcRenderer.send('clickedBack');
-});

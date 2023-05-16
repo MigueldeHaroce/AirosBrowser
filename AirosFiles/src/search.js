@@ -1,6 +1,7 @@
-
 // Store the search history
 const searchHistory = [];
+
+let searchResults; // Declare searchResults variable outside the DOMContentLoaded event listener
 
 window.addEventListener("DOMContentLoaded", () => {
   // Get searchID from URL
@@ -8,7 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log(searchID)
   if (!searchID) return;
 
-  const searchResults = document.querySelector('#searchResults');
+  searchResults = document.querySelector('#searchResults'); // Assign value to searchResults variable
   console.log(searchResults)
   // Pull your search
   ipcRenderer.send('pull-search', searchID);
@@ -29,23 +30,18 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-ipcRenderer.on('clickedBack', () => {
-
+const leftLogo = document.getElementById('leftLogo');
+leftLogo.addEventListener('click', () => {
   console.log('bruh');
   // Check if there is a search history
-  if (searchHistory.length > 1) {
+  if (searchHistory) {
     // Remove the current search result from the history
     searchHistory.pop();
-
     
     // Get the previous search result
     const previousResult = searchHistory[searchHistory.length - 1];
-
-    console.log('prev: ' + previousResult);
-    console.log('prevList: ' + searchHistory);
 
     // Update the webview source with the previous search result
     searchResults.src = previousResult;
   }
 });
-
