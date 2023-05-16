@@ -38,19 +38,17 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-const counter = 1;
 
 const leftLogo = document.getElementById('leftLogo');
 leftLogo.addEventListener('click', () => {
   // Check if there is a search history
   if (searchHistory.length > 1) { // Update the condition to check if the history has more than one entry
     // Remove the current search result from the history
+    searchHistory.pop();
     console.log(searchHistory);
 
     // Get the previous search result
-    const previousResult = searchHistory[searchHistory.length - counter];
-
-    counter++;
+    const previousResult = searchHistory[searchHistory.length - 1];
 
     if (searchHistory.length > 1) {
       searchResults.src = `https://www.google.com/search?q=${encodeURIComponent(previousResult)}`;
