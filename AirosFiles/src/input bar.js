@@ -1,5 +1,3 @@
-const { ipcRenderer } = require("electron");
-
 const textInput = document.getElementById('textSearch');
 
 textInput.addEventListener('keydown', (event) => {
