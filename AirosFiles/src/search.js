@@ -1,3 +1,8 @@
+const { ipcRenderer } = require("electron");
+
+// Store the search history
+const searchHistory = [];
+
 window.addEventListener("DOMContentLoaded", () => {
   // Get searchID from URL
   const searchID = new URLSearchParams(window.location.search).get("searchID");
@@ -15,9 +20,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (searchResults && results) {
       searchResults.src = results;
+
+      // Add the search result to the search history
+      searchHistory.push(results);
     } else {
       console.error('Error: searchResults or results is undefined.');
     }
   });
+});
+
+ipcRenderer.on('clickedBack', () => {
+  // Check if there is a search history
+  if (searchHistory.length > 1) {
+    // Remove the current search result from the history
+    searchHistory.pop();
+    
+    // Get the previous search result
+    const previousResult = searchHistory[searchHistory.length - 1];
+
+    // Update the webview source with the previous search result
+    searchResults.src = previousResult;
+  }
 });
 
