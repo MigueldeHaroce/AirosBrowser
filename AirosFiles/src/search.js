@@ -42,12 +42,11 @@ const leftLogo = document.getElementById('leftLogo');
 leftLogo.addEventListener('click', () => {
   console.log('bruh');
   // Check if there is a search history
-  if (searchHistory) {
+  if (searchHistory.length > 1) { // Update the condition to check if the history has more than one entry
     // Remove the current search result from the history
     searchHistory.pop();
     console.log(searchHistory);
 
-    
     // Get the previous search result
     const previousResult = searchHistory[searchHistory.length - 1];
 
