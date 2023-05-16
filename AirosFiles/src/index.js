@@ -111,5 +111,17 @@ ipcMain.on('searchBarActual', (event, query) => {
 });
 
 ipcMain.on('goMenu', (event) => {
-  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html?searchID=');
+  dialog.showMessageBox(mainWindow, {
+    type: 'question',
+    buttons: ['Yes', 'No'],
+    defaultId: 0,
+    title: 'Confirmation',
+    message: 'Are you sure you want to press the button?'
+  }, (response) => {
+    if (response === 0) {
+      BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html?searchID=');
+    } else {
+      console.log('Button not pressed.');
+    }
+  });
 });
