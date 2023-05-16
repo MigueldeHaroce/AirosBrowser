@@ -59,6 +59,7 @@
 
             
             <button id="amazonBtn" class="shourcutsBtns"></button>
+
             <button id="githubBtn" class="shourcutsBtns"></button>
             <button id="discordBtn" class="shourcutsBtns"></button>
             <button id="gmailBtn" class="shourcutsBtns"></button>
@@ -67,6 +68,71 @@
             <button id="spotiBtn" class="shourcutsBtns"></button>
             <button id="driveBtn" class="shourcutsBtns"></button>
             <button id="youtubeBtn" class="shourcutsBtns"></button>
+            <script>
+                const amazonBtn = document.getElementById('amazonBtn');
+
+                amazonBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const githubBtn = document.getElementById('githubBtn');
+
+                githubBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjghqDD4vn-AhVJVqQEHZtkAVcQ-TAoAHoECHAQAQ&url=http%3A%2F%2Fgithub.com%2F&usg=AOvVaw2c9RU0BlmsEgnwc62XUlEM`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const discordBtn = document.getElementById('discordBtn');
+
+                discordBtn.addEventListener('click', () => {
+                    const query = `https://www.discord.com/`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const gmailBtn = document.getElementById('gmailBtn');
+
+                gmailBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const twitterBtn = document.getElementById('twitterBtn');
+
+                twitterBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const steamBtn = document.getElementById('steamBtn');
+
+                steamBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const spotiBtn = document.getElementById('spotiBtn');
+
+                spotiBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const driveBtn = document.getElementById('driveBtn');
+
+                driveBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+                const youtubeBtn = document.getElementById('youtubeBtn');
+
+                youtubeBtn.addEventListener('click', () => {
+                    const query = `https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjM8q-n3vn-AhXBTKQEHSSiCGkQ-TAoAHoECGMQAQ&url=http%3A%2F%2Fwww.amazon.com%2F&usg=AOvVaw1N6fQUQJL9OEB3Ldjuqb2X`;
+                    ipcRenderer.send('search', query);
+                });
+
+            </script>
 
         </div>
         <canvas id="gradient-canvas" data-transition-in></canvas>

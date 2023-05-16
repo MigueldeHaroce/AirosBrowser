@@ -104,7 +104,7 @@ tabWrapper.addEventListener('click', (event) => {
     activeWebview = webview;
     ipcRenderer.on('search-results-actual', (results) => { // no event here, only results  
 
-      activeWebview.src = results;
+      activeWebview.src = `https://www.google.com/search?q=${encodeURIComponent(results)}`;
 
     });
 

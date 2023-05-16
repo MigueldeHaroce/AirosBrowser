@@ -82,7 +82,7 @@ ipcMain.on("pass_page2", () => {
 const resultsStack = { /* ID: results */ };
 
 ipcMain.on('search', (event, query) => {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  const url = query;
   console.log(query);
   console.log(url);
   const searchID = "ID-" + new Date().getTime();
@@ -104,7 +104,7 @@ ipcMain.on('pull-search', (event, searchID) => {
 });
 
 ipcMain.on('searchBarActual', (event, query) => {
-  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  const url = query;
   console.log(query);
   console.log(url);
   event.sender.send('search-results-actual', url)
