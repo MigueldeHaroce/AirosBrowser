@@ -1,9 +1,13 @@
 // Store the search history
 const searchHistory = [];
 
+console.log(searchHistory);
+
 let searchResults; // Declare searchResults variable outside the DOMContentLoaded event listener
 
 window.addEventListener("DOMContentLoaded", () => {
+  console.log(searchHistory);
+
   // Get searchID from URL
   const searchID = new URLSearchParams(window.location.search).get("searchID");
   console.log(searchID)
@@ -20,9 +24,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (searchResults && results) {
       searchResults.src = results;
+      console.log(searchHistory);
+
 
       // Add the search result to the search history
       searchHistory.push(results);
+      console.log(searchHistory);
+
 
     } else {
       console.error('Error: searchResults or results is undefined.');
@@ -37,6 +45,8 @@ leftLogo.addEventListener('click', () => {
   if (searchHistory) {
     // Remove the current search result from the history
     searchHistory.pop();
+    console.log(searchHistory);
+
     
     // Get the previous search result
     const previousResult = searchHistory[searchHistory.length - 1];
