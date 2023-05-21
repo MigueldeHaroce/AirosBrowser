@@ -27,6 +27,10 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'searchMenu.html'));
 
+  mainWindow.on("ready-to-show", function () {
+    mainWindow.show();
+    mainWindow.focus();
+  });
 
 // The load url its not working !! Fix next time 1!
   // Open the DevTools
