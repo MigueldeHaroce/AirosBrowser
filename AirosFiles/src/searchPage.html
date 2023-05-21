@@ -44,7 +44,37 @@
       </div>
     </div>  
       
-    <tab-group new-tab-button="true"></tab-group>
+    <tab-group new-tab-button="true">
+      <style>
+        .tab {
+          float: left;
+          display: flex;
+
+          width: 90px;
+          padding: 10px 15px;
+          height: 15px;
+
+          top: -5px;
+
+          align-items: left;
+          justify-content: left;
+
+
+          background-color: #333;
+
+          -webkit-border-top-left-radius: 10px;
+          -webkit-border-top-right-radius: 10px;
+          -moz-border-radius-topleft: 10px;
+          -moz-border-radius-topright: 10px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          animation: tab-width 0.2s ease-in-out forwards;
+          transition: background-color 0.2s ease-in-out;
+          -webkit-app-region: none;
+
+        }
+      </style>
+    </tab-group>
 
     <script src="electron-tabs/dist/electron-tabs.js"></script>
     <script>
