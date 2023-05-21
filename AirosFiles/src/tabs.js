@@ -97,7 +97,7 @@ tabWrapper.addEventListener('click', (event) => {
     const webview = webviews[index];
 
     // Switch to the selected webview
-    webview.style.display = 'none';
+    webview.style.display = 'block';
     webview.style.position = 'relative'
     activeWebview.style.display = 'none';
     activeWebview.style.position = 'absolute';
