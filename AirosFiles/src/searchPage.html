@@ -1,60 +1,31 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>electron-tabs-demo</title>
-</head>
-<body style="margin:0">
-
-<tab-group new-tab-button="true" sortable="true">
+  <meta charset="UTF-8">
+  <title>Electron Tabs Example</title>
   <style>
-    /* Add custom styles */
-    .my-badge {
-      background-color: #327BB1;
-    }
-    .my-custom-tab {
-      color: #d135d1;
-      font-style: italic;
-      font-weight: bold;
+    tab-group {
+      display: block;
+      height: 100%;
     }
   </style>
-</tab-group>
+</head>
+<body>
+  <tab-group new-tab-button="true"></tab-group>
 
-<script src="electron-tabs/dist/electron-tabs.js"></script>
-<script>
-  const tabGroup = document.querySelector("tab-group");
-  tabGroup.on("ready", () => console.info("TabGroup is ready"));
+  <script src="electron-tabs/dist/electron-tabs.js"></script>
+  <script>
+    const tabGroup = document.querySelector("tab-group");
 
-  tabGroup.setDefaultTab({
-    title: "Wikipedia",
-    src: "https://www.wikipedia.org/",
-    active: true,
-    ready: () => console.info("New Tab is ready")
-  });
+    tabGroup.addTab({
+      title: 'Tab 1',
+      src: 'https://www.google.com'
+    });
 
-  tabGroup.addTab({
-    title: "electron-tabs on NPM",
-    src: "https://www.npmjs.com/package/electron-tabs",
-    badge: {
-      text: "5",
-      classname: "my-badge"
-    }
-  });
-
-  tabGroup.addTab({
-    title: "electron-tabs on Github",
-    src: "https://github.com/brrd/electron-tabs",
-    iconURL: "mark-github.svg",
-    active: true
-  });
-
-  tabGroup.addTab({
-    title: "My Custom Tab",
-    src: "page.html",
-    ready: function(tab) {
-      tab.element.classList.add("my-custom-tab");
-    }
-  });
-</script>
+    tabGroup.addTab({
+      title: 'Tab 2',
+      src: 'https://www.openai.com'
+    });
+  </script>
 </body>
 </html>
