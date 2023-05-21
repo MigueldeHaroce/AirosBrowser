@@ -13,7 +13,7 @@ body.loaded {
 tab-group {
     display: block;
     height: 100%;
-    position: relative;
+    position: absolute;
     margin: 0px;
     -webkit-app-region: none;
 }

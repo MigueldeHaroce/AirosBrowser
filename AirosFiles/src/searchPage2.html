@@ -7,39 +7,6 @@
 </head>
 <body>
     <div class="top-bar">
-        <tab-group new-tab-button="true" sortable="true">
-            <style>
-              /* Add custom styles */
-              .my-badge {
-                background-color: #327BB1;
-              }
-              .my-custom-tab {
-                color: #d135d1;
-                font-style: italic;
-                font-weight: bold;
-              }
-            </style>
-        </tab-group>
-        <script src="electron-tabs/dist/electron-tabs.js"></script>
-        <script>
-            // Select tab-group
-            const tabGroup = document.querySelector("tab-group");
-          
-            // Setup the default tab which is created when the "New Tab" button is clicked
-            tabGroup.setDefaultTab({
-              title: "New Page",
-              src: "https://www.google.com/",
-              active: true
-            });
-          
-            // Do stuff
-            const tab = tabGroup.addTab({
-              title: "electron-tabs on NPM",
-              src: "https://www.npmjs.com/package/electron-tabs"
-            });
-            const pos = tab.getPosition();
-            console.log("Tab position is " + pos);
-        </script>
         <div id="lowBar">
             <div id="searchBar">
                 <div id="leftLogos" class="child">

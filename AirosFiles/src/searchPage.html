@@ -7,42 +7,77 @@
 </head>
   <body>
     <div class="top-bar">
-      <h1></h1>
-      <style>
-      </style>
-      <div class="icons">
-      <div class="icon-container">
-          <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
-          <img src="icons/minus.svg" id="imgMinimize">
-          <style>
-              #imgMinimize {
-              padding: 18px;
-              }
-          </style>
-          </button>
-      </div>
-      <div class="icon-container">
-          <button id="restoreBtn" class="icon-btn" aria-label="Restore">
-          <img src="icons/restore.svg" id="imgRestore">
-          <style>
-              #imgRestore {
-                  padding: 18px;
-              }
-          </style>
-          </button>
-      </div>
-      <div class="icon-container">
-          <button id="closeBtn" class="icon-btn" aria-label="Close">
-          <img src="icons/x.svg" id="imgClose">
-          <style>
-              #imgClose {
-                  padding: 18px;
-              }
-          </style>
-          </button>
-          </div>
-      </div>
-    </div>  
+        <div id="lowBar">
+            <div id="searchBar">
+                <div id="leftLogos" class="child">
+                    <img id="leftLogo" class="controlBrowser" src="icons/arrowcircleleft.png"></img>
+                    <img id="rightLogo" class="controlBrowser" src="icons/arrowcircleright.png"></img>
+                    <img id="reloadLogo" class="controlBrowser" src="icons/arrowrotateright.png"></img>
+                    <img id="homeLogo" class="controlBrowser" src="icons/home3.png"></img>
+                </div>
+                <div id="textInput" class="child extend">
+                    <input type="text" id="textSearch" name="textSearch" placeholder="Search...">
+                </div>
+                <div id="rightLogos" class="child">
+                    <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
+                    <script>
+                        const noWifiBtn = document.getElementById('noWifiBtn');
+
+                        // Function to check if there is an internet connection
+                        function checkInternetConnection() {
+                            if (navigator.onLine) {
+                                noWifiBtn.style.display = 'flex';
+                                noWifiBtn.style.top = "2px";
+                                noWifiBtn.setAttribute('title', 'No Wi-Fi Connection'); 
+                            } else {
+                                noWifiBtn.style.display = 'block';
+                            }
+                        }
+
+                        checkInternetConnection();
+
+                        window.addEventListener('online', checkInternetConnection);
+                        window.addEventListener('offline', checkInternetConnection);
+                    </script>
+                    <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
+                    <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
+
+                </div>
+            </div>
+        </div>
+        <div class="icons">
+        <div class="icon-container">
+            <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
+            <img src="icons/minus.svg" id="imgMinimize">
+            <style>
+                #imgMinimize {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="restoreBtn" class="icon-btn" aria-label="Restore">
+            <img src="icons/restore.svg" id="imgRestore">
+            <style>
+                #imgRestore {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="closeBtn" class="icon-btn" aria-label="Close">
+            <img src="icons/x.svg" id="imgClose">
+            <style>
+                #imgClose {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+            </div>
+        </div>
+    </div>
       
     <tab-group new-tab-button="true"></tab-group>
 
@@ -60,7 +95,7 @@
         src: 'https://www.openai.com'
       });
     </script>
-    
+
     <script src="appFunctions.js" defer type="module"></script>
     <script src="renderer.js" defer type="module"></script>  
   </body>
