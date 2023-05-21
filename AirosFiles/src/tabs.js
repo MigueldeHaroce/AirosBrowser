@@ -97,9 +97,10 @@ tabWrapper.addEventListener('click', (event) => {
     const webview = webviews[index];
 
     // Switch to the selected webview
-    webview.style.display = 'block';
+    webview.style.display = 'none';
+    webview.style.position = 'relative'
     activeWebview.style.display = 'none';
-    activeWebview.style.position = 'fixed';
+    activeWebview.style.position = 'absolute';
     activeWebview.style.height = '100%'
     activeWebview = webview;
     ipcRenderer.on('search-results-actual', (results) => { // no event here, only results  
