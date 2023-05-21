@@ -1,0 +1,41 @@
+{
+  "name": "electron-tabs",
+  "version": "1.0.1",
+  "description": "Simple tabs for Electron applications",
+  "main": "dist/electron-tabs.js",
+  "types": "dist/electron-tabs.d.ts",
+  "source": "src/index.ts",
+  "targets": {
+    "main": {
+      "includeNodeModules": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brrd/electron-tabs"
+  },
+  "scripts": {
+    "demo": "electron ./demo",
+    "watch": "parcel watch",
+    "build": "parcel build"
+  },
+  "keywords": [
+    "electron",
+    "tab",
+    "tabs",
+    "webview"
+  ],
+  "author": "brrd",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.5.0",
+    "@parcel/transformer-inline-string": "^2.5.0",
+    "@parcel/transformer-typescript-types": "^2.5.0",
+    "@types/sortablejs": "^1.13.0",
+    "electron": "^17.1.2",
+    "parcel": "^2.5.0",
+    "postcss": "^8.4.14",
+    "sortablejs": "^1.15.0",
+    "typescript": "^4.7.2"
+  }
+}
