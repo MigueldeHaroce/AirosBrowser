@@ -7,30 +7,7 @@
 </head>
 <body>
     <div class="top-bar">
-        <tab-group new-tab-button="true" sortable="true" style="width: 100%; height: 100%; display: flex;"></tab-group>
-        <script src="path/to/electron-tabs.js"></script>
-
-        <script>
-          // Select tab-group
-          const tabGroup = document.querySelector("tab-group");
         
-          // Setup the default tab which is created when the "New Tab" button is clicked
-          tabGroup.setDefaultTab({
-            title: "New Page",
-            src: "path/to/new-page.html",
-            active: true,
-            
-          });
-        
-          // Do stuff
-          const tab = tabGroup.addTab({
-            title: "electron-tabs on NPM",
-            src: options.webview.src,
-            iconURL: "true",
-          });
-          const pos = tab.getPosition();
-          console.log("Tab position is " + pos);
-        </script>
 
         <div id="lowBar">
             <div id="searchBar">
