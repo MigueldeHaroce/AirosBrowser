@@ -1,4 +1,5 @@
 // Store the search history
+
 const searchHistory = [];
 
 console.log(searchHistory);
@@ -22,8 +23,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     console.log(results)
 
-    if (searchResults && results) {
-      searchResults.src = results;
+    if (results) {
+      searchResults = results;
       console.log(searchHistory);
 
 
@@ -38,28 +39,26 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-const leftLogo = document.getElementById('leftLogo');
-leftLogo.addEventListener('click', () => {
-  // Check if there is a search history
-  if (searchHistory.length > 1) { // Update the condition to check if the history has more than one entry
-    // Remove the current search result from the history
-    searchHistory.pop();
-    console.log(searchHistory);
-
-    // Get the previous search result
-    const previousResult = searchHistory[searchHistory.length - 1];
-
-    if (searchHistory.length > 1) {
-      searchResults.src = `https://www.google.com/search?q=${encodeURIComponent(previousResult)}`;
-    } else {
-      searchResults.src = previousResult;
-    }
-    
-  }
-});
-
 ipcRenderer.on('addHistoryList', (results) => {
   searchHistory.push(results);
   console.log(searchHistory);
+});
+
+const tabGroup = document.querySelector("tab-group");
+tabGroup.on("ready", () => console.info("TabGroup is ready"));
+
+tabGroup.setDefaultTab({
+  title: "Wikipedia",
+  src: searchResults,
+  active: true,
+  ready: () => console.info("New Tab is ready")
+});
+
+tabGroup.addTab({
+  title: "electron-tabs on NPM",
+  src: searchResults,
+  badge: {
+    text: "5",
+    classname: "my-badge"
+  }
 });
