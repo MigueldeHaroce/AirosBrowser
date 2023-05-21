@@ -3,30 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>Electron Tabs Example</title>
-  <style>
-    tab-group {
-      display: block;
-      height: 100%;
-      -webkit-app-region: none;
-    }
-  </style>
+  <link rel="stylesheet" href="searchPage3.css" />
 </head>
-<body>
-  <tab-group new-tab-button="true"></tab-group>
+  <body>
+    <div class="top-bar">
+      <h1></h1>
+      <style>
+      </style>
+      <div class="icons">
+      <div class="icon-container">
+          <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
+          <img src="icons/minus.svg" id="imgMinimize">
+          <style>
+              #imgMinimize {
+              padding: 18px;
+              }
+          </style>
+          </button>
+      </div>
+      <div class="icon-container">
+          <button id="restoreBtn" class="icon-btn" aria-label="Restore">
+          <img src="icons/restore.svg" id="imgRestore">
+          <style>
+              #imgRestore {
+                  padding: 18px;
+              }
+          </style>
+          </button>
+      </div>
+      <div class="icon-container">
+          <button id="closeBtn" class="icon-btn" aria-label="Close">
+          <img src="icons/x.svg" id="imgClose">
+          <style>
+              #imgClose {
+                  padding: 18px;
+              }
+          </style>
+          </button>
+          </div>
+      </div>
+    </div>  
+      
+    <tab-group new-tab-button="true"></tab-group>
 
-  <script src="electron-tabs/dist/electron-tabs.js"></script>
-  <script>
-    const tabGroup = document.querySelector("tab-group");
+    <script src="electron-tabs/dist/electron-tabs.js"></script>
+    <script>
+      const tabGroup = document.querySelector("tab-group");
 
-    tabGroup.addTab({
-      title: 'Tab 1',
-      src: 'https://www.google.com'
-    });
+      tabGroup.addTab({
+        title: 'Tab 1',
+        src: 'https://www.google.com'
+      });
 
-    tabGroup.addTab({
-      title: 'Tab 2',
-      src: 'https://www.openai.com'
-    });
-  </script>
-</body>
+      tabGroup.addTab({
+        title: 'Tab 2',
+        src: 'https://www.openai.com'
+      });
+    </script>
+    
+    <script src="appFunctions.js" defer type="module"></script>
+    <script src="renderer.js" defer type="module"></script>  
+  </body>
 </html>

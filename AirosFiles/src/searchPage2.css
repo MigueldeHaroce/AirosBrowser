@@ -7,7 +7,7 @@ body {
     background-color: #1E1E1E;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-  }
+}
   
 body.loaded {
     opacity: 1;
