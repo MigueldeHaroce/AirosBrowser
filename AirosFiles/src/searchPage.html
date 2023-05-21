@@ -19,13 +19,14 @@
             title: "New Page",
             src: "path/to/new-page.html",
             active: true,
-            iconURL: "true",
+            
           });
         
           // Do stuff
           const tab = tabGroup.addTab({
             title: "electron-tabs on NPM",
-            src: "https://www.npmjs.com/package/electron-tabs"
+            src: options.webview.src,
+            iconURL: "true",
           });
           const pos = tab.getPosition();
           console.log("Tab position is " + pos);
