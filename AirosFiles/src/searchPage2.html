@@ -39,7 +39,155 @@
             });
             const pos = tab.getPosition();
             console.log("Tab position is " + pos);
-        </script>
+        </script> 
+        <!--<div class="chrome-tabs chrome-tabs-dark-theme" style="--tab-content-margin: 9px;" data-chrome-tabs-instance-id="0">
+          <div class="chrome-tabs-content">
+            <div class="chrome-tab" style="width: 258px;">
+              <div class="chrome-tab-dividers"></div>
+              <div class="chrome-tab-background">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36"><path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z"></path></symbol><symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36"><use xlink:href="#chrome-tab-geometry-left"></use></symbol><clipPath id="crop"><rect class="mask" width="100%" height="100%" x="0"></rect></clipPath></defs><svg width="52%" height="100%"><use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry"></use></svg><g transform="scale(-1, 1)"><svg width="52%" height="100%" x="-100%" y="0"><use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry"></use></svg></g></svg>
+              </div>
+              <div class="chrome-tab-content">
+                <div class="chrome-tab-favicon" style="background-image: url('demo/images/google-favicon.ico')"></div>
+                <div class="chrome-tab-title">Google</div>
+                <div class="chrome-tab-drag-handle" style="touch-action: none;"></div>
+                <div class="chrome-tab-close"></div>
+              </div>
+            </div>
+            <div class="chrome-tab" active="" style="width: 258px;">
+              <div class="chrome-tab-dividers"></div>
+              <div class="chrome-tab-background">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36"><path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z"></path></symbol><symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36"><use xlink:href="#chrome-tab-geometry-left"></use></symbol><clipPath id="crop"><rect class="mask" width="100%" height="100%" x="0"></rect></clipPath></defs><svg width="52%" height="100%"><use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry"></use></svg><g transform="scale(-1, 1)"><svg width="52%" height="100%" x="-100%" y="0"><use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry"></use></svg></g></svg>
+              </div>
+              <div class="chrome-tab-content">
+                <div class="chrome-tab-favicon" style="background-image: url('demo/images/facebook-favicon.ico')"></div>
+                <div class="chrome-tab-title">Facebook</div>
+                <div class="chrome-tab-drag-handle" style="touch-action: none;"></div>
+                <div class="chrome-tab-close"></div>
+              </div>
+            </div>
+          </div>
+          <div class="chrome-tabs-bottom-bar"></div>
+           Styles to prevent flash after JS initialization
+          <style>
+            .chrome-tabs .chrome-tab {
+              width: 258px
+            }
+
+            .chrome-tabs .chrome-tab:nth-child(1) {
+              transform: translate3d(0px, 0, 0)
+            }
+
+            .chrome-tabs .chrome-tab:nth-child(2) {
+              transform: translate3d(239px, 0, 0)
+            }
+          </style>
+        <style>
+          .chrome-tabs[data-chrome-tabs-instance-id="0"] .chrome-tab:nth-child(1) {
+            transform: translate3d(0px, 0, 0)
+          }
+        
+          .chrome-tabs[data-chrome-tabs-instance-id="0"] .chrome-tab:nth-child(2) {
+            transform: translate3d(239px, 0, 0)
+          }
+        </style></div>
+
+            html.dark-theme {
+  background: #2b2b2b;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 16px;
+}
+
+@media (min-width: 800px) {
+  body {
+    margin: 60px;
+  }
+}
+
+button {
+  font-family: inherit;
+  display: inline-block;
+  background: #e0e0e0;
+  border: 0;
+  border-radius: 3px;
+  padding: .6em 1em .7em;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 .5px rgba(0, 0, 0, .5);
+}
+
+.chrome-tabs.chrome-tabs-dark-theme ~ p button {
+  background: #505050;
+  color: #fff;
+  box-shadow: 0 .5px #000;
+}
+
+.carbonads-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.carbonads-wrapper * {
+  box-sizing: inherit;
+}
+
+#carbonads {
+  width: 162px;
+  display: block;
+  overflow: hidden;
+  line-height: 1.33;
+  width: 130px;
+  max-width: 100%;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img, .carbon-img img {
+  display: block;
+  width: 130px;
+  height: 100px;
+}
+
+.carbon-img {
+  margin-bottom: 7px;
+  background: #ccc;
+}
+
+.carbon-img img {
+  background: #fff;
+}
+
+.carbon-text {
+  color: inherit;
+  display: block;
+  float: left;
+  text-align: left;
+  text-decoration: none;
+  color: #666;
+  letter-spacing: .025em;
+  line-height: 1.35;
+}
+
+.carbon-poweredby {
+  color: #b9b9b9;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 11px;
+}
+        -->
         <div id="lowBar">
             <div id="searchBar">
                 <div id="leftLogos" class="child">
