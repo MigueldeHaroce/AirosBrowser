@@ -49,14 +49,14 @@ tabGroup.on("ready", () => console.info("TabGroup is ready"));
 
 tabGroup.setDefaultTab({
   title: "Wikipedia",
-  src: searchResults,
+  src: "https://www.wikipedia.org/",
   active: true,
   ready: () => console.info("New Tab is ready")
 });
 
 tabGroup.addTab({
   title: "electron-tabs on NPM",
-  src: searchResults,
+  src: "https://www.wikipedia.org/",
   badge: {
     text: "5",
     classname: "my-badge"
