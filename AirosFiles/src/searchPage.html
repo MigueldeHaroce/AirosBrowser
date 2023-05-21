@@ -1,54 +1,152 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>electron-tabs-demo</title>
+    <meta charset="UTF-8">
+    <title>AirosBrowser</title>
+    <link rel="stylesheet" href="electron-tabs\src\style.css" />
 </head>
-<body style="margin:0">
+<body>
+    <div class="top-bar">
+        <tab-group id="electron-tabs" new-tab-button="true" sortable="true">
+            <style>
+              /* Add custom styles */
+              .my-badge {
+                background-color: #327BB1;
+              }
+              .my-custom-tab {
+                color: #d135d1;
+                font-style: italic;
+                font-weight: bold;
+              }
+            </style>
+        </tab-group>
+        <script src="electron-tabs/dist/electron-tabs.js"></script>
+        <script>
+            // Select tab-group
+            const tabGroup = document.querySelector("tab-group");
+          
+            // Setup the default tab which is created when the "New Tab" button is clicked
+            tabGroup.setDefaultTab({
+              title: "New Page",
+              src: "https://www.google.com/",
+              active: true
+            });
+          
+            // Do stuff
+            const tab = tabGroup.addTab({
+              title: "electron-tabs on NPM",
+              src: "https://www.npmjs.com/package/electron-tabs"
+            });
+            const pos = tab.getPosition();
+            console.log("Tab position is " + pos);
+        </script>
+        <div id="lowBar">
+            <div id="searchBar">
+                <div id="leftLogos" class="child">
+                    <img id="leftLogo" class="controlBrowser" src="icons/arrowcircleleft.png"></img>
+                    <img id="rightLogo" class="controlBrowser" src="icons/arrowcircleright.png"></img>
+                    <img id="reloadLogo" class="controlBrowser" src="icons/arrowrotateright.png"></img>
+                    <img id="homeLogo" class="controlBrowser" src="icons/home3.png"></img>
+                </div>
+                <div id="textInput" class="child extend">
+                    <input type="text" id="textSearch" name="textSearch" placeholder="Search...">
+                </div>
+                <div id="rightLogos" class="child">
+                    <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
+                    <script>
+                        const noWifiBtn = document.getElementById('noWifiBtn');
 
-<tab-group new-tab-button="true" sortable="true">
-  <style>
-    /* Add custom styles */
-    .my-badge {
-      background-color: #327BB1;
-    }
-    .my-custom-tab {
-      color: #d135d1;
-      font-style: italic;
-      font-weight: bold;
-    }
-  </style>
-</tab-group>
+                        // Function to check if there is an internet connection
+                        function checkInternetConnection() {
+                            if (navigator.onLine) {
+                                noWifiBtn.style.display = 'flex';
+                                noWifiBtn.style.top = "2px";
+                                noWifiBtn.setAttribute('title', 'No Wi-Fi Connection'); 
+                            } else {
+                                noWifiBtn.style.display = 'block';
+                            }
+                        }
 
-<script src="electron-tabs/dist/electron-tabs.js"></script>
-<script>
-  const tabGroup = document.querySelector("tab-group");
-  tabGroup.on("ready", () => console.info("TabGroup is ready"));
+                        checkInternetConnection();
 
-  tabGroup.setDefaultTab({
-    title: "Wikipedia",
-    src: "https://www.wikipedia.org/",
-    active: true,
-    ready: () => console.info("New Tab is ready")
-  });
+                        window.addEventListener('online', checkInternetConnection);
+                        window.addEventListener('offline', checkInternetConnection);
+                    </script>
+                    <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
+                    <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
 
-  tabGroup.addTab({
-    title: "electron-tabs on NPM",
-    src: "https://www.npmjs.com/package/electron-tabs",
-    badge: {
-      text: "5",
-      classname: "my-badge"
-    }
-  });
+                </div>
+            </div>
+        </div>
+        <!--
+        <img id="noWifi" src="icons/wifiIcon.png">
+        <script>
+            window.addEventListener('load', function() {
+                var wifiIcon = document.getElementById('noWifi');
+                var hasWifi = navigator.onLine;
+                var blinkInterval = null;
+                fadeTimeout = null;
 
-  tabGroup.addTab({
-    title: "electron-tabs on Github",
-    src: "https://github.com/brrd/electron-tabs",
-    iconURL: "mark-github.svg",
-    active: true
-  });
+                if (!hasWifi) {
+                    wifiIcon.style.opacity = '1';
+                } else {
+                    wifiIcon.style.opacity = '0';
+                }
 
+                window.addEventListener('online', function() {
+                    wifiIcon.style.opacity = '0';
+                    blinkInterval = setInterval(function() {
+                        wifiIcon.classList.toggle('blink');
+                    }, 5000);
+                    clearTimeout(fadeTimeout);
+                });
 
-</script>
+                window.addEventListener('offline', function() {
+                    wifiIcon.style.opacity = '1';
+                    wifiIcon.classList.remove('blink');
+                    clearInterval(blinkInterval);
+                    fadeTimeout = setInterval(function() {
+                        wifiIcon.classList.add('fade');
+                    }, 5000);
+                });
+            });
+        </script>
+        -->
+        <div class="icons">
+        <div class="icon-container">
+            <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
+            <img src="icons/minus.svg" id="imgMinimize">
+            <style>
+                #imgMinimize {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="restoreBtn" class="icon-btn" aria-label="Restore">
+            <img src="icons/restore.svg" id="imgRestore">
+            <style>
+                #imgRestore {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+        </div>
+        <div class="icon-container">
+            <button id="closeBtn" class="icon-btn" aria-label="Close">
+            <img src="icons/x.svg" id="imgClose">
+            <style>
+                #imgClose {
+                    padding: 18px;
+                }
+            </style>
+            </button>
+            </div>
+        </div>
+    </div>
+    <script src="renderer.js" defer type="module"></script>  
+    <script src="appFunctions.js" defer type="module"></script>
+    <script src="search.js" defer type="module"></script>
 </body>
 </html>

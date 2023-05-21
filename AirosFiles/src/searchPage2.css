@@ -1,0 +1,210 @@
+/* Fade-in animation for the body element */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1E1E1E;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+body.loaded {
+    opacity: 1;
+}
+
+.top-bar {
+    background-color: #202020;
+    border-bottom: 3px solid #333;
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+    border-top: 3px solid #000;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    -webkit-app-region: drag; 
+}
+  
+.icons {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+  
+.icons img {
+    height: 15px;
+    cursor: pointer;
+}
+  
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 50px;
+    height: 40px;
+    transition: background-color 0.2s ease-in-out;
+}
+  
+.icon-container:hover,
+.icon-container:active {
+    filter: brightness(80%);
+    background-color: #333;
+}
+  
+.icon-container:active img {
+    filter: brightness(60%);
+}
+  
+.icons {
+    -webkit-app-region: none;
+    cursor: pointer;
+}
+  
+.icon-btn {
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.parent-container {
+  height: 100%;
+}
+
+
+.blink {
+    animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+#noWifi {
+    position: fixed;
+}
+
+.fade {
+    animation: fade 1s forwards;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    
+    to {
+        opacity: 0;
+    }
+}
+*/
+
+
+#searchBar {
+    border-top: 3px solid #333;
+    position: fixed;
+    background-color: #333;
+    height: 50px;
+    width: 100%;
+    top: 45px;
+    left: 0px;
+    margin-left: 14px;
+    margin-right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#leftLogos{
+    left: 14px;
+    align-items: left;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.controlBrowser {
+    width: 40px;
+    height: 40px;
+}
+
+#lowBar {
+    border-top: 3px solid #333;
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+    height: 50px;
+    top: 45px;
+    left: 0px;
+    margin-right: 14px;
+    -webkit-app-region: none;
+}
+
+#leftLogo:active {
+    content: url("icons/arrowcircleleftbold.png");
+}
+
+#rightLogo:active {
+    content: url("icons/arrowcirclerightbold.png");
+}
+
+#reloadLogo:active {
+    content: url("icons/arrowrotaterightbold.png");
+}
+
+#homeLogo:active {
+    content: url("icons/home3bold.png");
+}
+
+#textInput {
+    flex: 2; /* Added this line */
+    width: 100%;
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    background-color: #ddd;
+    padding: 10px;
+    border: 1px solid #202020;
+    border-width: 3px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: 'ABeeZee', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    padding-left: 13px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+#rightLogos {
+    align-items: left;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 28px;
+}
+
+#passwordLogo:active {
+    content: url("icons/keysquarebold.png");
+}
+
+#configMenuLogo:active {
+    content: url("icons/hambergermenubold.png");
+}
+
