@@ -9,27 +9,53 @@
     <div class="top-bar">
         <tab-group new-tab-button="true" sortable="true">
             <style>
-                .tab-group{
-                    float: left;
-                    display: flex;
-
-                    width: 90px;
-                    padding: 10px 15px;
-                    height: 15px;
-
-                    top: -5px;
-
-                    align-items: left;
-                    justify-content: left;
-
-                    position: relative;
-
-                    background-color: #333;
-                }
-            
+              /* Add custom styles */
+              .my-badge {
+                background-color: #327BB1;
+              }
+              .my-custom-tab {
+                color: #d135d1;
+                font-style: italic;
+                font-weight: bold;
+              }
             </style>
         </tab-group>
-        <script src="AirosFiles\node_modules\electron-tabs\dist\electron-tabs.js"></script>
+        <script src="AirosFiles/AirosFiles/node_modules/electron-tabs/dist/electron-tabs.js"></script>
+        <script>
+            const tabGroup = document.querySelector("tab-group");
+            tabGroup.on("ready", () => console.info("TabGroup is ready"));
+          
+            tabGroup.setDefaultTab({
+              title: "Wikipedia",
+              src: "https://www.wikipedia.org/",
+              active: true,
+              ready: () => console.info("New Tab is ready")
+            });
+          
+            tabGroup.addTab({
+              title: "electron-tabs on NPM",
+              src: "https://www.npmjs.com/package/electron-tabs",
+              badge: {
+                text: "5",
+                classname: "my-badge"
+              }
+            });
+          
+            tabGroup.addTab({
+              title: "electron-tabs on Github",
+              src: "https://github.com/brrd/electron-tabs",
+              iconURL: "mark-github.svg",
+              active: true
+            });
+          
+            tabGroup.addTab({
+              title: "My Custom Tab",
+              src: "page.html",
+              ready: function(tab) {
+                tab.element.classList.add("my-custom-tab");
+              }
+            });
+        </script>
         <div id="lowBar">
             <div id="searchBar">
                 <div id="leftLogos" class="child">
@@ -141,7 +167,6 @@
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
     <script src="search.js" defer type="module"></script>
-    <script src="input bar.js" defer type="module"></script>
     <script src="funcTabBtns.js" defer></script>
 </body>
 </html>
