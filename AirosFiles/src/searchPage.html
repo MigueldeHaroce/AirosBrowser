@@ -7,20 +7,30 @@
 </head>
 <body>
     <div class="top-bar">
-        <div class="divTabs">
-            <div id="tab" class="tabs">
-                <img id="logoTab" src="icons/logo18pxMono.png"></img>
-                <div id="textTab">
-                    <span id="text">New Tab</span>
-                </div>
-                <div id="cross-button" class="cross-button">
-                    <img id="imgCross" class="imgCross" src="icons/cross.png">
-                </div> 
-            </div>
-            <div id="openBtn" class="openBtns">
-                <img id="plusBtn" src="icons/plus48px.png">
-            </div>
-        </div>
+        <tab-group new-tab-button="true" sortable="true"></tab-group>
+        <script src="path/to/electron-tabs.js"></script>
+
+        <script>
+          // Select tab-group
+          const tabGroup = document.querySelector("tab-group");
+        
+          // Setup the default tab which is created when the "New Tab" button is clicked
+          tabGroup.setDefaultTab({
+            title: "New Page",
+            src: "path/to/new-page.html",
+            active: true,
+            iconURL: "true",
+          });
+        
+          // Do stuff
+          const tab = tabGroup.addTab({
+            title: "electron-tabs on NPM",
+            src: "https://www.npmjs.com/package/electron-tabs"
+          });
+          const pos = tab.getPosition();
+          console.log("Tab position is " + pos);
+        </script>
+
         <div id="lowBar">
             <div id="searchBar">
                 <div id="leftLogos" class="child">
@@ -135,5 +145,6 @@
     <script src="tabs.js" defer type="module"></script>
     <script src="input bar.js" defer type="module"></script>
     <script src="funcTabBtns.js" defer></script>
+    <script src="node_modules/electron-tabs/dist/electron-tabs.js"></script>
 </body>
 </html>
