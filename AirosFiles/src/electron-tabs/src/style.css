@@ -75,7 +75,7 @@ webview.visible {
   font-size: var(--tab-font-size);
   transition: var(--tab-transition);
   display: none;
-  position: relative;
+  position: absolute;
   box-sizing: border-box;
   height: 100%;
   padding: 5px 9px;
