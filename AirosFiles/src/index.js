@@ -15,6 +15,7 @@ const createWindow = () => {
     minWidth: 1200,
     frame: false,
     webPreferences: {
+      webviewTag: true,
       nodeIntegration: true,
       enableRemoteModule: true,
       webviewTag: true,
