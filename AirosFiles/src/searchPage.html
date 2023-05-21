@@ -22,23 +22,39 @@
         </tab-group>
         <script src="electron-tabs/dist/electron-tabs.js"></script>
         <script>
-            // Select tab-group
-            const tabGroup = document.querySelector("tab-group");
-          
-            // Setup the default tab which is created when the "New Tab" button is clicked
-            tabGroup.setDefaultTab({
-              title: "New Page",
-              src: "https://www.google.com/",
-              active: true
-            });
-          
-            // Do stuff
-            const tab = tabGroup.addTab({
-              title: "electron-tabs on NPM",
-              src: "https://www.npmjs.com/package/electron-tabs"
-            });
-            const pos = tab.getPosition();
-            console.log("Tab position is " + pos);
+          const tabGroup = document.querySelector("tab-group");
+          tabGroup.on("ready", () => console.info("TabGroup is ready"));
+        
+          tabGroup.setDefaultTab({
+            title: "Wikipedia",
+            src: "https://www.wikipedia.org/",
+            active: true,
+            ready: () => console.info("New Tab is ready")
+          });
+        
+          tabGroup.addTab({
+            title: "electron-tabs on NPM",
+            src: "https://www.npmjs.com/package/electron-tabs",
+            badge: {
+              text: "5",
+              classname: "my-badge"
+            }
+          });
+        
+          tabGroup.addTab({
+            title: "electron-tabs on Github",
+            src: "https://github.com/brrd/electron-tabs",
+            iconURL: "mark-github.svg",
+            active: true
+          });
+        
+          tabGroup.addTab({
+            title: "My Custom Tab",
+            src: "page.html",
+            ready: function(tab) {
+              tab.element.classList.add("my-custom-tab");
+            }
+          });
         </script>
         <div id="lowBar">
             <div id="searchBar">
@@ -111,9 +127,7 @@
             </div>
         </div>
     </div>
-    <div id="webviews" class="webviews">   
-        <webview id="searchResults" class="searchResults"></webview>
-    </div> 
+
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>
     <script src="search.js" defer type="module"></script>
