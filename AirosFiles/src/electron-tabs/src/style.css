@@ -1,6 +1,3 @@
-/* CUSTOM PROPERTIES */
-/* ================= */
-
 :host {
   --tabgroup-background: #E7EAED;
   --tab-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -75,7 +72,7 @@ webview.visible {
   font-size: var(--tab-font-size);
   transition: var(--tab-transition);
   display: none;
-  position: absolute;
+  position: relative;
   box-sizing: border-box;
   height: 100%;
   padding: 5px 9px;
@@ -206,3 +203,5 @@ webview.visible {
   position: relative;
   height: calc(100vh - 33px);
 }
+
+/* Fade-in animation for the body element */
