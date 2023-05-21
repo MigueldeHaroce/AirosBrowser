@@ -78,6 +78,40 @@
                 </div>
             </div>
         </div>
+        <!--
+        <img id="noWifi" src="icons/wifiIcon.png">
+        <script>
+            window.addEventListener('load', function() {
+                var wifiIcon = document.getElementById('noWifi');
+                var hasWifi = navigator.onLine;
+                var blinkInterval = null;
+                fadeTimeout = null;
+
+                if (!hasWifi) {
+                    wifiIcon.style.opacity = '1';
+                } else {
+                    wifiIcon.style.opacity = '0';
+                }
+
+                window.addEventListener('online', function() {
+                    wifiIcon.style.opacity = '0';
+                    blinkInterval = setInterval(function() {
+                        wifiIcon.classList.toggle('blink');
+                    }, 5000);
+                    clearTimeout(fadeTimeout);
+                });
+
+                window.addEventListener('offline', function() {
+                    wifiIcon.style.opacity = '1';
+                    wifiIcon.classList.remove('blink');
+                    clearInterval(blinkInterval);
+                    fadeTimeout = setInterval(function() {
+                        wifiIcon.classList.add('fade');
+                    }, 5000);
+                });
+            });
+        </script>
+        -->
         <div class="icons">
         <div class="icon-container">
             <button id="minimizeBtn" class="icon-btn" aria-label="Minimize">
