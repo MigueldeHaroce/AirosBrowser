@@ -46,7 +46,23 @@
       
     <tab-group new-tab-button="true">
       <style>
+        .tab.visible {
+          background-color: #202020;
+        }
+        .tab.active {
+          background-color: #444;
+        }
+        .tab:not(.active):hover {
+          background-color: #333;
+        }
 
+        .nav {
+          background-color: transparent;
+        }
+
+        .etabs {
+          background-color: transparent;
+        }
       </style>
     </tab-group>
 
