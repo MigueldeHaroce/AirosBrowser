@@ -25,6 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (results) {
       searchResults = results;
+      
       console.log(searchHistory);
 
 
