@@ -1,20 +1,20 @@
 :host {
-  --tabgroup-background: transparent;
+  --tabgroup-background: #E7EAED;
   --tab-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --tab-font-size: 13px;
-  --tab-background: transparent;
+  --tab-background: #E7EAED;
   --tab-color: #696A6C;
-  --tab-border-color: transparent;
+  --tab-border-color: #DADCE0;
   --tab-transition: background-color 200ms ease-out, color 200ms ease-out;
   --tab-cursor: pointer;
   --tab-active-color: currentcolor;
-  --tab-active-background: transparent;
+  --tab-active-background: #FFF;
   --tag-hover-color: currentcolor;
-  --tag-hover-background: transparent;
+  --tag-hover-background: #F1F3F4;
   --button-font-size: 15px;
   --button-background: none;
   --button-color: #696A6C;
-  --button-hover-background: transparent;
+  --button-hover-background: #DADCE0;
   --button-hover-color: #383a3e;
   --button-border-radius: 50%;
   --button-cursor: pointer;

@@ -46,22 +46,41 @@
       
     <tab-group new-tab-button="true">
       <style>
+        :host {
+          --tab-border-color: transparent;
+          --button-hover-background: #444;
+          --tab-color: #ddd;
+          --tab-active-color: #ddd;
+          --tab-active-background: #ddd;
+          --tag-hover-color: #ddd;
+          --button-font-size: 20px;
+          --button-border-radius: 50%;
+        }
+
         .tab.visible {
           background-color: #202020;
         }
         .tab.active {
+          color: var(--tab-color);
           background-color: #444;
         }
         .tab:not(.active):hover {
+          color: var(--tab-color);
           background-color: #333;
         }
-
+        .tab-close button {
+          color: var(--tab-color);
+        }
         .nav {
           background-color: transparent;
         }
 
         .etabs {
           background-color: transparent;
+        }
+
+        .buttons {
+          padding: 1px;
         }
       </style>
     </tab-group>
