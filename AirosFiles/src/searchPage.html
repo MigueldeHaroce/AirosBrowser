@@ -115,7 +115,8 @@
           console.log(tabLogo);
           if (tabLogo) {
             const faviconURL = webview.getURL() + '/favicon.ico';
-            tabLogo.src = faviconURL;
+            console.log(faviconURL);
+            tab.setIcon(faviconURL);
           }
         });
       });
