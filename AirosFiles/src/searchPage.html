@@ -162,38 +162,39 @@
       console.log(searchHistory);
       let searchResults;
 
-      window.addEventListener("DOMContentLoaded", () => {
-        tabGroup.on('tab-added', (tab) => {
-          console.log(searchHistory);
+      tabGroup.on('tab-added', (tab) => {
+        console.log('brug');
+        console.log(searchHistory);
 
-          // Get searchID from URL
-          const searchID = new URLSearchParams(window.location.search).get("searchID");
-          console.log(searchID)
-          if (!searchID) return;
+        // Get searchID from URL
+        const searchID = new URLSearchParams(window.location.search).get("searchID");
+        console.log(searchID);
 
-          // Pull your search
-          ipcRenderer.send('pull-search', searchID);
-          // Wait for a response
-          ipcRenderer.on('search-results', (results) => { // no event here, only results
+        // Pull your search
+        ipcRenderer.send('pull-search', searchID);
+        // Wait for a response
+        ipcRenderer.on('search-results', (results) => { // no event here, only results
 
-            console.log(results)
+          console.log(results);
 
-            if (results) {
+          if (results) {
+            window.addEventListener("DOMContentLoaded", () => {
+              
               let webview = tab.webview;
 
               webview.loadURL(results);
-            
-              console.log(searchHistory);
 
-              // Add the search result to the search history
-              searchHistory.push(results);
-              console.log(searchHistory);
+            });
+            console.log(searchHistory);
+
+            // Add the search result to the search history
+            searchHistory.push(results);
+            console.log(searchHistory);
 
 
-            } else {
-              console.error('Error: searchResults or results is undefined.');
-            }
-          });
+          } else {
+            console.error('Error: searchResults or results is undefined.');
+          }
         });
       });
 

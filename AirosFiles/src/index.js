@@ -100,6 +100,7 @@ ipcMain.on('search', (event, query) => {
 ipcMain.on('pull-search', (event, searchID) => {
   console.log(searchID);
   console.log(resultsStack[ searchID ]);
+  console.log('va');
 
   if (resultsStack[ searchID ]) {
     event.sender.send('search-results', resultsStack[ searchID ]);
