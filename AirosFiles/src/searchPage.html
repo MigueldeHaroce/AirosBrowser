@@ -114,9 +114,34 @@
           const tabLogo = webview.getTitle();
           console.log(tabLogo);
           if (tabLogo) {
-            const faviconURL = webview.getURL() + '/favicon.ico';
-            console.log(faviconURL);
-            tab.setIcon(faviconURL);
+            const baseURL = webview.getURL();
+
+            const getFaviconURL = async () => {
+              try {
+                const response = await fetch(baseURL);
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const faviconLink = doc.querySelector('link[rel="icon"]');
+                if (faviconLink) {
+                  const faviconURL = new URL(faviconLink.href, baseURL).href;
+                  return faviconURL;
+                }
+              } catch (error) {
+                console.error('Error fetching favicon:', error);
+              }
+              return null;
+            };
+
+            // Usage:
+            getFaviconURL().then(faviconURL => {
+              if (faviconURL) {
+                const tabLogo = document.querySelector('.tab-logo');
+                console.log(faviconURL);
+
+                tab.setIcon(faviconURL);
+              }
+            });
           }
         });
       });
