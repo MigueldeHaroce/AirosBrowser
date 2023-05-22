@@ -110,11 +110,10 @@
         });
 
         // Set tab logo based on favicon
-        webview.addEventListener('dom-ready', async () => {
-          const domain = new URL(webview.getURL()).hostname;
-          const faviconURL = `https://www.google.com/s2/favicons?domain=${domain}`;
+        webview.addEventListener('dom-ready', () => {
           const tabLogo = tab.getTitleElement().querySelector('.tab-logo');
           if (tabLogo) {
+            const faviconURL = webview.getURL() + '/favicon.ico';
             tabLogo.src = faviconURL;
           }
         });
