@@ -43,22 +43,3 @@ ipcRenderer.on('addHistoryList', (results) => {
   searchHistory.push(results);
   console.log(searchHistory);
 });
-
-const tabGroup = document.querySelector("tab-group");
-tabGroup.on("ready", () => console.info("TabGroup is ready"));
-
-tabGroup.setDefaultTab({
-  title: "Wikipedia",
-  src: "https://www.wikipedia.org/",
-  active: true,
-  ready: () => console.info("New Tab is ready")
-});
-
-tabGroup.addTab({
-  title: "electron-tabs on NPM",
-  src: "https://www.wikipedia.org/",
-  badge: {
-    text: "5",
-    classname: "my-badge"
-  }
-});
