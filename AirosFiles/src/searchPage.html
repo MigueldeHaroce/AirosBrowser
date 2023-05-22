@@ -136,6 +136,7 @@
             // Usage:
             getFaviconURL().then(faviconURL => {
               if (faviconURL) {
+                console.log(faviconURL);
                 tab.setIcon(faviconURL);
               }
             });
@@ -147,6 +148,13 @@
         title: 'Tab 1',
         src: 'https://google.com/',
       });
+
+      tabGroup.addTab({
+        title: 'Tab 2',
+        src: 'https://www.youtube.com/',
+      });
+
+
     </script>
     
     <script src="appFunctions.js" defer type="module"></script>
