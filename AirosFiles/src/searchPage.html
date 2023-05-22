@@ -105,16 +105,17 @@
 
         // Set tab title based on web page title
         webview.addEventListener('page-title-updated', () => {
-          tab.setTitle(webview.getTitle());
+          const tabTitle = webview.getTitle();
+          tab.setTitle(`<img class="tab-logo" src=""/>${tabTitle}`);
         });
 
-        // Set tab logo based on web page favicon
-        webview.addEventListener('page-favicon-updated', () => {
-          const faviconURL = webview.getFavicon();
-          const tabLogo = document.createElement('img');
-          tabLogo.src = faviconURL;
-          tabLogo.classList.add('tab-logo');
-          tab.setTitle(tabLogo.outerHTML + webview.getTitle());
+        // Set tab logo based on favicon
+        webview.addEventListener('dom-ready', async () => {
+          const faviconURL = await getFavicon(webview.getURL());
+          const tabLogo = tab.getTitleElement().querySelector('.tab-logo');
+          if (tabLogo) {
+            tabLogo.src = faviconURL;
+          }
         });
       });
       
