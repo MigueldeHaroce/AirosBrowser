@@ -82,6 +82,13 @@
         .buttons {
           padding: 1px;
         }
+        .buttons button:hover {
+          padding: 1px;
+        }
+
+        .views {
+          position: absolute;
+        }
       </style>
     </tab-group>
 
@@ -91,6 +98,9 @@
 
       tabGroup.addTab({
         title: 'Tab 1',
+        src: 'https://google.com/'
+        // src: the webview im gonna create
+        // iconURL: /!\ or icon
       });
 
       tabGroup.addTab({
