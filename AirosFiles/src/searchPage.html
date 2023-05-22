@@ -152,19 +152,10 @@
         return null;
       };
     
-      tabGroup.addTab({
-        title: 'Tab 1',
-        src: 'https://github.com/',
-      });
-    
-      tabGroup.addTab({
-        title: 'Tab 2',
-        src: 'https://www.youtube.com/',
-      });
-
-      tabGroup.addTab({
-        title: 'Tab 3',
-        src: 'https://www.google.com/',
+      tabGroup.setDefaultTab({
+        title: "New Page",
+        src: "https://www.google.com/",
+        active: true
       });
     </script>
     
