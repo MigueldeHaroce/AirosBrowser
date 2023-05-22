@@ -111,7 +111,8 @@
 
         // Set tab logo based on favicon
         webview.addEventListener('dom-ready', async () => {
-          const faviconURL = await getFavicon(webview.getURL());
+          const domain = new URL(webview.getURL()).hostname;
+          const faviconURL = `https://www.google.com/s2/favicons?domain=${domain}`;
           const tabLogo = tab.getTitleElement().querySelector('.tab-logo');
           if (tabLogo) {
             tabLogo.src = faviconURL;
@@ -128,6 +129,19 @@
         title: 'Tab 2',
         src: 'https://www.youtube.com/?gl=ES',
       });
+
+      async function getFavicon(url) {
+        try {
+          const response = await fetch(`${url}/favicon.ico`);
+          if (response.ok) {
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+          }
+        } catch (error) {
+          console.error('Failed to fetch favicon:', error);
+        }
+        return '';
+      }
     </script>
     
     <script src="appFunctions.js" defer type="module"></script>
