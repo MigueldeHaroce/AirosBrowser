@@ -87,7 +87,11 @@
         }
 
         .views {
-          position: absolute;
+          position: fixed;
+          height: calc(100vh - 33px);
+          top: 45px;
+          width: 100%;
+          left: 0px;
         }
       </style>
     </tab-group>
@@ -98,13 +102,14 @@
 
       tabGroup.addTab({
         title: 'Tab 1',
-        src: 'https://google.com/'
-        // src: the webview im gonna create
-        // iconURL: /!\ or icon
+        src: 'https://google.com/',
+        iconURL: true,
       });
 
       tabGroup.addTab({
         title: 'Tab 2',
+        src: 'https://www.youtube.com/?gl=ES',
+        iconURL: true,
       });
     </script>
     
