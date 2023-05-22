@@ -105,19 +105,24 @@
 
     <script src="electron-tabs/dist/electron-tabs.js"></script>
     <script>
+
+      const query = []; 
+
+      const searchHistory = [];
+
       const tabGroup = document.querySelector("tab-group");
     
       tabGroup.on('tab-added', (tab) => {
         const webview = tab.webview;
-    
-        // Set tab title based on web page title
+
         webview.addEventListener('page-title-updated', () => {
+          // Set tab title based on web page title
           const tabTitle = webview.getTitle();
           tab.setTitle(`<img class="tab-logo" src=""/>${tabTitle}`);
         });
-    
-        // Set tab logo based on favicon
+
         webview.addEventListener('dom-ready', async () => {
+          // Set tab logo based on favicon
           let faviconURL;
           const webviewURL = webview.getURL();
 
@@ -129,69 +134,25 @@
           }
 
           if (faviconURL) {
-            console.log(faviconURL);
             tab.setIcon(faviconURL);
           }
         });
-      });
-    
-      const getFaviconURL = async (url) => {
-        try {
-          const response = await fetch(url);
-          const html = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const faviconLink = doc.querySelector('link[rel="icon"]');
-          if (faviconLink) {
-            const faviconURL = new URL(faviconLink.href, url).href;
-            return faviconURL;
-          }
-        } catch (error) {
-          console.error('Error fetching favicon:', error);
-        }
-        return null;
-      };
-    
-      tabGroup.setDefaultTab({
-        title: "New Page",
-        src: "https://www.google.com/",
-        active: true
-      });
-
-      const searchHistory = [];
-      console.log(searchHistory);
-      let searchResults;
-
-      tabGroup.on('tab-added', (tab) => {
-        console.log('brug');
-        console.log(searchHistory);
 
         // Get searchID from URL
         const searchID = new URLSearchParams(window.location.search).get("searchID");
-        console.log(searchID);
 
         // Pull your search
         ipcRenderer.send('pull-search', searchID);
+
         // Wait for a response
-        ipcRenderer.on('search-results', (results) => { // no event here, only results
-
+        ipcRenderer.on('search-results', (results) => {
           console.log(results);
-
           if (results) {
-            window.addEventListener("DOMContentLoaded", () => {
-              
-              let webview = tab.webview;
-
-              webview.loadURL(results);
-
-            });
-            console.log(searchHistory);
-
+            console.log(results + '|' + query);
+            query.push(results);
+            console.log(query[0]);
             // Add the search result to the search history
             searchHistory.push(results);
-            console.log(searchHistory);
-
-
           } else {
             console.error('Error: searchResults or results is undefined.');
           }
@@ -202,10 +163,16 @@
         searchHistory.push(results);
         console.log(searchHistory);
       });
-
-      tabGroup.addTab({
+    
+      tabGroup.setDefaultTab({
         title: "New Page",
         src: "https://www.google.com/",
+        active: true
+      });
+      console.log(query[0]);
+      tabGroup.addTab({
+        title: "New Page",
+        src: query[0],
         active: true
       });
 
