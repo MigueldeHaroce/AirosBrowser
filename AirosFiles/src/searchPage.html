@@ -111,7 +111,7 @@
 
         // Set tab logo based on favicon
         webview.addEventListener('dom-ready', () => {
-          const tabLogo = tab.getTitleElement().querySelector('.tab-logo');
+          const tabLogo = tab.getTitle();
           if (tabLogo) {
             const faviconURL = webview.getURL() + '/favicon.ico';
             tabLogo.src = faviconURL;
