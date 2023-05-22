@@ -136,9 +136,6 @@
             // Usage:
             getFaviconURL().then(faviconURL => {
               if (faviconURL) {
-                const tabLogo = document.querySelector('.tab-logo');
-                console.log(faviconURL);
-
                 tab.setIcon(faviconURL);
               }
             });
@@ -153,21 +150,9 @@
 
       tabGroup.addTab({
         title: 'Tab 2',
-        src: 'https://www.youtube.com/?gl=ES',
+        src: 'https://www.youtube.com/',
       });
 
-      async function getFavicon(url) {
-        try {
-          const response = await fetch(`${url}/favicon.ico`);
-          if (response.ok) {
-            const blob = await response.blob();
-            return URL.createObjectURL(blob);
-          }
-        } catch (error) {
-          console.error('Failed to fetch favicon:', error);
-        }
-        return '';
-      }
     </script>
     
     <script src="appFunctions.js" defer type="module"></script>
