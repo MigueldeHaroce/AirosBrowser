@@ -107,18 +107,25 @@
         webview.addEventListener('page-title-updated', () => {
           tab.setTitle(webview.getTitle());
         });
+
+        // Set tab logo based on web page favicon
+        webview.addEventListener('page-favicon-updated', () => {
+          const faviconURL = webview.getFavicon();
+          const tabLogo = document.createElement('img');
+          tabLogo.src = faviconURL;
+          tabLogo.classList.add('tab-logo');
+          tab.setTitle(tabLogo.outerHTML + webview.getTitle());
+        });
       });
       
       tabGroup.addTab({
         title: 'Tab 1',
         src: 'https://google.com/',
-        iconURL: true,
       });
 
       tabGroup.addTab({
         title: 'Tab 2',
         src: 'https://www.youtube.com/?gl=ES',
-        iconURL: true,
       });
     </script>
     
