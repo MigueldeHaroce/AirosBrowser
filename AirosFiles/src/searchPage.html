@@ -100,6 +100,15 @@
     <script>
       const tabGroup = document.querySelector("tab-group");
 
+      tabGroup.on('tab-added', (tab) => {
+        const webview = tab.webview;
+
+        // Set tab title based on web page title
+        webview.addEventListener('page-title-updated', () => {
+          tab.setTitle(webview.getTitle());
+        });
+      });
+      
       tabGroup.addTab({
         title: 'Tab 1',
         src: 'https://google.com/',
