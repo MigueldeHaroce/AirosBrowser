@@ -111,6 +111,41 @@
       const searchHistory = [];
 
       const tabGroup = document.querySelector("tab-group");
+      const searchID = new URLSearchParams(window.location.search).get("searchID");
+
+      // Pull your search
+      ipcRenderer.send('pull-search', searchID);
+
+      ipcRenderer.on('search-results', (results) => {
+        console.log(results);
+        if (results) {
+          console.log(results + '|' + query);
+          query.push(results);
+          console.log(query[0]);
+          // Add the search result to the search history
+          searchHistory.push(results);
+        } else {
+          console.error('Error: searchResults or results is undefined.');
+        }
+      });
+
+      tabGroup.addTab({
+          title: "no changes",
+          active: true,
+      });
+
+      console.log(query[0]);
+
+      tabGroup.on('webview-dom-ready', (tab) => {
+        const webview = tab.webview;
+
+        console.log(query[0]);
+
+        tab.setTitle("changes");
+
+        webview.loadURL(query[0]);
+
+      });
     
       tabGroup.on('tab-added', (tab) => {
         const webview = tab.webview;
@@ -137,26 +172,6 @@
             tab.setIcon(faviconURL);
           }
         });
-
-        // Get searchID from URL
-        const searchID = new URLSearchParams(window.location.search).get("searchID");
-
-        // Pull your search
-        ipcRenderer.send('pull-search', searchID);
-
-        // Wait for a response
-        ipcRenderer.on('search-results', (results) => {
-          console.log(results);
-          if (results) {
-            console.log(results + '|' + query);
-            query.push(results);
-            console.log(query[0]);
-            // Add the search result to the search history
-            searchHistory.push(results);
-          } else {
-            console.error('Error: searchResults or results is undefined.');
-          }
-        });
       });
 
       ipcRenderer.on('addHistoryList', (results) => {
@@ -169,17 +184,8 @@
         src: "https://www.google.com/",
         active: true
       });
-      console.log(query);
-      tabGroup.addTab({
-        title: "New Page",
-        src: query[0],
-        active: true
-      });
 
-    </script>
-    
-    
-    
+    </script>    
     <script src="appFunctions.js" defer type="module"></script>
     <script src="renderer.js" defer type="module"></script>  
   </body>
