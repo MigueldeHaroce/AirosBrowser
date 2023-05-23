@@ -106,52 +106,42 @@
     <script src="electron-tabs/dist/electron-tabs.js"></script>
     <script>
 
-      const query = []; 
-
+      const query = [];
       let finalResults;
-
       const searchHistory = [];
-
       const tabGroup = document.querySelector("tab-group");
       const searchID = new URLSearchParams(window.location.search).get("searchID");
 
-      // Pull your search
       ipcRenderer.send('pull-search', searchID);
 
-      ipcRenderer.on('search-results', (results) => {
-        console.log(results);
-        if (results) {
-
-          console.log(results + '|' + query);
-
-          query.push(results);
-          
-          finalResults = results;
-
-          console.log(query[0]);
-          // Add the search result to the search history
-          searchHistory.push(results);
-        } else {
-          console.error('Error: searchResults or results is undefined.');
-        }
+      const searchResultsPromise = new Promise((resolve, reject) => {
+        ipcRenderer.on('search-results', (results) => {
+          if (results) {
+            query.push(results);
+            finalResults = results;
+            searchHistory.push(results);
+            resolve(results);
+          } else {
+            reject(new Error('Error: searchResults or results is undefined.'));
+          }
+        });
       });
 
-      tabGroup.addTab({
-          title: "no changes",
-          active: true,
-      });
+      searchResultsPromise
+        .then((results) => {
+          console.log(results);
+          console.log(finalResults);
 
-      console.log(finalResults);
+          tabGroup.addTab({
+            title: "no changes",
+            src: results,
+            active: true,
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
-      tabGroup.on('tab-added', (tab) => {
-        const webview = tab.webview;
-
-        console.log("ad");
-
-        tab.setTitle("changes");
-
-        webview.loadURL(query[0]);
-      });
     
       tabGroup.on('tab-added', (tab) => {
         const webview = tab.webview;
