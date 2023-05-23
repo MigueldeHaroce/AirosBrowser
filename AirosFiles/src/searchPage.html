@@ -149,7 +149,9 @@
           console.log(results);
           if (results) {
             console.log(results + '|' + query);
+            
             query.push(results);
+            
             console.log(query[0]);
             // Add the search result to the search history
             searchHistory.push(results);
@@ -169,12 +171,10 @@
         src: "https://www.google.com/",
         active: true
       });
+
       console.log(query[0]);
-      tabGroup.addTab({
-        title: "New Page",
-        src: query[0],
-        active: true
-      });
+
+
 
     </script>
     
