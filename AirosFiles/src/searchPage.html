@@ -169,15 +169,11 @@
         src: "https://www.google.com/",
         active: true
       });
-      console.log(query[0]);
-      ipcRenderer.on('search-results', () => {
-        if (query[0]) {
-          tabGroup.addTab({
-            title: "New Page",
-            src: query[0],
-            active: true
-          });
-        }
+      console.log(query);
+      tabGroup.addTab({
+        title: "New Page",
+        src: query[0],
+        active: true
       });
 
     </script>
