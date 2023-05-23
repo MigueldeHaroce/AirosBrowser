@@ -154,8 +154,8 @@
 
         webview.addEventListener('page-title-updated', () => {
           // Set tab logo based on favicon
-          let faviconURL;
           const webviewURL = webview.getURL();
+          let faviconURL;
 
           if (webviewURL.includes('google.com')) {
             // Use a fallback favicon URL for google.com
@@ -168,6 +168,11 @@
             tab.setIcon(faviconURL);
           }
         });
+
+        function getFaviconURL(url) {
+          const baseURL = new URL(url).origin;
+          return `${baseURL}/favicon.ico`;
+        }
       });
 
       ipcRenderer.on('addHistoryList', (results) => {
