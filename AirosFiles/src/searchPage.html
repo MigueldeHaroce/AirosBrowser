@@ -108,6 +108,8 @@
 
       const query = []; 
 
+      let finalResults;
+
       const searchHistory = [];
 
       const tabGroup = document.querySelector("tab-group");
@@ -119,8 +121,13 @@
       ipcRenderer.on('search-results', (results) => {
         console.log(results);
         if (results) {
+
           console.log(results + '|' + query);
+
           query.push(results);
+          
+          finalResults = results;
+
           console.log(query[0]);
           // Add the search result to the search history
           searchHistory.push(results);
@@ -134,17 +141,16 @@
           active: true,
       });
 
-      console.log(query[0]);
+      console.log(finalResults);
 
-      tabGroup.on('webview-dom-ready', (tab) => {
+      tabGroup.on('tab-added', (tab) => {
         const webview = tab.webview;
 
-        console.log(query[0]);
+        console.log("ad");
 
         tab.setTitle("changes");
 
         webview.loadURL(query[0]);
-
       });
     
       tabGroup.on('tab-added', (tab) => {
