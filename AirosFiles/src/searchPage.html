@@ -111,7 +111,9 @@
       const searchHistory = [];
 
       const tabGroup = document.querySelector("tab-group");
-    
+
+      let isTabAdded = false; // Flag variable
+
       tabGroup.on('tab-added', (tab) => {
         const webview = tab.webview;
 
@@ -149,12 +151,22 @@
           console.log(results);
           if (results) {
             console.log(results + '|' + query);
-            
             query.push(results);
-            
             console.log(query[0]);
             // Add the search result to the search history
             searchHistory.push(results);
+
+
+            if (!isTabAdded) {
+              // Add the tab only if it hasn't been added before
+              tabGroup.addTab({
+                title: "New Page",
+                src: query[0],
+                active: true
+              });
+
+              isTabAdded = true; // Set the flag to true to prevent further additions
+            }
           } else {
             console.error('Error: searchResults or results is undefined.');
           }
@@ -171,11 +183,7 @@
         src: "https://www.google.com/",
         active: true
       });
-
-      console.log(query[0]);
-
-
-
+      
     </script>
     
     
