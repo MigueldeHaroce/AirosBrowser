@@ -86,8 +86,8 @@ body {
     width:100%;
     height:100vh;
     --gradient-color-1: #4F809E; 
-    --gradient-color-2: #202020; 
-    --gradient-color-3: #152F35;  
+    --gradient-color-2: #152F35; 
+    --gradient-color-3: #000;  
     --gradient-color-4: #F9C165;
 }
 
