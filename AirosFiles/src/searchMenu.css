@@ -110,7 +110,7 @@ body {
 }
 
 .text {
-  background-color: white;
+  background-color: transparent;
   color: black;
   font-size: 10vw; /* Responsive font size */
   font-weight: bold;
