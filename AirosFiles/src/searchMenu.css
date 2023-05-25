@@ -106,7 +106,7 @@ body {
 input[type="text"] {
     position: fixed;
     background-color: #ddd;
-    top: 445px;
+    top: 423px;
     left: 228px;
     padding: 10px;
     border: 1px solid #000;
@@ -125,7 +125,7 @@ input[type="text"] {
 #searchBtn {
     position: fixed;
     background-color: transparent;
-    top: 464px;
+    top: 440px;
     left: 760px;
     border: none;
 }

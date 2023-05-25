@@ -11,7 +11,7 @@
 <rect x="706.555" y="9.30768" width="272.478" height="279.231" stroke="black" stroke-width="3" stroke-miterlimit="16"/>
 <rect x="729" y="23" width="230" height="246" fill="url(#pattern0)"/>
 <path d="M10 334.5H1087C1090.04 334.5 1092.5 336.962 1092.5 340V571.5H4.5V340C4.5 336.962 6.96244 334.5 10 334.5Z" fill="black" fill-opacity="0.2" stroke="#152F35" stroke-width="9"/>
-<circle cx="227.5" cy="489.5" r="13" fill="#F9C165" stroke="black" stroke-width="3"/>
+<circle cx="227.5" cy="466.5" r="13" fill="#F9C165" stroke="black" stroke-width="3"/>
 <path d="M4.5 590.5H1092.5V734C1092.5 737.038 1090.04 739.5 1087 739.5H9.99998C6.96243 739.5 4.5 737.038 4.5 734V590.5Z" fill="black" fill-opacity="0.2" stroke="#152F35" stroke-width="9"/>
 <circle cx="111" cy="663" r="38.5" fill="#D9D9D9" stroke="black" stroke-width="3"/>
 <circle cx="220" cy="663" r="38.5" fill="#D9D9D9" stroke="black" stroke-width="3"/>
