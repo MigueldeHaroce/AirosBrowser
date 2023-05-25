@@ -146,17 +146,19 @@ ipcMain.on('changeAi', () => {
 const gpt = new openai.OpenAIApi('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');
 
 ipcMain.on('user-message', async (event, message) => {
-  // Send user message to the ChatGPT API
-  const response = await gpt.complete({
-    engine: 'davinci',
-    prompt: message,
-    maxTokens: 100,
-    temperature: 0.7
-  });
+  try {
+    const response = await gpt.createCompletion({
+      engine: 'davinci',
+      prompt: message,
+      maxTokens: 100,
+      temperature: 0.7
+    });
 
-  // Extract the generated AI response from the API result
-  const aiResponse = response.choices[0].text.trim();
+    const aiResponse = response.choices[0].text.trim();
 
-  // Send AI response to the renderer process
-  event.reply('ai-response', aiResponse);
+    event.reply('ai-response', aiResponse);
+  } catch (error) {
+    // Handle errors here
+    console.error(error);
+  }
 });
