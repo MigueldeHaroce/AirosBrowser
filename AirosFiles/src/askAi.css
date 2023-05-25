@@ -129,10 +129,10 @@ input[type="text"] {
 }
 
 #searchBtn {
-    position: inherit;
+    position: absolute;
     background-color: transparent;
-    top: 17.7%;
-    left: 69%;
+    top: 7.3%;
+    left: 75%;
     right: 5%;
     border: none;
 }
