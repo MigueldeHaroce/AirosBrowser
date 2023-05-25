@@ -131,9 +131,9 @@ input[type="text"] {
 #searchBtn {
     position: fixed;
     background-color: transparent;
-    top: 15.84%;
-    left: 15%;
-    right: 15%;
+    top: 17.7%;
+    left: 60%;
+    right: 5%;
     border: none;
 }
 
