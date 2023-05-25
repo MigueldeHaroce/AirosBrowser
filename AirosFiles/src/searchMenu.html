@@ -69,6 +69,17 @@
                 // Update the text content of #textHour
                 const textHourElement = document.getElementById('textHour');
                 textHourElement.textContent = formattedHour + ':' + formattedMinute + ' ' + amPm;
+            
+                // Function to toggle visibility of colons
+                function toggleColons() {
+                    const colons = document.querySelectorAll('textHour tspan');
+                    colons.forEach(colon => {
+                        colon.style.visibility = colon.style.visibility === 'visible' ? 'hidden' : 'visible';
+                    });
+                }
+            
+                // Blink colons every second
+                setInterval(toggleColons, 1000);
             </script>
             <button id="magicBtn"></button>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
