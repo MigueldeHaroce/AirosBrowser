@@ -141,3 +141,39 @@ input[type="text"] {
     padding: 1px;
     cursor: pointer;
 }
+
+#magicBtn {
+    position: absolute;                             
+    left: 10%;
+    top: 8.7%;
+    cursor: pointer;
+    border-radius: 100px;
+    background: #F9C165;
+    border: 3px solid #000000;
+    height: 29px;
+    width: 29px;
+}
+
+
+
+#magicBtnOver {
+    position: absolute;                             
+    left: 10%;
+    top: 8.7%;
+    cursor: pointer;
+    border-radius: 100px;
+    background: #000;
+    border: 3px solid #000000;
+    height: 29px;
+    width: 29px;
+    opacity: 0;
+}
+
+#magicBtnOver:hover {
+    cursor: pointer;
+    opacity: 0.1;
+}
+#magicBtnOver:active {
+    cursor: pointer;
+    opacity: 0.25;
+}
