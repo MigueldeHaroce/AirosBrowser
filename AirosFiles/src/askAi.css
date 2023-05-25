@@ -112,7 +112,7 @@ body {
 input[type="text"] {
     position: fixed;
     background-color: #ddd;
-    top: 15.84%;
+    bottom: 11.5%;
     left: 15%;
     right: 15%;
     padding: 10px;
@@ -131,7 +131,7 @@ input[type="text"] {
 #searchBtn {
     position: absolute;
     background-color: transparent;
-    top: 7.3%;
+    bottom: 7.3%;
     left: 75%;
     right: 5%;
     border: none;
@@ -145,7 +145,7 @@ input[type="text"] {
 #magicBtn {
     position: absolute;                             
     left: 10%;
-    top: 8.7%;
+    bottom: 8.7%;
     cursor: pointer;
     border-radius: 100px;
     background: #F9C165;
@@ -159,7 +159,7 @@ input[type="text"] {
 #magicBtnOver {
     position: absolute;                             
     left: 10%;
-    top: 8.7%;
+    bottom: 8.7%;
     cursor: pointer;
     border-radius: 100px;
     background: #000;
