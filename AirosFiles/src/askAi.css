@@ -112,8 +112,10 @@ body {
 input[type="text"] {
     position: fixed;
     background-color: #ddd;
-    top: 423px;
-    left: 228px;
+    top: 10.84%;
+    left: 4.31%;
+    right: 4.31%;
+    bottom: 6.15%;
     padding: 10px;
     border: 1px solid #000;
     border-width: 3px;
