@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, webContents, dialog } = require('electron');
 const path = require('path');
+const openai = require('openai');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -140,4 +141,23 @@ ipcMain.on('addHistory', (event, results) => {
 
 ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
+});
+
+
+const gpt = new openai.OpenAIApi('YOUR_API_KEY');
+
+ipcMain.on('user-message', async (event, message) => {
+  // Send user message to the ChatGPT API
+  const response = await gpt.complete({
+    engine: 'davinci',
+    prompt: message,
+    maxTokens: 100,
+    temperature: 0.7
+  });
+
+  // Extract the generated AI response from the API result
+  const aiResponse = response.choices[0].text.trim();
+
+  // Send AI response to the renderer process
+  event.reply('ai-response', aiResponse);
 });

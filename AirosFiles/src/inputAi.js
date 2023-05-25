@@ -1,4 +1,4 @@
-const chatContainer = document.getElementById('chat-container');
+const chatContainer = document.getElementById('background');
 const userInput = document.getElementById('text-input');
 const sendButton = document.getElementById('searchBtn');
 

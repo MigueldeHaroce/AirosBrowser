@@ -150,8 +150,8 @@ input[type="text"] {
 #searchBtn {
     position: absolute;
     background-color: transparent;
-    bottom: 7.3%;
-    left: 75%;
+    bottom: 12.9%;
+    left: 66%;
     right: 5%;
     border: none;
 }
@@ -163,8 +163,8 @@ input[type="text"] {
 
 #magicBtn {
     position: absolute;                             
-    left: 10%;
-    bottom: 8.7%;
+    left: 14.5%;
+    bottom: 14%;
     cursor: pointer;
     border-radius: 100px;
     background: #F9C165;
@@ -177,8 +177,8 @@ input[type="text"] {
 
 #magicBtnOver {
     position: absolute;                             
-    left: 10%;
-    bottom: 8.7%;
+    left: 14.5%;
+    bottom: 14%;
     cursor: pointer;
     border-radius: 100px;
     background: #000;
