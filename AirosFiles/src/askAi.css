@@ -112,10 +112,9 @@ body {
 input[type="text"] {
     position: fixed;
     background-color: #ddd;
-    top: 10.84%;
-    left: 4.31%;
-    right: 4.31%;
-    bottom: 6.15%;
+    top: 15.84%;
+    left: 15%;
+    right: 15%;
     padding: 10px;
     border: 1px solid #000;
     border-width: 3px;
@@ -123,7 +122,6 @@ input[type="text"] {
     font-size: 30px;
     font-family: 'ABeeZee', sans-serif;
     height: 87px;
-    width: 612px;
     box-sizing: border-box;
     outline: none;
     padding-left: 30px;
@@ -133,8 +131,9 @@ input[type="text"] {
 #searchBtn {
     position: fixed;
     background-color: transparent;
-    top: 440px;
-    left: 760px;
+    top: 15.84%;
+    left: 15%;
+    right: 15%;
     border: none;
 }
 
