@@ -46,7 +46,12 @@
     <div class="gradient">
         <div id="overlay">
             <img src="icons/Group 35.svg"> 
-            <div id="hourText">Hours</div>
+            <mask id="text-mask">
+                <rect width="100%" height="100%" fill="#fff" />
+                <text id="hourText" text-anchor="middle" dominant-baseline="central">Hours</text >
+            </mask>
+            <rect width="100%" height="100%" fill="#000" mask="url(#text-mask)" />
+
             <button id="magicBtn"></button>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
             <button id="searchBtn">

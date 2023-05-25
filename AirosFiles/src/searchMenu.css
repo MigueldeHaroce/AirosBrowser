@@ -85,6 +85,7 @@ body {
     transform: blur(3px);
     width:100%;
     height:100vh;
+    background-size: cover;
     --gradient-color-1: #4F809E; 
     --gradient-color-2: #202020; 
     --gradient-color-3: #152F35;  
@@ -96,7 +97,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
 }
 
 @font-face {
@@ -106,11 +106,11 @@ body {
 
 #hourText {
     position: absolute;
+    fill: #000;
     z-index: 2;
     top: 100px;
     left: 100px;
     font-size: 24px;
-    color: transparent;
     text-align: center;
     font-family: 'ABeeZee', sans-serif;
     font-weight: bold;
