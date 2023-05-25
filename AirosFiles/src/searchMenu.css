@@ -104,16 +104,9 @@ body {
     src: url('icons/ABeeZee-Regular.ttf');
 }
 
-
-
-.background2 {
+#letters {
     position: fixed;
-
-    top: 500px;
-    left: 50%;
 }
-
-
 
 input[type="text"] {
     position: fixed;
