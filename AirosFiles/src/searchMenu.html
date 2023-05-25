@@ -55,32 +55,47 @@
                 </defs>
                 <rect x="17.2" y="1.25" width="90" height="70" mask="url(#mask)" fill-opacity="0.5"/>    
             </svg>
-            <script>
-                // Get the current date and time
-                const currentDate = new Date();
-                const currentHour = currentDate.getHours();
-                const currentMinute = currentDate.getMinutes();
-                
-                // Format the hour and minute values
-                const formattedHour = (currentHour % 12 || 12).toString().padStart(2, '0');
-                const formattedMinute = currentMinute.toString().padStart(2, '0');
-                const amPm = currentHour < 12 ? 'AM' : 'PM';
-                
-                // Update the text content of #textHour
-                const textHourElement = document.getElementById('textHour');
-                textHourElement.textContent = formattedHour + ':' + formattedMinute + ' ' + amPm;
+            <svg viewbox="0 0 155 80" id="letters">
+                <defs>
+                    <mask id="mask" x="0" y="0" width="100" height="50">
+                        <rect x="0" y="0" width="100" height="40.70" fill="#fff"/>
+                        <text text-anchor="middle" x="57.5" y="25" dy="1" id="textHour"></text>
+                    </mask>
+                </defs>
+                <rect x="17.2" y="1.25" width="90" height="70" mask="url(#mask)" fill-opacity="0.5"/>    
+            </svg>
             
-                // Function to toggle visibility of colons
-                function toggleColons() {
-                    const colons = document.querySelectorAll('textHour tspan');
-                    colons.forEach(colon => {
-                        colon.style.visibility = colon.style.visibility === 'visible' ? 'hidden' : 'visible';
-                    });
+            <script>
+                // Function to update the text content of #textHour and make it blink
+                function updateTextHour() {
+                    const currentDate = new Date();
+                    const currentHour = currentDate.getHours();
+                    const currentMinute = currentDate.getMinutes();
+                    const currentSecond = currentDate.getSeconds();
+                    
+                    // Format the hour, minute, and second values
+                    const formattedHour = (currentHour % 12 || 12).toString().padStart(2, '0');
+                    const formattedMinute = currentMinute.toString().padStart(2, '0');
+                    const formattedSecond = currentSecond.toString().padStart(2, '0');
+                    const amPm = currentHour < 12 ? 'AM' : 'PM';
+                    
+                    // Get the #textHour element
+                    const textHourElement = document.getElementById('textHour');
+            
+                    // Check if it's time to blink or show the time
+                    if (currentSecond % 2 === 0) {
+                        // Show the time
+                        textHourElement.textContent = formattedHour + ':' + formattedMinute + ' ' + amPm;
+                    } else {
+                        // Show the blinking effect
+                        textHourElement.textContent = formattedHour + ' ' + formattedMinute + ' ' + amPm;
+                    }
                 }
             
-                // Blink colons every second
-                setInterval(toggleColons, 1000);
+                // Call the updateTextHour function every second
+                setInterval(updateTextHour, 1000);
             </script>
+            
             <button id="magicBtn"></button>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
             <button id="searchBtn">
