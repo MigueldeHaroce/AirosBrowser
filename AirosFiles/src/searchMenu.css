@@ -110,9 +110,9 @@ body {
 }
 
 .text {
-  background-color: transparent;
-  color: black;
-  font-size: 10vw; /* Responsive font size */
+  background-color: #000;
+  color: #fff;
+  font-size: 3em;
   font-weight: bold;
   margin: 0 auto; /* Center the text container */
   padding: 10px;
@@ -121,7 +121,7 @@ body {
   position: absolute; /* Position text */
   top: 200px;/* Position text in the middle */
   left: 200px; /* Position text in the middle */
-  mix-blend-mode: screen; /* This makes the cutout text possible */
+  mix-blend-mode: multiply; /* This makes the cutout text possible */
 }
 
 input[type="text"] {
