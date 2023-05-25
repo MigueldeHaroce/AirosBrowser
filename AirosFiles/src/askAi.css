@@ -98,6 +98,7 @@ body {
 }
 
 
+
 #background {
     position: fixed;
     left: 4.31%;
@@ -107,6 +108,22 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border: 9px solid #152F35;
     border-radius: 10px 10px 10px 10px; 
+    overflow-y: scroll;
+}
+
+
+#background::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+#background::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);        /* color of the tracking area */
+}
+
+#background::-webkit-scrollbar-thumb {
+  background-color: #000;
+  opacity: 0.8;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 input[type="text"] {
@@ -116,7 +133,7 @@ input[type="text"] {
     left: 15%;
     right: 15%;
     padding: 10px;
-    border: 1px solid #000;
+    border: 3px solid #000;
     border-width: 3px;
     border-radius: 50px;
     font-size: 30px;
