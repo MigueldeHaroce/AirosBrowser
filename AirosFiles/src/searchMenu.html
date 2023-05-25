@@ -55,6 +55,21 @@
                 </defs>
                 <rect x="17.2" y="1.25" width="90" height="70" mask="url(#mask)" fill-opacity="0.5"/>    
             </svg>
+            <script>
+                // Get the current date and time
+                const currentDate = new Date();
+                const currentHour = currentDate.getHours();
+                const currentMinute = currentDate.getMinutes();
+                
+                // Format the hour and minute values
+                const formattedHour = (currentHour % 12 || 12).toString().padStart(2, '0');
+                const formattedMinute = currentMinute.toString().padStart(2, '0');
+                const amPm = currentHour < 12 ? 'AM' : 'PM';
+                
+                // Update the text content of #textHour
+                const textHourElement = document.getElementById('textHour');
+                textHourElement.textContent = formattedHour + ':' + formattedMinute + ' ' + amPm;
+            </script>
             <button id="magicBtn"></button>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
             <button id="searchBtn">
