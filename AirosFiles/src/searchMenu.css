@@ -104,25 +104,16 @@ body {
     src: url('icons/ABeeZee-Regular.ttf');
 }
 
-.image-container {
-  height: 50%;
-  width: 50%;
+
+
+.background2 {
+    position: fixed;
+
+    top: 500px;
+    left: 50%;
 }
 
-.text {
-  background-color: #000;
-  color: #fff;
-  font-size: 3em;
-  font-weight: bold;
-  margin: 0 auto; /* Center the text container */
-  padding: 10px;
-  width: 50%;
-  text-align: center; /* Center text */
-  position: absolute; /* Position text */
-  top: 200px;/* Position text in the middle */
-  left: 200px; /* Position text in the middle */
-  mix-blend-mode: multiply; /* This makes the cutout text possible */
-}
+
 
 input[type="text"] {
     position: fixed;
