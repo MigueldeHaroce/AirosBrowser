@@ -143,7 +143,6 @@ ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
 });
 
-
 const gpt = new openai.OpenAIApi('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');
 
 ipcMain.on('user-message', async (event, message) => {
