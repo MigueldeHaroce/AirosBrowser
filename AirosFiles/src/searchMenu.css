@@ -150,14 +150,24 @@ input[type="text"] {
 
 #magicBtn {
     position: fixed;
-    background-color: transparent;
-    top: 473px;
-    left: 214px;
+    background-color: #000;
+    top: 453px;
+    left: 213px;
     height: 29px;
     width: 29px;
     border: none;
     cursor: pointer;
     border-radius: 100px;
+    opacity: 0;
+}
+
+#magicBtn:hover {
+    cursor: pointer;
+    opacity: 0.10;
+}
+#magicBtn:active {
+    cursor: pointer;
+    opacity: 0.25;
 }
 
 #amazonBtn {

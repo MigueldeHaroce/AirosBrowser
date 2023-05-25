@@ -137,3 +137,7 @@ ipcMain.on('goMenu', (event) => {
 ipcMain.on('addHistory', (event, results) => {
   event.sender.send('addHistoryList', results)
 });
+
+ipcMain.on('changeAi', () => {
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
+});
