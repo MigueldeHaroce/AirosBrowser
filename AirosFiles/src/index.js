@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, webContents, dialog } = require('electron');
 const path = require('path');
-const openai = require('openai');
+const { Configuration, OpenAIApi } = require("openai");
 const axios = require('axios');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -143,22 +143,21 @@ ipcMain.on('addHistory', (event, results) => {
 ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
 });
-
-
-/*
-const configuration = new openai.Configuration({
+/////////////////////////////AI/////////////////////////////////////
+const configuration = new Configuration({
   apiKey: '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',
 });
 
-const gpt = new openai.OpenAIApi(configuration);
+const openai = new OpenAIApi(configuration);
+
 
 ipcMain.on('user-message', async (event, message) => {
   try {
-    const response = await gpt.createCompletion({
-      engine: 'davinci',
-      prompt: message,
-      maxTokens: 100,
-      temperature: 0.7
+    const response = await openai.createCompletion({
+      model: "davinci",
+      prompt: "Say this is a test",
+      max_tokens: 7,
+      temperature: 0,
     });
 
     const aiResponse = response.choices[0].text.trim();
@@ -170,11 +169,10 @@ ipcMain.on('user-message', async (event, message) => {
   }
 });
 
-*/
+
 
 // Configura tu clave de API
-
-
+/*
 
 ipcMain.on('user-message', async (event, message) => {
   try {
@@ -211,3 +209,4 @@ ipcMain.on('user-message', async (event, message) => {
     }
   }
 });
+*/
