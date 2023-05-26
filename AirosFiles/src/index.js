@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, webContents, dialog } = require('electron');
 const path = require('path');
 const openai = require('openai');
+const axios = require('axios');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -174,49 +175,19 @@ ipcMain.on('user-message', async (event, message) => {
 const axios = require('axios');
 
 // Configura tu clave de API
-const apiKey = 'TU_CLAVE_DE_API_AQUÍ';
 
-// Función para enviar una solicitud a la API de ChatGPT
-async function enviarSolicitudChat(prompt) {
-  const response = await axios.post(
-    'https://api.openai.com/v1/engines/davinci-codex/completions',
-    {
-      prompt: prompt,
-      max_tokens: 100,
-      temperature: 0.7,
-      n: 1,
-      stop: null,
-      timeout: 15
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
-      }
-    }
-  );
 
-  const respuesta = response.data.choices[0].text.trim();
-  return respuesta;
-}
 
-// Ejemplo de uso
-const prompt = 'Hola, ¿cómo estás?';
-enviarSolicitudChat(prompt)
-  .then(respuesta => {
-    console.log(respuesta);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-
-ipcMain.on('user-message', async (event, message) => {
+ipcMain.on('user-message', (event, message) => {
   try {
-    async function enviarSolicitudChat(prompt) {
+
+    // Configura tu clave de API
+    const apiKey = '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';
+    async function enviarSolicitudChat(message) {
       const response = await axios.post(
         'https://api.openai.com/v1/engines/davinci-codex/completions',
         {
-          prompt: prompt,
+          prompt: message,
           max_tokens: 100,
           temperature: 0.7,
           n: 1,
@@ -231,11 +202,18 @@ ipcMain.on('user-message', async (event, message) => {
         }
       );
     };    
-    const aiResponse = response.choices[0].text.trim();
+    enviarSolicitudChat(message);
+    const respuesta = response.data.choices[0].text.trim();
 
-    event.reply('ai-response', aiResponse);
+    event.reply('ai-response', respuesta);
   } catch (error) {
     // Handle errors here
     console.error(error);
   }
 });  
+
+/*
+
+
+
+*/
