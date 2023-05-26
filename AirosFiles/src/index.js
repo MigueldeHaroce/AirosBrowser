@@ -153,14 +153,9 @@ const openai = new OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
   try {
-    const response = await openai.createCompletion({
-      model: "davinci",
-      prompt: "Say this is a test",
-      max_tokens: 7,
-      temperature: 0,
-    });
-
+    const response = await makeRequestWithExponentialBackoff();
     const aiResponse = response.choices[0].text.trim();
+    console.log('AI response:', aiResponse);
 
     event.reply('ai-response', aiResponse);
   } catch (error) {
@@ -168,6 +163,38 @@ ipcMain.on('user-message', async (event, message) => {
     console.error(error);
   }
 });
+
+async function makeRequestWithExponentialBackoff() {
+  const maxRetries = 5;
+  let currentRetry = 0;
+  let waitTime = 1000; // Initial wait time in milliseconds
+
+  while (currentRetry < maxRetries) {
+    try {
+      const response = await openai.createCompletion({
+        model: "davinci",
+        prompt: "Say this is a test",
+        max_tokens: 7,
+        temperature: 0,
+      });
+      return response;
+    } catch (error) {
+      if (error.response && error.response.status === 429) {
+        // Retry after waiting
+        await wait(waitTime);
+        waitTime *= 2; // Double the wait time for each retry
+        currentRetry++;
+      } else {
+        throw error;
+      }
+    }
+  }
+  throw new Error('Exceeded maximum number of retries');
+}
+
+function wait(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 
 
