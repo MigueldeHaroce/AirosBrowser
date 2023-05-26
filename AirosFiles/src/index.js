@@ -176,40 +176,36 @@ ipcMain.on('user-message', async (event, message) => {
 
 
 
-ipcMain.on('user-message', (event, message) => {
+ipcMain.on('user-message', async (event, message) => {
   try {
-
-    // Configura tu clave de API
     const apiKey = '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';
-    async function enviarSolicitudChat(message) {
-      const response = await axios.post(
-        'https://api.openai.com/v1/engines/davinci-codex/completions',
-        {
-          prompt: message,
-          max_tokens: 100,
-          temperature: 0.7,
-          n: 1,
-          stop: null,
-          timeout: 15
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          }
+
+    const response = await axios.post(
+      'https://api.openai.com/v1/engines/davinci-codex/completions',
+      {
+        prompt: message,
+        max_tokens: 100,
+        temperature: 0.7,
+        n: 1,
+        stop: null,
+        timeout: 15
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`
         }
-      );
-    };    
-    enviarSolicitudChat(message);
+      }
+    );
+
     const respuesta = response.data.choices[0].text.trim();
 
     event.reply('ai-response', respuesta);
   } catch (error) {
-    // Handle errors here
     console.error(error);
+    // Handle errors here
   }
-});  
-
+});
 /*
 
 
