@@ -204,10 +204,10 @@ ipcMain.on('user-message', async (event, message) => {
   } catch (error) {
     console.error(error);
     // Handle errors here
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
   }
 });
-/*
-
-
-
-*/
