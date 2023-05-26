@@ -145,14 +145,11 @@ ipcMain.on('changeAi', () => {
 
 
 
-const gpt = new openai.OpenAIApi(new openai.Configuration({
-  apiKey: process.env.GPT3_API_KEY,
-}));
+const gpt = new openai.OpenAIApi('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');
 
 ipcMain.on('user-message', async (event, message) => {
-  console.log(message);
   try {
-    const response = await gpt.createChatCompletion({
+    const response = await gpt.createCompletion({
       engine: 'davinci',
       prompt: message,
       maxTokens: 100,
@@ -160,8 +157,6 @@ ipcMain.on('user-message', async (event, message) => {
     });
 
     const aiResponse = response.choices[0].text.trim();
-    
-    console.log(aiResponse);
 
     event.reply('ai-response', aiResponse);
   } catch (error) {
