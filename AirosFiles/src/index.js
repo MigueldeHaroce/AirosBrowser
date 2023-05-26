@@ -172,8 +172,6 @@ ipcMain.on('user-message', async (event, message) => {
 
 */
 
-const axios = require('axios');
-
 // Configura tu clave de API
 
 
