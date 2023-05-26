@@ -143,17 +143,17 @@ ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
 });
 
-const apiKey = process.env.OPENAI_API_KEY;
-const gpt = new openai.OpenAIApi('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');
+
+const configuration = new openai.Configuration({
+    organization: "org-m9KGDAG41O9iw6IB5DXchdg6",
+    apiKey: process.env.openai.OPENAI_API_KEY('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'),
+});
+
+const gpt = new openai.OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
   try {
-    const response = await gpt.createCompletion({
-      engine: 'davinci',
-      prompt: message,
-      maxTokens: 100,
-      temperature: 0.7
-    });
+    const response = await gpt.listEngines();
 
     const aiResponse = response.choices[0].text.trim();
 
