@@ -151,25 +151,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-ipcMain.on('user-message', async (event, message) => {
-  try {
-    const response = await makeRequestWithExponentialBackoff();
-    const aiResponse = response.choices[0].text.trim();
-    console.log('AI response:', aiResponse);
+const MAX_RETRIES = 5;
+const INITIAL_DELAY = 1000; // 1 second
 
-    event.reply('ai-response', aiResponse);
-  } catch (error) {
-    // Handle errors here
-    console.error(error);
-  }
-});
+async function makeRequestWithRetries() {
+  let retryDelay = INITIAL_DELAY;
+  let retries = 0;
 
-async function makeRequestWithExponentialBackoff() {
-  const maxRetries = 5;
-  let currentRetry = 0;
-  let waitTime = 1000; // Initial wait time in milliseconds
-
-  while (currentRetry < maxRetries) {
+  while (retries < MAX_RETRIES) {
     try {
       const response = await openai.createCompletion({
         model: "davinci",
@@ -177,25 +166,38 @@ async function makeRequestWithExponentialBackoff() {
         max_tokens: 7,
         temperature: 0,
       });
-      return response;
+
+      const aiResponse = response.choices[0].text.trim();
+      return aiResponse;
     } catch (error) {
       if (error.response && error.response.status === 429) {
-        // Retry after waiting
-        await wait(waitTime);
-        waitTime *= 2; // Double the wait time for each retry
-        currentRetry++;
+        console.log('Too many requests. Retrying after delay...');
+        await delay(retryDelay);
+        retryDelay *= 2; // Increase the delay exponentially for each retry
+        retries++;
       } else {
-        throw error;
+        console.error('Request failed with an error:', error);
+        throw error; // Handle other errors accordingly
       }
     }
   }
-  throw new Error('Exceeded maximum number of retries');
+
+  throw new Error('Max retries exceeded. Unable to fulfill the request.');
 }
 
-function wait(time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+ipcMain.on('user-message', async (event, message) => {
+  try {
+    const aiResponse = await makeRequestWithRetries();
+    event.reply('ai-response', aiResponse);
+  } catch (error) {
+    // Handle errors here
+    console.error(error);
+  }
+});
 
 
 // Configura tu clave de API
