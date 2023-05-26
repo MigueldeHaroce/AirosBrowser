@@ -144,12 +144,11 @@ ipcMain.on('changeAi', () => {
 });
 
 
-
+/*
 const configuration = new openai.Configuration({
-  organization: 'org-m9KGDAG41O9iw6IB5DXchdg6',
   apiKey: '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',
 });
-/*
+
 const gpt = new openai.OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
@@ -169,10 +168,10 @@ ipcMain.on('user-message', async (event, message) => {
     console.error(error);
   }
 });
+
 */
 
-
-/*const axios = require('axios');
+const axios = require('axios');
 
 // Configura tu clave de API
 const apiKey = 'TU_CLAVE_DE_API_AQUÍ';
@@ -209,4 +208,34 @@ enviarSolicitudChat(prompt)
   })
   .catch(error => {
     console.error(error);
-  }); */
+  });
+
+ipcMain.on('user-message', async (event, message) => {
+  try {
+    async function enviarSolicitudChat(prompt) {
+      const response = await axios.post(
+        'https://api.openai.com/v1/engines/davinci-codex/completions',
+        {
+          prompt: prompt,
+          max_tokens: 100,
+          temperature: 0.7,
+          n: 1,
+          stop: null,
+          timeout: 15
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          }
+        }
+      );
+    };    
+    const aiResponse = response.choices[0].text.trim();
+
+    event.reply('ai-response', aiResponse);
+  } catch (error) {
+    // Handle errors here
+    console.error(error);
+  }
+});  
