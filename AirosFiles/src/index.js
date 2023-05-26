@@ -145,7 +145,7 @@ ipcMain.on('changeAi', () => {
 
 
 
-const gpt = new openai.OpenAIApi('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');
+const gpt = new openai.OpenAIApi('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');
 
 ipcMain.on('user-message', async (event, message) => {
   try {
