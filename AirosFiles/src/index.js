@@ -153,6 +153,7 @@ const configuration = new openai.Configuration({
 const gpt = new openai.OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
+  console.log(message);
   try {
     const response = await gpt.createCompletion({
       engine: 'davinci',
