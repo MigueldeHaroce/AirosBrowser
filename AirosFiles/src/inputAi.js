@@ -13,7 +13,7 @@ sendButton.addEventListener('click', function() {
 });
 
 // Event listener for receiving AI response
-ipcRenderer.on('ai-response', function(event, response) {
+ipcRenderer.on('ai-response', function(response) {
     displayMessage('AI', response);
 });
 
