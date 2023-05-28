@@ -151,19 +151,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
-  try {
-    const aiResponse = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: "Say this is a test",
-      temperature: 0,
-      max_tokens: 7,
-    });
-    console.log(aiResponse.data.choices[0].text.trim());
-    event.reply('ai-response', aiResponse.data.choices[0].text.trim());
-  } catch (error) {
-    // Handle errors here
-    console.error(error);
-  }
+  const aiResponse = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: message,
+    temperature: 0,
+    max_tokens: 7,
+  });
+  console.log(aiResponse.data.choices[0].text.trim());
+  event.reply('ai-response', aiResponse.data.choices[0].text.trim());
 });
 
 
