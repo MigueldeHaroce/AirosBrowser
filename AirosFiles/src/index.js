@@ -153,30 +153,16 @@ const openai = new OpenAIApi(configuration);
 
 ipcMain.on('user-message', async (event, message) => {
   try {
-    const response = await axios.post(
-      'https://api.openai.com/v1/engines/text-davinci-003/completions',
-      {
-        prompt: 'Say this is a test',
-        temperature: 0,
-        max_tokens: 7,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${'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'}`, // Replace YOUR_API_KEY with your actual OpenAI API key
-        },
-      }
-    );
+    const response = await axios.post('https://chatgpt-api.shn.hk/v1/', {
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: message }],
+    });
 
-    const aiResponse = response.data.choices[0].text.trim();
+    const aiResponse = response.data.choices[0].message.content;
     console.log(aiResponse);
     event.reply('ai-response', aiResponse);
   } catch (error) {
-    if (error.response && error.response.status === 429) {
-      console.error('API rate limit exceeded. Please wait and try again later.');
-    } else {
-      console.error('Error:', error.message);
-    }
+      console.error(error);
     // Handle other errors or display an appropriate error message to the user.
   }
 });
