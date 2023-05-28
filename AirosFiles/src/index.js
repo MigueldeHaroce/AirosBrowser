@@ -156,7 +156,7 @@ ipcMain.on('user-message', async (event, message) => {
     model: "text-davinci-003",
     prompt: "Describe a happy purple elephant in 50 words.",
     temperature: 0,
-    max_tokens: 500
+    max_tokens: 1
   })
   console.log(completion.data.choices[0].text)
     // Handle other errors or display an appropriate error message to the user.
