@@ -160,7 +160,7 @@ ipcMain.on('user-message', async (event, message) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Barer 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', // Replace with your actual OpenAI API key
+        'Authorization': `Bearer ${'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'}`, // Replace with your actual OpenAI API key
       },
     });
     const aiResponse = response.data.choices[0].text.trim();
