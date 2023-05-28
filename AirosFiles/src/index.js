@@ -150,15 +150,28 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+
+async function askAi() {
+  const aiResponse = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: message,
+    temperature: 0,
+    max_tokens: 10,
+  });
+
+  return aiResponse.data.choices[0].text.trim();
+}
+
+
 ipcMain.on('user-message', async (event, message) => {
   const aiResponse = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: message,
     temperature: 0,
-    max_tokens: 7,
+    max_tokens: 10,
   });
-  console.log(aiResponse.data.choices[0].text.trim());
-  event.reply('ai-response', aiResponse.data.choices[0].text.trim());
+  console.log(askAi(message));
+  event.reply('ai-response', askAi(message));
 });
 
 
