@@ -158,8 +158,8 @@ ipcMain.on('user-message', async (event, message) => {
       temperature: 0,
       max_tokens: 7,
     });
-    console.log(aiResponse);
-    event.reply('ai-response', aiResponse);
+    console.log(aiResponse.data.choices[0].text.trim());
+    event.reply('ai-response', aiResponse.data.choices[0].text.trim());
   } catch (error) {
     // Handle errors here
     console.error(error);
