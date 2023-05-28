@@ -163,7 +163,7 @@ ipcMain.on('user-message', async (event, message) => {
         'Authorization': `Bearer ${'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'}`, // Replace with your actual OpenAI API key
       },
     });
-    const aiResponse = response.data.choices[0].text.trim();
+    const aiResponse = response.data.choices[0].text;
     console.log(aiResponse);
     event.reply('ai-response', aiResponse);
   } catch (error) {
