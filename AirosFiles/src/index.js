@@ -151,27 +151,31 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-async function askAi() {
-  const aiResponse = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: message,
-    temperature: 0,
-    max_tokens: 10,
-  });
-
-  return aiResponse.data.choices[0].text.trim();
-}
-
-
 ipcMain.on('user-message', async (event, message) => {
-  const aiResponse = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: message,
-    temperature: 0,
-    max_tokens: 10,
-  });
-  console.log(askAi(message));
-  event.reply('ai-response', askAi(message));
+  try {
+    const response = await axios.post('https://api.openai.com/v1/engines/text-davinci-003/completions', {
+      prompt: 'Say this is a test',
+      temperature: 0,
+      max_tokens: 7,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': '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', // Replace with your actual OpenAI API key
+      },
+    });
+    const aiResponse = response.data.choices[0].text.trim();
+    console.log(aiResponse);
+    event.reply('ai-response', aiResponse);
+  } catch (error) {
+    if (error.response && error.response.status === 429) {
+      console.error('API rate limit exceeded. Please wait and try again later.');
+      console.error('Error:', error);
+
+    } else {
+      console.error('Error:', error);
+    }
+    // Handle other errors or display an appropriate error message to the user.
+  }
 });
 
 
