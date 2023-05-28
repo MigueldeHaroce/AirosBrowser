@@ -150,48 +150,15 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-
-const MAX_RETRIES = 5;
-const INITIAL_DELAY = 1000; // 1 second
-
-async function makeRequestWithRetries() {
-  let retryDelay = INITIAL_DELAY;
-  let retries = 0;
-
-  while (retries < MAX_RETRIES) {
-    try {
-      const response = await openai.createCompletion({
-        model: "davinci",
-        prompt: "Say this is a test",
-        max_tokens: 7,
-        temperature: 0,
-      });
-
-      const aiResponse = response.choices[0].text.trim();
-      return aiResponse;
-    } catch (error) {
-      if (error.response && error.response.status === 429) {
-        console.log('Too many requests. Retrying after delay...');
-        await delay(retryDelay);
-        retryDelay *= 2; // Increase the delay exponentially for each retry
-        retries++;
-      } else {
-        console.error('Request failed with an error:', error);
-        throw error; // Handle other errors accordingly
-      }
-    }
-  }
-
-  throw new Error('Max retries exceeded. Unable to fulfill the request.');
-}
-
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 ipcMain.on('user-message', async (event, message) => {
   try {
-    const aiResponse = await makeRequestWithRetries();
+    const aiResponse = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: "Say this is a test",
+      temperature: 0,
+      max_tokens: 7,
+    });
+    console.log(aiResponse);
     event.reply('ai-response', aiResponse);
   } catch (error) {
     // Handle errors here
