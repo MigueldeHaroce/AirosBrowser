@@ -197,10 +197,10 @@ input[type="text"] {
     font-size: 16px;
     font-family: -apple-system, Roboto, SegoeUI, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'Meiryo UI', Meiryo, Arial Unicode MS, sans-serif;
     line-height: 22px;
-    left: 50%;
-    display: block;
+    left: 37.5%;
     transform: translate(-50%, -50%);
-    top: 10%;
+    top: 18%;
+    background: rgba(0, 0, 0, .5);
 }
 
 #title1 {
