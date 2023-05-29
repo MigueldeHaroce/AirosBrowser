@@ -99,10 +99,12 @@
             <button id="magicBtn"></button>
             <script>
                 const magicBtn = document.getElementById('magicBtn');
-            
+                const intro = 'Hello, I am Airos Ai, your personal assistant.';
                 magicBtn.addEventListener('click', () => {
                     ipcRenderer.send('changeAi');
+                    ipcRenderer.send('ai-response-first', intro);
                 });
+                
             </script>
             <input type="text" id="text-input" name="text-input" placeholder="Search...">
             <button id="searchBtn">
