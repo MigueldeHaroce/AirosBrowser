@@ -5,6 +5,7 @@ body {
     background-color: #1E1E1E;
     animation: fadeIn 0.5s ease-in-out forwards;
     opacity: 0.1;
+    font-family: "Open Sans", sans-serif;
 }
   
 @keyframes fadeIn {
