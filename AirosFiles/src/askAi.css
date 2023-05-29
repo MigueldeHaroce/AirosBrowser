@@ -341,20 +341,12 @@ Messages
     flex: 0 1 40px;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    position: relative;
 }
 .message-box .message-input {
-    background: none;
-    border: none;
-    outline: none !important;
+
     resize: none;
-    color: rgb(0, 0, 0);
-    font-size: 11px;
-    height: 17px;
     margin: 0;
     padding-right: 20px;
-    width: 265px;
     font-size: 30px;
     font-family: 'ABeeZee', sans-serif;
     color: #fff;
