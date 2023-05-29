@@ -142,7 +142,7 @@ ipcMain.on('addHistory', (event, results) => {
 
 ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
-  ipcMain.send('ai-response', 'Hi!, I am Airos, your personal AI assistant. How can I help you?');
+  ipcMain.handle('ai-response', 'Hi!, I am Airos, your personal AI assistant. How can I help you?');
 });
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
