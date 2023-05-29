@@ -189,9 +189,19 @@ input[type="text"] {
     opacity: 0.25;
 }
 
+#text1 {
+    text-align: center;
+    padding: 50px 48px 0px;
+    font-size: 16px;
+    font-family: -apple-system, Roboto, SegoeUI, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'Meiryo UI', Meiryo, Arial Unicode MS, sans-serif;
+    line-height: 22px;
+}
+
 /*--------------------
 Messages
 --------------------*/
+
+
 
 .messages {
     flex: 1 1 auto;
@@ -247,7 +257,7 @@ Messages
     float: right;
     color: #fff;
     text-align: right;
-    background: linear-gradient(120deg, #5c98bd, #257287);
+    background: linear-gradient(90deg, #006880 10.79%, #005366 87.08%);
     border-radius: 10px 10px 10px 10px;
 }
 .messages .message.message-personal::before {
