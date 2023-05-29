@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const timestamp = document.createElement('div');
       timestamp.className = 'timestamp';
       timestamp.textContent = d.getHours() + ':' + m;
-      const lastMessage = document.getElementById('background:last-child');
+      const lastMessage = document.getElementById('.message:last-child');
       lastMessage.appendChild(timestamp);
     }
   }
