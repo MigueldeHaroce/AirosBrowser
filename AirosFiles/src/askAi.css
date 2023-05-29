@@ -196,14 +196,16 @@ input[type="text"] {
     font-size: 16px;
     font-family: -apple-system, Roboto, SegoeUI, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'Meiryo UI', Meiryo, Arial Unicode MS, sans-serif;
     line-height: 22px;
+    left: 50%;
 }
 
 #title1 {
     text-align: center;
     padding: 50px 48px 0px;
-    font-size: 36px;
+    font-size: 16px;
     font-family: -apple-system, Roboto, SegoeUI, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'Meiryo UI', Meiryo, Arial Unicode MS, sans-serif;
     line-height: 22px;
+
 }
 /*--------------------
 Messages
