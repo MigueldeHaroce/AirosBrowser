@@ -562,6 +562,10 @@
         gradient.initGradient('#gradient-canvas')
         </script>
     </div>
+    <script>
+        const intro = 'Hello, I am Airos Ai, your personal assistant.';
+        ipcRenderer.send('ai-response-first', (event, intro));
+    </script>
     <script src="inputAi.js" defer type="module"></script>  
     <script src="renderer.js" defer type="module"></script>  
     <script src="appFunctions.js" defer type="module"></script>

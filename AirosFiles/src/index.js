@@ -163,6 +163,10 @@ ipcMain.on('user-message', async (event, message) => {
     // Handle other errors or display an appropriate error message to the user.
 });
 
+ipcMain.on('ai-response-first', (event, intro) => {
+  event.sender.send('ai-response', intro);
+});
+
 
 // Configura tu clave de API
 /*
