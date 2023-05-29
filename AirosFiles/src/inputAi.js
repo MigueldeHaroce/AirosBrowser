@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const loadingMessage = document.createElement('div');
     loadingMessage.className = 'message loading new';
-    loadingMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;"/></figure><span></span>';
+    loadingMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;/></figure><span></span>';
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
-    ipcRenderer.on('ai-response', (event, response) => {
+    ipcRenderer.on('ai-response', function(response) {
       const loading = document.querySelector('.message.loading');
       loading.parentNode.removeChild(loading);
       const newMessage = document.createElement('div');

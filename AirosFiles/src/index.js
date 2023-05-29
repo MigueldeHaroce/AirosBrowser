@@ -168,6 +168,7 @@ ipcMain.on('ai-response-first', (event, intro) => {
 });
 
 
+
 // Configura tu clave de API
 /*
 
