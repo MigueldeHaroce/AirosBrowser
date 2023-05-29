@@ -5,7 +5,7 @@ const sendButton = document.getElementById('searchBtn');
 // Event listener for user input
 sendButton.addEventListener('click', function() {
     const message = userInput.value;
-    insertMessage('User', message);
+    insertMessage();
     userInput.value = '';
 
     // Send user input to the main process
@@ -21,7 +21,7 @@ ipcRenderer.on('ai-response', function(response) {
 const { ipcRenderer } = require('electron');
 
 document.addEventListener('DOMContentLoaded', function() {
-  const messages = document.querySelector('.messages-content');
+  const messages = document.getElementById('background');
   let d, h, m;
   let i = 0;
 
@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const timestamp = document.createElement('div');
       timestamp.className = 'timestamp';
       timestamp.textContent = d.getHours() + ':' + m;
-      const lastMessage = document.querySelector('.message:last-child');
+      const lastMessage = document.getElementById('background:last-child');
       lastMessage.appendChild(timestamp);
     }
   }
 
   function insertMessage() {
-    const input = document.querySelector('.message-input');
+    const input = document.getElementById('text-input');
     const msg = input.value.trim();
     if (msg === '') {
       return false;
@@ -73,24 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  const Fake = [
-    'Hi there, I\'m Fabio and you?',
-    'Nice to meet you',
-    'How are you?',
-    'Not too bad, thanks',
-    'What do you do?',
-    'That\'s awesome',
-    'Codepen is a nice place to stay',
-    'I think you\'re a nice person',
-    'Why do you think that?',
-    'Can you explain?',
-    'Anyway I\'ve gotta go now',
-    'It was a pleasure chat with you',
-    'Time to make a new codepen',
-    'Bye',
-    ':)'
-  ];
-
   function callAi() {
     const input = document.querySelector('.message-input');
     if (input.value !== '') {
@@ -103,19 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
 
-    setTimeout(function() {
-      const loading = document.querySelector('.message.loading');
-      loading.parentNode.removeChild(loading);
-      const newMessage = document.createElement('div');
-      newMessage.className = 'message new';
-      newMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + Fake[i];
-      mCSBContainer.appendChild(newMessage);
-      newMessage.classList.add('new');
-      setDate();
-      updateScrollbar();
-      i++;
-    }, 1000 + (Math.random() * 20) * 100);
-  }
+    ipcRenderer.on('ai-response', function(response) {
+    
+        // Continue with your code here
+        const loading = document.querySelector('.message.loading');
+        loading.parentNode.removeChild(loading);
+        const newMessage = document.createElement('div');
+        newMessage.className = 'message new';
+        newMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + response;
+        mCSBContainer.appendChild(newMessage);
+        newMessage.classList.add('new');
+        setDate();
+        updateScrollbar();
+        i++;
+    
+        // Call waitForAIResponse again to wait for the next response
+        waitForAIResponse();
+      });
+    
+      // Set a delay before checking for the event again
+      setTimeout(waitForAIResponse, 1000 + (Math.random() * 20) * 100);
+    }
 
   setTimeout(function() {
     fakeMessage();
