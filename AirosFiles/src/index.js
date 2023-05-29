@@ -152,19 +152,14 @@ const openai = new OpenAIApi(configuration);
 
 
 ipcMain.on('user-message', async (event, message) => {
-  try {
-    const response = await axios.post('https://chatgpt-api.shn.hk/v1/', {
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: message }],
-    });
-
-    const aiResponse = response.data.choices[0].message.content;
-    console.log(aiResponse);
-    event.reply('ai-response', aiResponse);
-  } catch (error) {
-      console.error(error);
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "Describe a happy purple elephant in 50 words.",
+    temperature: 0,
+    max_tokens: 1
+  })
+  console.log(completion.data.choices[0].text)
     // Handle other errors or display an appropriate error message to the user.
-  }
 });
 
 
