@@ -254,7 +254,7 @@ Messages
     float: right;
     color: #fff;
     text-align: right;
-    background: linear-gradient(120deg, #248a52, #257287);
+    background: linear-gradient(120deg, #5c98bd, #257287);
     border-radius: 10px 10px 0 10px;
 }
 .messages .message.message-personal::before {
