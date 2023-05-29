@@ -18,6 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
       lastMessage.appendChild(timestamp);
     }
   }
+  const defaultMessage = "Hello, I am Airos Ai, your personal assistant.";
+  const defaultMessageElement = document.createElement('div');
+  defaultMessageElement.className = 'message new';
+  defaultMessageElement.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;"/></figure>' + defaultMessage;
+  const mCSBContainer = document.querySelector('.mCSB_container');
+  mCSBContainer.appendChild(defaultMessageElement);
+  defaultMessageElement.classList.add('new');
+  setDate();
+  updateScrollbar();
 
   function insertMessage() {
     const input = document.getElementById('text-input');
