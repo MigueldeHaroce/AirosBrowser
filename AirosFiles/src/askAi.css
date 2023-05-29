@@ -101,13 +101,12 @@ body {
 
 #background {
     position: fixed;
-    left: 4.31%;
-    right: 4.31%;
+    left: 5%;
     top: 10.84%;
     bottom: 6.15%;
     background: rgba(0, 0, 0, 0.2);
     border: 9px solid #152F35;
-    border-radius: 10px 10px 10px 10px; 
+    border-radius: 10px 10px 10px 10px;
     overflow-y: scroll;
 }
 
@@ -204,7 +203,6 @@ Messages
     color: rgba(255, 255, 255, .5);
     overflow: hidden;
     position: relative;
-    width: 100%;
 }
 .messages .messages-content {
     position: absolute;
