@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const loadingMessage = document.createElement('div');
     loadingMessage.className = 'message loading new';
-    loadingMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure><span></span>';
+    loadingMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" /></figure><span></span>';
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
       loading.parentNode.removeChild(loading);
       const newMessage = document.createElement('div');
       newMessage.className = 'message new';
-      newMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + response;
+      newMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style"width:"/></figure>' + response;
       mCSBContainer.appendChild(newMessage);
       newMessage.classList.add('new');
       setDate();
