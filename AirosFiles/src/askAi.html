@@ -62,6 +62,12 @@
                 </button>
                 <button id="magicBtn"></button>
                 <button id="magicBtnOver"></button>
+                <script>
+                    const magicBtn = document.getElementById("magicBtnOver");
+                    magicBtn.addEventListener("click", function() {
+                        ipcRenderer.send('changeWeb');
+                    });
+                </script>
             </div>
         </div>
         <canvas id="gradient-canvas" data-transition-in></canvas>

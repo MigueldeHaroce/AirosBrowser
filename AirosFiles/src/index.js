@@ -143,6 +143,10 @@ ipcMain.on('addHistory', (event, results) => {
 ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
 });
+
+ipcMain.on('changeWeb', () => {
+  BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/searchMenu.html');
+});
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
   apiKey: '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',
