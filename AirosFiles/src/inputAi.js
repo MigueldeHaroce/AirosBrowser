@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
-    ipcRenderer.on('ai-response', function(response) {
+    ipcRenderer.on('ai-response', (response) => {
       const loading = document.querySelector('.message.loading');
       loading.parentNode.removeChild(loading);
       const newMessage = document.createElement('div');
