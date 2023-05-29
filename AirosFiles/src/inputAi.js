@@ -1,24 +1,4 @@
-const chatContainer = document.getElementById('background');
-const userInput = document.getElementById('text-input');
-const sendButton = document.getElementById('searchBtn');
 
-// Event listener for user input
-sendButton.addEventListener('click', function() {
-    const message = userInput.value;
-    insertMessage();
-    userInput.value = '';
-
-    // Send user input to the main process
-    ipcRenderer.send('user-message', message);
-});
-
-// Event listener for receiving AI response
-ipcRenderer.on('ai-response', function(response) {
-    displayMessage('AI', response);
-});
-
-
-const { ipcRenderer } = require('electron');
 
 document.addEventListener('DOMContentLoaded', function() {
   const messages = document.getElementById('background');
@@ -84,11 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
-
     ipcRenderer.on('ai-response', function(response) {
-    
-        // Continue with your code here
-        const loading = document.getElementById('.message.loading');
+        const loading = document.querySelector('.message.loading');
         loading.parentNode.removeChild(loading);
         const newMessage = document.createElement('div');
         newMessage.className = 'message new';
@@ -98,18 +75,25 @@ document.addEventListener('DOMContentLoaded', function() {
         setDate();
         updateScrollbar();
         i++;
-    
+  
         // Call waitForAIResponse again to wait for the next response
         waitForAIResponse();
       });
-    
-      // Set a delay before checking for the event again
-      setTimeout(waitForAIResponse, 1000 + (Math.random() * 20) * 100);
+  
+      // Function to wait for the 'ai-response' event
+      function waitForAIResponse() {
+        // Check if the response has arrived
+        if (document.querySelector('.message.loading') === null) {
+          return;
+        }
+  
+        // Set a delay before checking for the event again
+        setTimeout(waitForAIResponse, 1000 + (Math.random() * 20) * 100);
+      }
+  
+      // Start waiting for the initial response
+      waitForAIResponse();
     }
-
-  setTimeout(function() {
-    fakeMessage();
-  }, 100);
 
   ipcRenderer.on('update-scrollbar', function() {
     updateScrollbar();
