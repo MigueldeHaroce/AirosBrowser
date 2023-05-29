@@ -5,7 +5,7 @@ const sendButton = document.getElementById('searchBtn');
 // Event listener for user input
 sendButton.addEventListener('click', function() {
     const message = userInput.value;
-    displayMessage('User', message);
+    insertMessage('User', message);
     userInput.value = '';
 
     // Send user input to the main process
@@ -17,13 +17,6 @@ ipcRenderer.on('ai-response', function(response) {
     displayMessage('AI', response);
 });
 
-// Display messages in the chat container
-function displayMessage(sender, message) {
-    const messageElement = document.createElement('p');
-    messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
-    chatContainer.appendChild(messageElement);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-}
 
 const { ipcRenderer } = require('electron');
 
@@ -64,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     input.value = '';
     updateScrollbar();
     setTimeout(function() {
-      fakeMessage();
+      callAi();
     }, 1000 + (Math.random() * 20) * 100);
   }
 
@@ -98,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ':)'
   ];
 
-  function fakeMessage() {
+  function callAi() {
     const input = document.querySelector('.message-input');
     if (input.value !== '') {
       return false;
