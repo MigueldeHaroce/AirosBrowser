@@ -233,7 +233,7 @@ Messages
     background: rgba(0, 0, 0, .3);
     margin: 8px 0;
     font-size: 16px;
-    margin-left: 36px;
+    margin-left: 49px;
     position: relative;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 }
@@ -247,8 +247,8 @@ Messages
 .messages .message .avatar {
     position: absolute;
     z-index: 1;
-    bottom: -15px;
-    left: -18px;
+    bottom: -14px;
+    left: -32px;
     border-radius: 30px;
     width: 36px;
     height: 36px;
