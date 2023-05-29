@@ -135,15 +135,9 @@ input[type="text"] {
     border: 3px solid #000;
     border-width: 3px;
     border-radius: 50px;
-    font-size: 30px;
-    font-family: 'ABeeZee', sans-serif;
-    color: #fff;
-    height: 87px;
     box-sizing: border-box;
     outline: none;
     padding-left: 30px;
-    padding-right: 85px;
-    opacity: 0.5;
 }
 
 #searchBtn {
