@@ -164,7 +164,7 @@ ipcMain.on('user-message', async (event, message) => {
 });
 
 ipcMain.on('ai-response-first', (event, intro) => {
-  event.sender.send('ai-response', intro);
+  event.reply('ai-response', intro);
 });
 
 
