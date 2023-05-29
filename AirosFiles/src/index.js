@@ -145,7 +145,7 @@ ipcMain.on('changeAi', () => {
 });
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
