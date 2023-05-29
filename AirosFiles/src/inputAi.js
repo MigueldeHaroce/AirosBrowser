@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000 + (Math.random() * 20) * 100);
   }
 
-  const messageSubmit = document.querySelector('.message-submit');
+  const messageSubmit = document.querySelector('searchBtn');
   messageSubmit.addEventListener('click', function() {
     insertMessage();
   });
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function callAi() {
-    const input = document.querySelector('.message-input');
+    const input = document.getElementById('searchBtn');
     if (input.value !== '') {
       return false;
     }
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ipcRenderer.on('ai-response', function(response) {
     
         // Continue with your code here
-        const loading = document.querySelector('.message.loading');
+        const loading = document.getElementById('.message.loading');
         loading.parentNode.removeChild(loading);
         const newMessage = document.createElement('div');
         newMessage.className = 'message new';
