@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const messages = document.getElementById('background');
   let d, h, m;
@@ -36,15 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setDate();
     input.value = '';
     updateScrollbar();
-    setTimeout(function() {
-      callAi();
-    }, 1000 + (Math.random() * 20) * 100);
+    setTimeout(callAi, 1000 + (Math.random() * 20) * 100);
   }
 
   const messageSubmit = document.getElementById('searchBtn');
-  messageSubmit.addEventListener('click', function() {
-    insertMessage();
-  });
+  messageSubmit.addEventListener('click', insertMessage);
 
   window.addEventListener('keydown', function(e) {
     if (e.which === 13) {
@@ -65,37 +59,35 @@ document.addEventListener('DOMContentLoaded', function() {
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
     ipcRenderer.on('ai-response', function(response) {
-        const loading = document.querySelector('.message.loading');
-        loading.parentNode.removeChild(loading);
-        const newMessage = document.createElement('div');
-        newMessage.className = 'message new';
-        newMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + response;
-        mCSBContainer.appendChild(newMessage);
-        newMessage.classList.add('new');
-        setDate();
-        updateScrollbar();
-        i++;
-  
-        // Call waitForAIResponse again to wait for the next response
-        waitForAIResponse();
-      });
-  
-      // Function to wait for the 'ai-response' event
-      function waitForAIResponse() {
-        // Check if the response has arrived
-        if (document.querySelector('.message.loading') === null) {
-          return;
-        }
-  
-        // Set a delay before checking for the event again
-        setTimeout(waitForAIResponse, 1000 + (Math.random() * 20) * 100);
-      }
-  
-      // Start waiting for the initial response
+      const loading = document.querySelector('.message.loading');
+      loading.parentNode.removeChild(loading);
+      const newMessage = document.createElement('div');
+      newMessage.className = 'message new';
+      newMessage.innerHTML = '<figure class="avatar"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>' + response;
+      mCSBContainer.appendChild(newMessage);
+      newMessage.classList.add('new');
+      setDate();
+      updateScrollbar();
+      i++;
+
+      // Call waitForAIResponse again to wait for the next response
       waitForAIResponse();
+    });
+
+    // Function to wait for the 'ai-response' event
+    function waitForAIResponse() {
+      // Check if the response has arrived
+      if (document.querySelector('.message.loading') === null) {
+        return;
+      }
+
+      // Set a delay before checking for the event again
+      setTimeout(waitForAIResponse, 1000 + (Math.random() * 20) * 100);
     }
 
-  ipcRenderer.on('update-scrollbar', function() {
-    updateScrollbar();
-  });
+    // Start waiting for the initial response
+    waitForAIResponse();
+  }
+
+  ipcRenderer.on('update-scrollbar', updateScrollbar);
 });
