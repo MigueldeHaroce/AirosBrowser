@@ -191,12 +191,16 @@ input[type="text"] {
 }
 
 #text1 {
+    position: relative;
     text-align: center;
     padding: 50px 48px 0px;
     font-size: 16px;
     font-family: -apple-system, Roboto, SegoeUI, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Microsoft YaHei', 'Meiryo UI', Meiryo, Arial Unicode MS, sans-serif;
     line-height: 22px;
     left: 50%;
+    display: block;
+    transform: translate(-50%, -50%);
+    top: 10%;
 }
 
 #title1 {
