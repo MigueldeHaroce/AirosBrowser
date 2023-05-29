@@ -127,7 +127,7 @@ body {
 
 input[type="text"] {
     position: fixed;
-    background-color: #000;
+    background-color: rgba(0,0,0,.2);
     bottom: 11.5%;
     left: 15%;
     right: 15%;
@@ -334,7 +334,6 @@ Messages
 .message-box {
     flex: 0 1 40px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
 }
 .message-box .message-input {
 
@@ -345,7 +344,7 @@ Messages
     font-family: 'ABeeZee', sans-serif;
     color: #fff;
     height: 87px;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 
