@@ -142,7 +142,6 @@ ipcMain.on('addHistory', (event, results) => {
 
 ipcMain.on('changeAi', () => {
   BrowserWindow.getFocusedWindow().loadURL('file://' + __dirname + '/askAi.html');
-  ipcMain.handle('ai-response', 'Hi!, I am Airos, your personal AI assistant. How can I help you?');
 });
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
@@ -164,7 +163,8 @@ ipcMain.on('user-message', async (event, message) => {
 });
 
 ipcMain.on('ai-response-first', (event, intro) => {
-  event.reply('ai-response', intro);
+  console.log(intro);
+  event.sender.send('ai-response', intro);
 });
 
 

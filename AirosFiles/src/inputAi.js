@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const intro = 'Hello, I am Airos Ai, your personal assistant.';
+  ipcRenderer.send('ai-response-first', intro); 
   const messages = document.getElementById('background');
   let d, h, m;
   let i = 0;
@@ -58,7 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
-    ipcRenderer.on('ai-response', (event, response) => {
+    ipcRenderer.on('ai-response', (response) => {
+      console.log(response);
       const loading = document.querySelector('.message.loading');
       loading.parentNode.removeChild(loading);
       const newMessage = document.createElement('div');
