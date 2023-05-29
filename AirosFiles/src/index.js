@@ -158,15 +158,10 @@ ipcMain.on('user-message', async (event, message) => {
     temperature: 0,
     max_tokens: 1
   })
-  console.log(completion.data.choices[0].text)
+  console.log(completion.data.choices[0].text);
+  event.sender.send('ai-response', intro);
     // Handle other errors or display an appropriate error message to the user.
 });
-
-ipcMain.on('ai-response-first', (event, intro) => {
-  console.log(intro);
-  event.sender.send('ai-response', intro);
-});
-
 
 
 // Configura tu clave de API
