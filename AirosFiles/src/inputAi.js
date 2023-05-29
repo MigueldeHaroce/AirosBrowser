@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const timestamp = document.createElement('div');
       timestamp.className = 'timestamp';
       timestamp.textContent = d.getHours() + ':' + m;
-      const lastMessage = document.getElementById('.message:last-child');
+      const lastMessage = document.querySelector('.message:last-child');
       lastMessage.appendChild(timestamp);
     }
   }
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000 + (Math.random() * 20) * 100);
   }
 
-  const messageSubmit = document.querySelector('searchBtn');
+  const messageSubmit = document.getElementById('searchBtn');
   messageSubmit.addEventListener('click', function() {
     insertMessage();
   });
