@@ -356,10 +356,13 @@ Messages
     margin: 0;
     padding-right: 20px;
     width: 265px;
+    font-size: 30px;
+    font-family: 'ABeeZee', sans-serif;
+    color: #fff;
+    height: 87px;
+    opacity: 0.5;
 }
-.message-box textarea:focus:-webkit-placeholder {
-    color: transparent;
-}
+
 .message-box .message-submit {
     position: absolute;
     z-index: 1;
