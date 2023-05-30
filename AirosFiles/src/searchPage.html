@@ -42,7 +42,7 @@
           </button>
           </div>
       </div>
-    </div>  
+    </div>
       
     <tab-group new-tab-button="true" sortable="true">
       <style>
@@ -95,10 +95,48 @@
         }
       </style>
     </tab-group>
+    <div id="lowBar">
+      <div id="searchBar">
+          <div id="leftLogos" class="child">
+              <img id="leftLogo" class="controlBrowser" src="icons/arrowcircleleft.png"></img>
+              <img id="rightLogo" class="controlBrowser" src="icons/arrowcircleright.png"></img>
+              <img id="reloadLogo" class="controlBrowser" src="icons/arrowrotateright.png"></img>
+              <img id="homeLogo" class="controlBrowser" src="icons/home3.png"></img>
+          </div>
+          <div id="textInput" class="child extend">
+              <input type="text" id="textSearch" name="textSearch" placeholder="Search...">
+          </div>
+          <div id="rightLogos" class="child">
+              <img id="noWifiBtn" class="controlBrowser" src="icons/globalrefresh.png"></img>
+              <script>
+                  const noWifiBtn = document.getElementById('noWifiBtn');
+
+                  // Function to check if there is an internet connection
+                  function checkInternetConnection() {
+                      if (navigator.onLine) {
+                          noWifiBtn.style.display = 'flex';
+                          noWifiBtn.style.top = "2px";
+                          noWifiBtn.setAttribute('title', 'No Wi-Fi Connection'); 
+                      } else {
+                          noWifiBtn.style.display = 'block';
+                      }
+                  }
+
+                  checkInternetConnection();
+
+                  window.addEventListener('online', checkInternetConnection);
+                  window.addEventListener('offline', checkInternetConnection);
+              </script>
+              <img id="passwordLogo" class="controlBrowser" src="icons/keysquare.png"></img>
+              <img id="configMenuLogo" class="controlBrowser" src="icons/hambergermenu.png"></img>
+
+          </div>
+      </div>
+  </div>
 
     <script src="electron-tabs/dist/electron-tabs.js"></script>
-    <script>
-
+    <script> //tabs
+      let count = 0;
       const query = [];
       let finalResults;
       const searchHistory = [];
@@ -137,6 +175,9 @@
 
     
       tabGroup.on('tab-added', (tab) => {
+
+        count++;
+
         const webview = tab.webview;
 
         webview.addEventListener('page-title-updated', () => {
@@ -178,6 +219,15 @@
         src: "https://www.google.com/",
         active: true,
       });
+
+      tabGroup.on("tab-removed", (tab, tabGroup) => {
+        count--;
+        console.log(count);
+        if (count === 0) {
+          ipcRenderer.send('close');
+        }
+      });
+
 
     </script>    
     <script src="appFunctions.js" defer type="module"></script>
