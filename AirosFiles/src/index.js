@@ -149,7 +149,7 @@ ipcMain.on('changeWeb', () => {
 });
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -163,7 +163,7 @@ ipcMain.on('user-message', async (event, message) => {
     max_tokens: 1
   })
   console.log(completion.data.choices[0].text);
-  event.sender.send('ai-response', intro);
+  event.sender.send('ai-response', completion.data.choices[0].text);
     // Handle other errors or display an appropriate error message to the user.
 });
 
