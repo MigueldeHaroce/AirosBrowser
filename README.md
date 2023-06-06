@@ -26,4 +26,6 @@ In summary, AirosBrowser is a unique web browser that focuses on privacy and inc
    -Change between Ai
    
    -Welcome page
+   
+   -Upload Executable
   
