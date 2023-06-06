@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
   let i = 0;
 
   function updateScrollbar() {
+    const background = document.getElementById('background');
+    background.scrollTop = background.scrollHeight;
+
     ipcRenderer.send('update-scrollbar');
   }
 
@@ -81,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setDate();
       updateScrollbar();
       i++;
-      
+
       mCSBContainer.scrollTop = mCSBContainer.scrollHeight;
 
       background.scrollTop = background.scrollHeight;
