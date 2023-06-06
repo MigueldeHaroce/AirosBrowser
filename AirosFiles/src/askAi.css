@@ -101,17 +101,24 @@ body {
 
 
 
-#background {
-    position: fixed;
+#container {
+    position: relative;
     left: 4.5%;
     top: 10.84%;
     bottom: 6.15%;
     background: rgba(0, 0, 0, 0.2);
     border: 9px solid #152F35;
     border-radius: 10px 10px 10px 10px;
-    overflow-y: scroll;
 }
 
+#background {
+    position: fixed;
+    left: 4.5%;
+    top: 10.84%;
+    bottom: 6.15%;
+    border-radius: 10px 10px 10px 10px;
+    overflow-y: scroll;
+}
 
 #background::-webkit-scrollbar {
   width: 12px;               /* width of the entire scrollbar */
