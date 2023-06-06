@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const messages = document.getElementById('background');
+  const background = document.getElementById('background');
   let d, h, m;
   let i = 0;
 
@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateScrollbar();
       i++;
 
+      background.scrollTop = background.scrollHeight;
       // Call waitForAIResponse again to wait for the next response
       waitForAIResponse();
     });
