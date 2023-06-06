@@ -155,7 +155,6 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-
 ipcMain.on('user-message', async (event, myMessage) => {
   console.log(myMessage);
   const completion = await openai.createChatCompletion({
@@ -166,44 +165,3 @@ ipcMain.on('user-message', async (event, myMessage) => {
   event.sender.send('ai-response', completion.data.choices[0].message.content);
     // Handle other errors or display an appropriate error message to the user.
 });
-
-
-// Configura tu clave de API
-/*
-
-ipcMain.on('user-message', async (event, message) => {
-  try {
-    const apiKey = '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';
-
-    const response = await axios.post(
-      'https://api.openai.com/v1/engines/davinci-codex/completions',
-      {
-        prompt: message,
-        max_tokens: 100,
-        temperature: 0.7,
-        n: 1,
-        stop: null,
-        timeout: 15
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`
-        }
-      }
-    );
-
-    const respuesta = response.data.choices[0].text.trim();
-
-    event.reply('ai-response', respuesta);
-  } catch (error) {
-    console.error(error);
-    // Handle errors here
-    if (error.response) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    }
-  }
-});
-*/
