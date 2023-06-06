@@ -175,7 +175,15 @@
 
     
       tabGroup.on('tab-added', (tab) => {
-
+        searchResultsBar = document.getElementById('textSearch');
+        searchResultsBar.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') {
+              const url = `https://www.google.com/search?q=${encodeURIComponent(searchResultsBar.value)}`;
+              console.log(searchResultsBar.value);
+              console.log(url);
+              tab.webview.src = url;
+          }
+        });
         count++;
 
         const webview = tab.webview;
@@ -229,7 +237,7 @@
       });
 
 
-    </script>    
+    </script>
     <script src="appFunctions.js" defer type="module"></script>
     <script src="renderer.js" defer type="module"></script>
     <script src="toolbar.js" defer type="module"></script>
