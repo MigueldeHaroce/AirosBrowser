@@ -157,14 +157,12 @@ const openai = new OpenAIApi(configuration);
 
 
 ipcMain.on('user-message', async (event, message) => {
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: message,
-    temperature: 0,
-    max_tokens: 1000
-  })
-  console.log(completion.data.choices[0].text);
-  event.sender.send('ai-response', completion.data.choices[0].text);
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [{role: "user", content: message}],
+  });
+  console.log(completion.data.choices[0].message);
+  event.sender.send('ai-response', completion.data.choices[0].message.content);
     // Handle other errors or display an appropriate error message to the user.
 });
 
