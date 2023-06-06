@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, webContents, dialog } = require('electron')
 const path = require('path');
 const { Configuration, OpenAIApi } = require("openai");
 const axios = require('axios');
+const { measureMemory } = require('vm');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -158,9 +159,9 @@ const openai = new OpenAIApi(configuration);
 ipcMain.on('user-message', async (event, message) => {
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: "Describe a happy purple elephant in 50 words.",
+    prompt: message,
     temperature: 0,
-    max_tokens: 1
+    max_tokens: 1000
   })
   console.log(completion.data.choices[0].text);
   event.sender.send('ai-response', completion.data.choices[0].text);
