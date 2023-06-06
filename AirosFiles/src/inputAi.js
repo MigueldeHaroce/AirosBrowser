@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setDate();
     input.value = '';
     updateScrollbar();
-    setTimeout(callAi, 1000 + (Math.random() * 20) * 100);
+    setTimeout(callAi(msg), 1000 + (Math.random() * 20) * 100);
   }
 
   const messageSubmit = document.getElementById('searchBtn');
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  function callAi() {
+  function callAi(msg) {
     const input = document.getElementById('text-input');
     if (input.value.trim() !== '') {
       return false;
@@ -66,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
     loadingMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;"/></figure><span></span>';
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
+    console.log(msg);
     updateScrollbar();
-    console.log(input.value.trim());
-    ipcRenderer.send('user-message', input.value.trim());
+    ipcRenderer.send('user-message', msg);
     ipcRenderer.on('ai-response', (response) => {
       console.log(response);
       const loading = document.querySelector('.message.loading');
