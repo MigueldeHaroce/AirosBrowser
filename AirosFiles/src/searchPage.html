@@ -114,13 +114,12 @@
                   // Function to check if there is an internet connection
                   function checkInternetConnection() {
                       if (navigator.onLine) {
-                          noWifiBtn.style.display = 'flex';
-                          noWifiBtn.style.top = "2px";
-                          noWifiBtn.setAttribute('title', 'No Wi-Fi Connection'); 
+                          noWifiBtn.style.display = 'none';
                       } else {
                           noWifiBtn.style.display = 'block';
                       }
                   }
+
 
                   checkInternetConnection();
 
