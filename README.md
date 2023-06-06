@@ -10,7 +10,7 @@ Additionally, AirosBrowser introduces a new functionality, an integrated keychai
 
 In summary, AirosBrowser is a unique web browser that focuses on privacy and incorporates the GPT-3 model to enhance your browsing experience. It is an open-source project, compatible with all platforms.
 
-  ![Screenshot 2023-06-06 222041](https://github.com/MigueldeHaroce/AirosBrowser/assets/106353927/aeaba23d-ab76-4761-9433-51b6466ad469)
+![Screenshot 2023-06-06 222041](https://github.com/MigueldeHaroce/AirosBrowser/assets/106353927/9fbdcaf0-a2b9-4027-ab7d-2be836c03040)
 
 
 ### Features in development:
