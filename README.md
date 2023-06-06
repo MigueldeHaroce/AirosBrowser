@@ -9,3 +9,21 @@ AirosBrowser also focuses on privacy. The browser does not store cookies, ensuri
 Additionally, AirosBrowser introduces a new functionality, an integrated keychain to securely store your passwords. Through encryption on the blockchain, hacking becomes practically impossible. This keychain allows you to easily manage and access your different online accounts without the need to remember multiple passwords. Your login credentials are securely stored, improving security by avoiding the use of weak or repeated passwords.
 
 In summary, AirosBrowser is a unique web browser that focuses on privacy and incorporates the GPT-3 model to enhance your browsing experience. It is an open-source project, compatible with all platforms.
+
+  ![Screenshot 2023-06-06 222041](https://github.com/MigueldeHaroce/AirosBrowser/assets/106353927/aeaba23d-ab76-4761-9433-51b6466ad469)
+
+
+### Features in development:
+
+   -Keychain
+  
+   -Ai basic chat functions: edit question, ask for another response, ask for image
+  
+   -General optimization
+  
+   -Change between languages
+  
+   -Change between Ai
+   
+   -Welcome page
+  
