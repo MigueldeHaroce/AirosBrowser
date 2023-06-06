@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const message = document.createElement('div');
     message.className = 'message message-personal';
-    message.textContent = msg;
+    message.textContent = msg.replace(/\\n/g, '\n'); // Replace '\n' with actual line breaks
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(message);
     message.classList.add('new');
