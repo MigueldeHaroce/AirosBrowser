@@ -156,10 +156,11 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-ipcMain.on('user-message', async (event, message) => {
+ipcMain.on('user-message', async (event, myMessage) => {
+  console.log(myMessage);
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
-    messages: [{role: "user", content: message}],
+    messages: [{role: "user", content: myMessage}],
   });
   console.log(completion.data.choices[0].message);
   event.sender.send('ai-response', completion.data.choices[0].message.content);

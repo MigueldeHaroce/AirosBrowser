@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function callAi() {
-    const input = document.getElementById('searchBtn');
+    const input = document.getElementById('text-input');
     if (input.value !== '') {
       return false;
     }
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(loadingMessage);
     updateScrollbar();
+    console.log(input.value);
     ipcRenderer.send('user-message', input.value);
     ipcRenderer.on('ai-response', (response) => {
       console.log(response);
