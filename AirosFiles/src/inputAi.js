@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
       setDate();
       updateScrollbar();
       i++;
+      
+      mCSBContainer.scrollTop = mCSBContainer.scrollHeight;
 
       background.scrollTop = background.scrollHeight;
       // Call waitForAIResponse again to wait for the next response
