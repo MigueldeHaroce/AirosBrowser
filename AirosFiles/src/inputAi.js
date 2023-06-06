@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     const message = document.createElement('div');
     message.className = 'message message-personal';
-    message.textContent = msg.replace(/\\n/g, '\n'); // Replace '\n' with actual line breaks
+    message.textContent = msg;
     const mCSBContainer = document.querySelector('.mCSB_container');
     mCSBContainer.appendChild(message);
     message.classList.add('new');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
       loading.parentNode.removeChild(loading);
       const newMessage = document.createElement('div');
       newMessage.className = 'message new';
-      newMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;"/></figure>' + response;
+      newMessage.innerHTML = '<figure class="avatar"><img src="icons/logo24pxMono.png" style="width:36px; height:36px;"/></figure>' + response.replace(/\n/g, '<br>');      
       mCSBContainer.appendChild(newMessage);
       newMessage.classList.add('new');
       setDate();
