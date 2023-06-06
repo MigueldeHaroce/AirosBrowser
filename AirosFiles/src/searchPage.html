@@ -185,7 +185,16 @@
           }
         });
         count++;
-
+        // reloadLogo
+        reloadLogo = document.getElementById('reloadLogo');
+        reloadLogo.addEventListener('click', () => {
+          if (event.key === 'Enter') {
+              const url = `https://www.google.com/search?q=${encodeURIComponent(searchResultsBar.value)}`;
+              console.log(searchResultsBar.value);
+              console.log(url);
+              tab.webview.src = url;
+          }
+        });
         const webview = tab.webview;
 
         webview.addEventListener('page-title-updated', () => {
