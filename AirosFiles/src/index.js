@@ -150,7 +150,7 @@ ipcMain.on('changeWeb', () => {
 });
 /////////////////////////////AI/////////////////////////////////////
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
