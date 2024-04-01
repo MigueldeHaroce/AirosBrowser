@@ -28,7 +28,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'searchMenu.html'));
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   mainWindow.on("ready-to-show", function () {
     mainWindow.show();
