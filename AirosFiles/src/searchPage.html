@@ -43,7 +43,26 @@
           </div>
       </div>
     </div>
-      
+    
+    <div id="keychain-popup">
+      <button id="closePopup">Close</button>
+      <h2>Keychain</h2>
+      <form id="password-form">
+        <label for="user-id">User ID:</label>
+        <input type="text" id="user-id" name="user-id"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <button type="submit" id="save-btn">Save</button>
+      </form>
+      <button id="view-passwords-btn">View Passwords</button>
+      <div id="password-list" style="display:none;">
+        <h3>Saved Passwords</h3>
+        <ul></ul>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+ 
     <tab-group new-tab-button="true" sortable="true">
       <style>
         :host {
