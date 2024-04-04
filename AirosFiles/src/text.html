@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Example</title>
+<style>
+.popup {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out forwards;
+
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>
+</head>
+<body>
+
+<button id="openPopup">Open Popup</button>
+
+<div class="popup" id="popup">
+  <h2>Popup Content</h2>
+  <p>This is a popup window.</p>
+  <button id="closePopup">Close</button>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<script>
+// Get the button and popup elements
+const button = document.getElementById("openPopup");
+const popup = document.getElementById("popup");
+const closePopupButton = document.getElementById("closePopup");
+const overlay = document.getElementById("overlay");
+
+// Function to open the popup
+button.addEventListener("click", function() {
+  popup.style.display = "block";
+  overlay.style.display = "block";
+
+  // Calculate the position of the popup relative to the button
+  const buttonRect = button.getBoundingClientRect();
+  const popupRect = popup.getBoundingClientRect();
+
+  const left = buttonRect.left + window.scrollX;
+  const top = buttonRect.bottom + window.scrollY;
+
+  // Set the position of the popup
+  popup.style.left = left + "px";
+  popup.style.top = top + "px";
+
+  // Function to close the popup
+  closePopupButton.addEventListener("click", closePopup);
+});
+
+// Function to close the popup
+function closePopup() {
+  popup.style.display = "none";
+  overlay.style.display = "none";
+}
+
+// Make the popup draggable
+let isDragging = false;
+let offsetX, offsetY;
+
+popup.addEventListener("mousedown", function(event) {
+  isDragging = true;
+  offsetX = event.clientX - parseFloat(window.getComputedStyle(popup).left);
+  offsetY = event.clientY - parseFloat(window.getComputedStyle(popup).top);
+});
+
+document.addEventListener("mousemove", function(event) {
+  if (isDragging) {
+    popup.style.left = event.clientX - offsetX + "px";
+    popup.style.top = event.clientY - offsetY + "px";
+  }
+});
+
+document.addEventListener("mouseup", function() {
+  isDragging = false;
+});
+</script>
+
+</body>
+</html>
