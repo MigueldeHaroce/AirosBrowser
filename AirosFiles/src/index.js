@@ -4,6 +4,52 @@ const { Configuration, OpenAIApi } = require("openai");
 const axios = require('axios');
 const { measureMemory } = require('vm');
 
+const Web3 = require('web3').default;
+const fs = require('fs');
+const solc = require('solc');
+
+// Connect to an Ethereum node (like Infura)
+const web3 = new Web3('https://mainnet.infura.io/v3/b9750da435b048b885b77e0b1d42724b');
+
+// Compile the Solidity contract
+const source = fs.readFileSync(path.join(__dirname, 'pass.sol'), 'utf8');
+const input = {
+  language: 'Solidity',
+  sources: {
+    'pass.sol': {
+      content: source,
+    },
+  },
+  settings: {
+    outputSelection: {
+      '*': {
+        '*': ['*'],
+      },
+    },
+  },
+};
+const output = JSON.parse(solc.compile(JSON.stringify(input)));
+
+for (let contractName in output.contracts['pass.sol']) {
+  console.log(contractName + ': ' + output.contracts['pass.sol'][contractName].evm.bytecode.object);
+}
+
+const compiledContract = JSON.parse(solc.compile(JSON.stringify(input)));
+
+const contractABI = compiledContract.contracts['pass.sol']['Keychain'].abi;
+const contractBytecode = compiledContract.contracts['pass.sol']['Keychain'].evm.bytecode.object;
+
+// Deploy the contract to the Ethereum network
+const contract = new web3.eth.Contract(contractABI);
+const deploy = contract.deploy({ data: contractBytecode });
+const account = web3.eth.accounts.privateKeyToAccount('0xc49b478cde27a370973182e104ad4a24497a6f699facb19511d21ee9c1b9f6f1');
+// TO DO REAL WALLET
+web3.eth.accounts.wallet.add(account);
+web3.eth.defaultAccount = account.address;
+deploy.send({ from: account.address, gas: 1500000, gasPrice: '30000000000000' });
+
+web3.eth.getBalance(account.address).then(console.log);
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -34,12 +80,18 @@ const createWindow = () => {
     mainWindow.show();
     mainWindow.focus();
   });
-
 // The load url its not working !! Fix next time 1!
   // Open the DevTools
 };
 
+ipcMain.on('setKey', (event, key, value) => {
+  contract.methods.setKey(key, value).send({ from: account.address });
+});
 
+ipcMain.on('getValue', async (event, key) => {
+  const value = await contract.methods.getValue(key).call();
+  event.sender.send('getValueResponse', value);
+});
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

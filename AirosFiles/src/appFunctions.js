@@ -43,7 +43,7 @@ button.addEventListener("click", function() {
   const top = buttonRect.bottom + window.scrollY;
 
   // Set the position of the popup
-  popup.style.left = left + "px";
+  popup.style.left = left - 300 + "px";
   popup.style.top = top + "px";
 
   // Function to close the popup
@@ -130,4 +130,24 @@ passwordList.addEventListener("click", (e) => {
     savePasswords();
     displayPasswords();
   }
+});
+
+// ------------------------------------------
+
+document.getElementById('save-btn').addEventListener('click', () => {
+  const userId = document.getElementById('user-id').value;
+  const password = document.getElementById('password').value;
+  ipcRenderer.send('setKey', userId, password);
+});
+
+document.getElementById('view-passwords-btn').addEventListener('click', () => {
+  const userId = document.getElementById('user-id').value;
+  ipcRenderer.send('getValue', userId);
+});
+
+ipcRenderer.on('getValueResponse', (event, password) => {
+  const passwords = document.getElementById('passwords');
+  const li = document.createElement('li');
+  li.textContent = password;
+  passwords.appendChild(li);
 });
