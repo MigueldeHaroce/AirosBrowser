@@ -9,7 +9,7 @@ const fs = require('fs');
 const solc = require('solc');
 
 // Connect to an Ethereum node (like Infura)
-const web3 = new Web3('https://mainnet.infura.io/v3/b9750da435b048b885b77e0b1d42724b');
+const web3 = new Web3('https://sepolia.infura.io/v3/b9750da435b048b885b77e0b1d42724b');
 
 // Compile the Solidity contract
 const source = fs.readFileSync(path.join(__dirname, 'pass.sol'), 'utf8');
@@ -41,8 +41,11 @@ const contractBytecode = compiledContract.contracts['pass.sol']['Keychain'].evm.
 
 // Deploy the contract to the Ethereum network
 const contract = new web3.eth.Contract(contractABI);
-const deploy = contract.deploy({ data: contractBytecode });
-const account = web3.eth.accounts.privateKeyToAccount('0xc49b478cde27a370973182e104ad4a24497a6f699facb19511d21ee9c1b9f6f1');
+const deploy = contract.deploy({ 
+  data: contractBytecode, 
+  arguments: [arg1, arg2] // replace with your arguments. lo de jas =-========================================================================================================================
+});
+const account = web3.eth.accounts.privateKeyToAccount('0xb062fa28696d5b56fe0ad7d5b7ef616c9c1c5dcd3352cd4958fdcd5ab1ac17ed');
 // TO DO REAL WALLET
 web3.eth.accounts.wallet.add(account);
 web3.eth.defaultAccount = account.address;
