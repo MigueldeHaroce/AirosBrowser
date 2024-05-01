@@ -8,10 +8,8 @@ const Web3 = require('web3').default;
 const fs = require('fs');
 const solc = require('solc');
 
-// Connect to an Ethereum node (like Infura)
 const web3 = new Web3('https://sepolia.infura.io/v3/b9750da435b048b885b77e0b1d42724b');
 
-// Compile the Solidity contract
 const source = fs.readFileSync(path.join(__dirname, 'pass.sol'), 'utf8');
 const input = {
   language: 'Solidity',
@@ -38,22 +36,20 @@ const compiledContract = JSON.parse(solc.compile(JSON.stringify(input)));
 
 const contractABI = compiledContract.contracts['pass.sol']['Keychain'].abi;
 const contractBytecode = compiledContract.contracts['pass.sol']['Keychain'].evm.bytecode.object;
-
-// Deploy the contract to the Ethereum network
+const arg1 = 'arg1'; 
+const arg2 = 'arg2';
 const contract = new web3.eth.Contract(contractABI);
 const deploy = contract.deploy({ 
   data: contractBytecode, 
-  arguments: [arg1, arg2] // replace with your arguments. lo de jas =-========================================================================================================================
+  arguments: [arg1, arg2] 
 });
 const account = web3.eth.accounts.privateKeyToAccount('0xb062fa28696d5b56fe0ad7d5b7ef616c9c1c5dcd3352cd4958fdcd5ab1ac17ed');
-// TO DO REAL WALLET
 web3.eth.accounts.wallet.add(account);
 web3.eth.defaultAccount = account.address;
 deploy.send({ from: account.address, gas: 1500000, gasPrice: '30000000000000' });
 
 web3.eth.getBalance(account.address).then(console.log);
 
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
