@@ -49,13 +49,18 @@
         <button id="closePopup">
             <img src="icons/x.svg" id="imgClosePopup">
         </button>
-
         <h2 id="title">Keychain</h2>
+
         <form id="password-form">
-          <label for="user-id">User ID:</label><br>
-          <input type="text" id="user-id" name="user-id"><br>
-          <label for="password">Password:</label><br>
-          <input type="password" id="password" name="password"><br>
+          <div id="content-container">
+            <label for="user-id" id="labels">User ID:</label><br>
+            <input type="text" id="user-id" name="user-id"><br>
+          </div>
+          <div id="content-container">
+            <label for="password" id="labels">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+          </div>
+
           <button type="submit" id="save-btn">Save</button>
         </form>
         <button id="view-passwords-btn">View Passwords</button>
